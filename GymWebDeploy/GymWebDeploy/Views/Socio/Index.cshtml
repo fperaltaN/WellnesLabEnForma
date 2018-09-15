@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Socios";
+    Html.RenderPartial("_DataGridView");
+    Html.RenderPartial("_ModalDeleteView");
+}
+<div class="modal fade" id="ModalData" tabindex="-1" role="dialog" aria-labelledby="ModalDataTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header card-header alert-secondary text-center">
+                <h5 class="modal-title">
+                    <label id="ModalTitle"></label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DataForm" class="needs-validation form form-group container" novalidate>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerNumber">Número</label>
+                        <input type="text" class="form-control col-md-7" id="partnerNumber" aria-label="Número de socio" placeholder="Número de socio" required disabled>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerName">Nombre(s)</label>
+                        <input type="text" class="form-control col-md-7" id="partnerName" aria-label="Nombre de socio" placeholder="Nombre de socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerLast">Ap. Paterno</label>
+                        <input type="text" class="form-control col-md-7" id="partnerLast" aria-label="Apellido paterno del socio" placeholder="Apellidos paterno del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerLastM">Ap. Materno</label>
+                        <input type="text" class="form-control col-md-7" id="partnerLastM" aria-label="Apellido materno del socio" placeholder="Apellidos materno del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerAddress">Domicilio</label>
+                        <input type="text" class="form-control col-md-7" id="partnerAddress" aria-label="Domicilio del socio" placeholder="Domicilio del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div><label class="col-md-2 input-group-text" for="partnerBorn">Fecha de Nacimiento</label>
+                        <div class=" form-control col-md-7" required>
+                            <div class="input-daterange text-right" id="datepicker" required>
+                                <input class="border-0 col-md-12" name="start" type="text" id="partnerBorn" aria-label="Fecha de nacimiento del socio" placeholder="Fecha de nacimiento del socio" required>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div><label class="col-md-2 input-group-text" for="partnerPhone">Teléfono</label>
+                        <input type="text" class="form-control col-md-7" id="partnerPhone" aria-label="Teléfono del socio" placeholder="Teléfono del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerEmail">Email</label>
+                        <input type="text" class="form-control col-md-7" id="partnerEmail" aria-label="Correo electrónico del socio" placeholder="Correo electrónico del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="partnerComp">Comprobante Estudios</label>
+                        <input type="text" class="form-control col-md-7" id="partnerComp" aria-label="Comprobante de estudios del socio" placeholder="Correo electrónico del socio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-block btn-success">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/Socio.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>

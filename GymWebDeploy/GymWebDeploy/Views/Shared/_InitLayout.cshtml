@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="~/Content/bootstrap/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top py-2">
+        <div class="container">
+            <a class="navbar-brand" href="#">Wellness Lab en Forma</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Login">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <!-- Footer -->
+    <footer class="py-2 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Wellness Lab En Forma  2015</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <script src="~/Scripts/js/jquery/jquery.js"></script>
+    <script src="~/Scripts/js/bootstrap/bootstrap.bundle.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

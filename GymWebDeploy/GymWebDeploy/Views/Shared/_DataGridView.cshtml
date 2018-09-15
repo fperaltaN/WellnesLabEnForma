@@ -1,0 +1,47 @@
+﻿<div class="card">
+    <div class="card-header text-center">
+        <strong id="CardTitle"></strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="Search">Búsqueda</label>
+                    </div>
+                    <input type="search" class="form-control" id="Search" aria-label="Buscar..." placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="col-md-3 text-left">
+                <button type="button" id="BtnAdd" class="btn btn-block btn-success" data-toggle="modal"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table-responsive mb-1">
+                <div class="mx-auto text-center mb-1" style="width: 1200px;">
+                    <table id="DataTable" class="table table-sm table-primary table-hover table-bordered mb-1"></table>
+                    <div id="DataTablePager"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md text-center">
+                <div class="dropdown">
+                    <button class="btn btn-block btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Exportar información a...
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @*<a class="dropdown-item" href="#">Word</a>*@
+                        <a id="ExportExcel" class="dropdown-item" href="#">Excel</a>
+                        <a id="ExportPDF" class="dropdown-item" href="#">PDF</a>
+                        <a id="ExportCSV" class="dropdown-item" href="#">CSV</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="PrintData" class="dropdown-item" href="#">Imprimir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

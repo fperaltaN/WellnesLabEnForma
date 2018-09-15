@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Socios";
+    Html.RenderPartial("_DataGridView");
+    Html.RenderPartial("_ModalDeleteView");
+}
+<div class="modal fade" id="ModalData" tabindex="-1" role="dialog" aria-labelledby="ModalEmployeeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header card-header alert-secondary text-center">
+                <h5 class="modal-title">
+                    <label id="ModalTitle"></label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DataForm" class="needs-validation form form-group container" novalidate>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="EmployeeNumber">Número</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeeNumber" aria-label="Número de empleado" placeholder="Número de empleado" required disabled>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeeName">Nombre(s)</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeeName" aria-label="Nombre de empleado" placeholder="Nombre de empleado" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeeLast">Ap. Paterno</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeeLast" aria-label="Apellido paterno del empleado" placeholder="Apellidos paterno del empleado" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeeLastM">Ap. Materno</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeeLastM" aria-label="Apellido materno del empleado" placeholder="Apellidos materno del empleado" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeePhone">Teléfono(s)</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeePhone" aria-label="Teléfono de empleado" placeholder="Teléfono de empleado" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeeAddress">Dirección</label>
+                        <input type="text" class="form-control col-md-7" id="EmployeeAddress" aria-label="Dirección de empleado" placeholder="Dirección de empleado" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="EmployeeType">Tipo de Usuario</label>
+                        <select class="custom-select col-md-7" id="EmployeeType" required>
+                            <option value="">Seleccione una opción</option>
+                        </select>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="modal-body text-center">
+                        <button type="submit" class="btn btn-block btn-success">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/Empleado.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>

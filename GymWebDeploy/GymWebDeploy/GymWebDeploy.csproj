@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82AFA5F4-63DE-444E-B539-5C1688B119A9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GymWebDeploy</RootNamespace>
+    <AssemblyName>GymWebDeploy</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsignacionController.cs" />
+    <Compile Include="Controllers\ChecadorController.cs" />
+    <Compile Include="Controllers\ChecadorSocioController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\HistorialFisicoController.cs" />
+    <Compile Include="Controllers\HistorialMedicoController.cs" />
+    <Compile Include="Controllers\HistorialPesoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IGenericController.cs" />
+    <Compile Include="Controllers\MembresiaController.cs" />
+    <Compile Include="Controllers\ModuloController.cs" />
+    <Compile Include="Controllers\ModulosController.cs" />
+    <Compile Include="Controllers\PagoController.cs" />
+    <Compile Include="Controllers\PagoRecargoController.cs" />
+    <Compile Include="Controllers\PaqueteController.cs" />
+    <Compile Include="Controllers\PaqueteServicioController.cs" />
+    <Compile Include="Controllers\PerfilesController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\RecargoController.cs" />
+    <Compile Include="Controllers\RecordController.cs" />
+    <Compile Include="Controllers\RecordsSocioController.cs" />
+    <Compile Include="Controllers\RecordTicketController.cs" />
+    <Compile Include="Controllers\RegistroVisitaController.cs" />
+    <Compile Include="Controllers\PerfilModuloController.cs" />
+    <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\SocioController.cs" />
+    <Compile Include="Controllers\SocioMembresiaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\utils\Utils.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
+    <Compile Include="Controllers\VentaProductoController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dao\GenericBaseDao.cs" />
+    <Compile Include="Models\Domain\PerfilModulo.cs" />
+    <Compile Include="Models\Utils\SqlUtils.cs" />
+    <Compile Include="Models\Domain\HistorialMedico.cs" />
+    <Compile Include="Models\Domain\Asignacion.cs" />
+    <Compile Include="Models\Domain\Checador.cs" />
+    <Compile Include="Models\Domain\ChecadorSocio.cs" />
+    <Compile Include="Models\Domain\Empleado.cs" />
+    <Compile Include="Models\Domain\HistorialFisico.cs" />
+    <Compile Include="Models\Domain\HistorialPeso.cs" />
+    <Compile Include="Models\Domain\Membresia.cs" />
+    <Compile Include="Models\Domain\Modulo.cs" />
+    <Compile Include="Models\Domain\Pago.cs" />
+    <Compile Include="Models\Domain\PagoRecargo.cs" />
+    <Compile Include="Models\Domain\Paquete.cs" />
+    <Compile Include="Models\Domain\PaqueteServicio.cs" />
+    <Compile Include="Models\Domain\Producto.cs" />
+    <Compile Include="Models\Domain\Recargo.cs" />
+    <Compile Include="Models\Domain\Record.cs" />
+    <Compile Include="Models\Domain\RecordsSocio.cs" />
+    <Compile Include="Models\Domain\RecordTicket.cs" />
+    <Compile Include="Models\Domain\RegistroVisita.cs" />
+    <Compile Include="Models\Domain\Servicio.cs" />
+    <Compile Include="Models\Domain\Socio.cs" />
+    <Compile Include="Models\Domain\SocioMembresia.cs" />
+    <Compile Include="Models\Domain\Venta.cs" />
+    <Compile Include="Models\Domain\VentaProducto.cs" />
+    <Compile Include="Models\Domain\Modulos.cs" />
+    <Compile Include="Models\Domain\Perfiles.cs" />
+    <Compile Include="Models\Domain\Usuarios.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\calendar\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\datatables\bootstrap-grid.css" />
+    <Content Include="Content\datatables\ui.jqgrid-bootstrap.css" />
+    <Content Include="Content\font-awesome\font-awesome.css" />
+    <Content Include="Content\icons\baseline-assignment_turned_in-24px.svg" />
+    <Content Include="Content\icons\baseline-attach_money-24px.svg" />
+    <Content Include="Content\icons\baseline-folder-24px.svg" />
+    <Content Include="Content\icons\baseline-history-24px.svg" />
+    <Content Include="Content\icons\baseline-home-24px.svg" />
+    <Content Include="Content\icons\baseline-insert_chart-24px.svg" />
+    <Content Include="Content\icons\baseline-list-24px.svg" />
+    <Content Include="Content\icons\baseline-person-24px.svg" />
+    <Content Include="Content\icons\baseline-shopping_cart-24px.svg" />
+    <Content Include="Content\icons\baseline-timer-24px %281%29.svg" />
+    <Content Include="Content\icons\baseline-timer-24px.svg" />
+    <Content Include="Content\icons\baseline-widgets-24px.svg" />
+    <Content Include="Content\jquery\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\jquery\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\jquery\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\jquery\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\jquery\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\jquery\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery\jquery-ui.css" />
+    <Content Include="Content\notifications\sweetalert2.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Application\AJAXRequest.js" />
+    <Content Include="Scripts\Application\Membresia.js" />
+    <Content Include="Scripts\Application\Pago.js" />
+    <Content Include="Scripts\Application\Paquete.js" />
+    <Content Include="Scripts\Application\Socio.js" />
+    <Content Include="Scripts\Application\utils\AfterJS.js" />
+    <Content Include="Scripts\Application\utils\DatatablesHelper.js" />
+    <Content Include="Scripts\Application\utils\ElementsHelper.js" />
+    <Content Include="Scripts\Application\Empleado.js" />
+    <Content Include="Scripts\Application\utils\NotificationsHelper.js" />
+    <Content Include="Scripts\Application\utils\TitlesHelper.js" />
+    <Content Include="Scripts\Application\Validation.js" />
+    <Content Include="Scripts\js\bootstrap\bootstrap.bundle.js" />
+    <Content Include="Scripts\js\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap\popper.js" />
+    <Content Include="Scripts\js\jquery\jquery.js" />
+    <Content Include="Scripts\js\notifications\sweetalert2.all.min.js" />
+    <Content Include="Scripts\js\utils\calendar\bootstrap-datepicker.js" />
+    <Content Include="Scripts\js\utils\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\js\utils\datatables\jquery.dataTables.js" />
+    <Content Include="Scripts\js\utils\datatables\jquery.jqGrid.js" />
+    <Content Include="Scripts\js\utils\datatables\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\js\utils\datatables\jszip.min.js" />
+    <Content Include="Scripts\js\utils\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\js\utils\locales\grid.locale-es.js" />
+    <Content Include="Scripts\js\utils\pdf\pdfmake.min.js" />
+    <Content Include="Scripts\js\utils\pdf\vfs_fonts.js" />
+    <Content Include="Scripts\js\utils\zips\jszip.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Asignacion\Index.cshtml" />
+    <Content Include="Views\Socio\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\ChecadorSocio\" />
+    <Folder Include="Views\Checador\" />
+    <Folder Include="Views\HistorialFisico\" />
+    <Folder Include="Views\HistorialMedico\" />
+    <Folder Include="Views\HistorialPeso\" />
+    <Folder Include="Views\Modulos\" />
+    <Folder Include="Views\Modulo\" />
+    <Folder Include="Views\PagoRecargo\" />
+    <Folder Include="Views\PaqueteServicio\" />
+    <Folder Include="Views\Perfiles\" />
+    <Folder Include="Views\Producto\" />
+    <Folder Include="Views\Recargo\" />
+    <Folder Include="Views\RecordsSocio\" />
+    <Folder Include="Views\RecordTicket\" />
+    <Folder Include="Views\Record\" />
+    <Folder Include="Views\RegistroVisita\" />
+    <Folder Include="Views\Rel_Perfil_Modulo\" />
+    <Folder Include="Views\Servicio\" />
+    <Folder Include="Views\SocioMembresia\" />
+    <Folder Include="Views\Usuario\" />
+    <Folder Include="Views\VentaProducto\" />
+    <Folder Include="Views\Venta\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_DataGridView.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_InitLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_ModalDeleteView.cshtml" />
+    <Content Include="Views\Membresia\Index.cshtml" />
+    <Content Include="Views\Paquete\Index.cshtml" />
+    <Content Include="Views\Pago\Index.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49921</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49921/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
