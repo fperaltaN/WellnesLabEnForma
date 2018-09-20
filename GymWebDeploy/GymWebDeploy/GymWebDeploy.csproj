@@ -277,6 +277,7 @@
     <Content Include="Content\jquery\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery\jquery-ui.css" />
     <Content Include="Content\notifications\sweetalert2.css" />
+    <Content Include="Content\select\bootstrap-select.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -300,6 +301,7 @@
     <Content Include="Scripts\js\bootstrap\popper.js" />
     <Content Include="Scripts\js\jquery\jquery.js" />
     <Content Include="Scripts\js\notifications\sweetalert2.all.min.js" />
+    <Content Include="Scripts\js\select\bootstrap-select.js" />
     <Content Include="Scripts\js\utils\calendar\bootstrap-datepicker.js" />
     <Content Include="Scripts\js\utils\datatables\dataTables.bootstrap4.js" />
     <Content Include="Scripts\js\utils\datatables\jquery.dataTables.js" />
@@ -388,7 +390,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49921</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

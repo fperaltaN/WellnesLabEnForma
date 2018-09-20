@@ -1,6 +1,131 @@
 ﻿@{
     ViewBag.Title = "Pagos";
 }
+<div class="card">
+    <div class="card-header alert-secondary">
+        Administración de pagos
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+            </div>
+            <select id="partnerID" class="form-control" required></select>
+        </div>
+        <div class="form form-group row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-body">
+                        <strong>Detalles del cliente</strong>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="partnerNum" class="input-group-text">Número de socio</label>
+                                    </div>
+                                    <input id="partnerNum" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="partnerName" class="input-group-text">Nombre del cliente</label>
+                                    </div>
+                                    <input id="partnerName" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="partnerPhone" class="input-group-text">Teléfono</label>
+                                    </div>
+                                    <input id="partnerPhone" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                        <strong>Detalles del Paquete</strong>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="packageName">Nombre del paquete</label>
+                                    </div>
+                                    <input id="packageName" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="packageDescription">Descripción del paquete</label>
+                                    </div>
+                                    <input id="packageDescription" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="packageCost">Costo $</label>
+                                    </div>
+                                    <input id="packageCost" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Verificación de datos de pago</div>
+            <div class="card-body">
+                <div class="card-text">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="userPay">Costo $</label>
+                                </div>
+                                <input id="userPay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Tipo Pago</span>
+                                </div>
+                                <select class="form-control" id="payType">
+                                    <option>Efectivo</option>
+                                    <option>Tarjeta</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="pay">Recibido $</label>
+                                </div>
+                                <input id="pay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md">
+                            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#modalPayment">
+                                Registrar Pago
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="~/Scripts/Application/utils/AfterJS.js"></script>
 <script src="~/Scripts/Application/AJAXRequest.js"></script>
