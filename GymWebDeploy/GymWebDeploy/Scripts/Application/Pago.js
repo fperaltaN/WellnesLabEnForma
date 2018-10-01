@@ -13,6 +13,8 @@ var packageDescription = $('#packageDescription');
 var packageCost = $('#packageCost');
 var payType = $('#payType');
 var userPay = $('#userPay');
+var userPayGet = $('#pay');
+var btnPay = $('#btnPay');
 
 function CreateObject() {
     data = {
@@ -22,10 +24,13 @@ function CreateObject() {
         descripcion: '',
         id_paquete: '',
         activo: '',
-        ID_USUARIO: ''
+        ID_USUARIO: '',
+        id_socio:'',
+        fecha_pago_vence: '',
+        pendiente: '',
+        importe:''
     };
 }
-
 $(document).ready(function () {
     GETDataSingle(nameEntity + '/GetSocios/', '');
     CreateObject();
@@ -40,20 +45,44 @@ $(document).ready(function () {
                 id_partner = partnerID.val();
             }
         });
-        data.id_paquete = id_partner ;
-        GETDataSingle(nameEntity + '/GetPaqueteID/', data);
+        data.id_paquete = id_partner;
+        var path = '../' + nameEntity + '/GetPaqueteID/';
+        ajaxPostCall(path, ReturnJson(data)).done(function (response) {
+            packageName.val(response[0].nombre);
+            packageDescription.val(response[0].descripcion);
+            packageCost.val(response[0].costo);
+            userPay.val(response[0].costo);
+            userPayGet.focus();
+        });
+    });
+
+    btnPay.click(function () {
+        MsgSuccess('info', 'Registrando Pago\n espere...');
+        mode = 0;
+        Save();
     });
 });
 
 function UpdateElement(response) {
     FillPartners(response);
 }
-
+function GetInputs() {
+    id_paquete = data.id_paquete;
+    data = {
+        id_paquete: id_paquete ,
+        id_socio: partnerID.val() ,
+        ID_USUARIO: 1,
+        fecha_pago_vence: 1,
+        pendiente:0.00,
+        importe: userPayGet.val()
+    }
+}
 function FillPartners(response) {
     partners = response;
     $('#partnerID option').remove();
-    partnerID.append('<option value=0>Selecciona un socio...</option>');
     $.each(response, function (responseValue, item) {
-        partnerID.append('<option value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+        partnerID.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
     });
+    $('.selectpicker').selectpicker();
+    $('#partnerID').selectpicker('refresh');
 }

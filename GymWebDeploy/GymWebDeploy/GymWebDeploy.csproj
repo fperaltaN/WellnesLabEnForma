@@ -255,6 +255,7 @@
     <Content Include="Scripts\js\jquery\jquery.js" />
     <Content Include="Scripts\js\notifications\sweetalert2.all.min.js" />
     <Content Include="Scripts\js\select\bootstrap-select.js" />
+    <Content Include="Scripts\js\select\i18n\defaults-es_ES.js" />
     <Content Include="Scripts\js\utils\calendar\bootstrap-datepicker.js" />
     <Content Include="Scripts\js\utils\datatables\dataTables.bootstrap4.js" />
     <Content Include="Scripts\js\utils\datatables\jquery.dataTables.js" />
