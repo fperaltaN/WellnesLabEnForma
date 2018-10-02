@@ -285,6 +285,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Application\AJAXRequest.js" />
+    <Content Include="Scripts\Application\HistorialFisico.js" />
+    <Content Include="Scripts\Application\HistorialMedico.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Pago.js" />
     <Content Include="Scripts\Application\Paquete.js" />
@@ -333,8 +335,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\ChecadorSocio\" />
     <Folder Include="Views\Checador\" />
-    <Folder Include="Views\HistorialFisico\" />
-    <Folder Include="Views\HistorialMedico\" />
     <Folder Include="Views\HistorialPeso\" />
     <Folder Include="Views\Modulos\" />
     <Folder Include="Views\Modulo\" />
@@ -376,6 +376,8 @@
     <Content Include="Views\Pago\Index.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\HistorialFisico\Index.cshtml" />
+    <Content Include="Views\HistorialMedico\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

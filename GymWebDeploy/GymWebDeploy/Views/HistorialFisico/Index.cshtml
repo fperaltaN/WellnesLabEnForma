@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "HistorialFisico";
+    Html.RenderPartial("_DataGridView");
+    Html.RenderPartial("_ModalDeleteView");
+}
+<div class="modal fade" id="ModalData" tabindex="-1" role="dialog" aria-labelledby="ModalEmployeeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header card-header alert-secondary text-center">
+                <h5 class="modal-title">
+                    <label id="ModalTitle"></label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DataForm" class="needs-validation form form-group container" novalidate>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="SocioId">Socio:</label>
+                        <select class="custom-select col-md-7" id="SocioId" required>
+                            <option value="">Seleccione una opción</option>
+                        </select>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 input-group-text" for="ActividadFisica">¿Realiza habitualmente Actividad Física o Deportes? ¿Cuáles?</label>
+                        <input type="text" class="form-control col-md-7" id="ActividadFisica" aria-label="Actividad Fisica" placeholder=" Actividad Fisica" required disabled>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="TiempoActividadFisica ">¿Días y horas por semana que le dedica a la activación fisica?</label>
+                        <input type="text" class="form-control col-md-7" id="TiempoActividadFisica" aria-label="Tiempo actividad fisica" placeholder="Tiempo Actividad Fisica" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="TipoActividadFisica">¿Recreativo, Federado o Alto Rendimiento?</label>
+                        <input type="text" class="form-control col-md-7" id="TipoActividadFisica" aria-label="Tipo actividad fisica" placeholder="Tipo actividad fisica" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="Fuma">¿Fuma cigarrillos u otros, cuántos por día?</label>
+                        <input type="text" class="form-control col-md-7" id="Fuma" aria-label="Fuma " placeholder="Fuma " required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="Toma">¿Toma, cuentas veces por semana?</label>
+                        <input type="text" class="form-control col-md-7" id="Toma" aria-label="Toma" placeholder="Toma" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="Lesiones">¿Tiene o ha tenido un tipo de lesión en la cadera, Rodillas, Pies, Tobillo, Columna, cuello, tronco ? Mencione en que parte:</label>
+                        <input type="text" class="form-control col-md-7" id="Lesiones" aria-label="Tipo Lesiones" placeholder="Tipo Lesiones" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-1"></div>
+                        <label class="input-group-text col-md-2" for="FatigadoEjercicio">¿Suele sentirse cansado con facilidad, fatigado o debe detener el ejercicio?</label>
+                        <input type="text" class="form-control col-md-7" id="FatigadoEjercicio" aria-label="FatigadoEjercicio" placeholder="FatigadoEjercicio" required>
+                        <div class="invalid-feedback col-md-2">
+                            Falta información!
+                        </div>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <button type="submit" class="btn btn-block btn-success">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/HistorialFisico.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>
+

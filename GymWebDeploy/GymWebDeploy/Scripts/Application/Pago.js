@@ -25,7 +25,6 @@ function CreateObject() {
         id_paquete: '',
         activo: '',
         ID_USUARIO: '',
-        id_socio:'',
         fecha_pago_vence: '',
         pendiente: '',
         importe:''
@@ -43,6 +42,7 @@ $(document).ready(function () {
                 partnerName.val(item.nombre + " " + item.ap_paterno + " " + item.ap_materno);
                 partnerPhone.val(item.telefono);
                 id_partner = partnerID.val();
+                return false;
             }
         });
         data.id_paquete = id_partner;
@@ -53,6 +53,7 @@ $(document).ready(function () {
             packageCost.val(response[0].costo);
             userPay.val(response[0].costo);
             userPayGet.focus();
+            return false;
         });
     });
 
