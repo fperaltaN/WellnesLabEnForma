@@ -22,6 +22,7 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult GetPaqueteID(Paquete data)
         {
+            //test controller 10/1/18/8:42
             return Json(new GenericBaseDao().Get<Paquete>(string.Format(
                 ConfigurationManager.AppSettings["QueryGETSocioPaquete"],data.id_paquete))
                 ,JsonRequestBehavior.AllowGet);
