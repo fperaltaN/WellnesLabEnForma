@@ -20,12 +20,19 @@ namespace GymWebDeploy.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetPaqueteID(Paquete data)
+        public JsonResult GetPaqueteID(Socio data)
         {
             //test controller 10/1/18/8:42
             return Json(new GenericBaseDao().Get<Paquete>(string.Format(
-                ConfigurationManager.AppSettings["QueryGETSocioPaquete"],data.id_paquete))
+                ConfigurationManager.AppSettings["QueryGETSocioPaquete"],data.id_socio))
                 ,JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetPendiente(Socio data)
+        {
+            return Json(new GenericBaseDao().Get<Pago>(string.Format(
+                ConfigurationManager.AppSettings["QueryGETPendiente"], data.id_socio))
+                , JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Get()

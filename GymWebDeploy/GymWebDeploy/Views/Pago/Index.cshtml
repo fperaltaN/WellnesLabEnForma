@@ -82,12 +82,13 @@
             <div class="card-body">
                 <div class="card-text">
                     <div class="row">
+                        <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Tipo Pago</span>
                                 </div>
-                                <select id="payType" class="selectpicker form-control" >
+                                <select id="payType" class="selectpicker form-control">
                                     <option>Efectivo</option>
                                     <option>Tarjeta</option>
                                 </select>
@@ -95,16 +96,26 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="userPay">Costo $</label>
+                                <div class="input-group-prepend col-md-5">
+                                    <label class="input-group-text col-md-12" for="userPay">Costo Paquete $</label>
                                 </div>
                                 <input id="userPay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="pay">Recibido $</label>
+                                <div class="input-group-prepend col-md-5">
+                                    <label class="input-group-text col-md-12" for="userPending">Pendiente $</label>
+                                </div>
+                                <input id="userPending" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend col-md-5">
+                                    <label class="input-group-text col-md-12" for="userTotal">Total a Pagar $</label>
+                                </div>
+                                <input id="userTotal" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend col-md-5">
+                                    <label class="input-group-text col-md-12" for="pay">Recibido $</label>
                                 </div>
                                 <input id="pay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                             </div>
