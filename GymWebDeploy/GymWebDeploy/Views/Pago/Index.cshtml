@@ -9,16 +9,16 @@
         <strong>Administración de pagos</strong>
     </div>
     <div class="card-body">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
-            </div>
-            <select id="partnerID" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
-        </div>
         <div class="form form-group row">
             <div class="col-md">
                 <div class="card">
                     <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+                            </div>
+                            <select id="partnerID" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
+                        </div>
                         <strong>Detalles del cliente</strong>
                         <div class="row">
                             <div class="col-md-4">
@@ -78,11 +78,10 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header">Verificación de datos de pago</div>
             <div class="card-body">
                 <div class="card-text">
                     <div class="row">
-                        <div class="col-md-4"></div>
+                        <div class="col-md-4"><div class="alert alert-secondary">Verificación de pago</div></div>
                         <div class="col-md-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -93,14 +92,14 @@
                                     <option>Tarjeta</option>
                                 </select>
                             </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="userRecargo">Recargo $</label>
+                                </div>
+                                <input id="userRecargo" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                            </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-md-5">
-                                    <label class="input-group-text col-md-12" for="userPay">Costo Paquete $</label>
-                                </div>
-                                <input id="userPay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
-                            </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend col-md-5">
                                     <label class="input-group-text col-md-12" for="userPending">Pendiente $</label>
