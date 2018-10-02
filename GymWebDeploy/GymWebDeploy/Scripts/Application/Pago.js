@@ -29,7 +29,6 @@ function CreateObject() {
         id_paquete: '',
         activo: '',
         ID_USUARIO: '',
-        id_socio:'',
         fecha_pago_vence: '',
         pendiente: '',
         importe:''
@@ -47,7 +46,12 @@ $(document).ready(function () {
                 partnerNum.val(item.num_socio);
                 partnerName.val(item.nombre + " " + item.ap_paterno + " " + item.ap_materno);
                 partnerPhone.val(item.telefono);
+<<<<<<< HEAD
                 id_partner = item.id_socio;
+=======
+                id_partner = partnerID.val();
+                return false;
+>>>>>>> 110056c103263769268c2a96e4c7e2a7cbbe8379
             }
         });
         data.id_socio = id_partner;
@@ -57,6 +61,11 @@ $(document).ready(function () {
             packageDescription.val(response[0].descripcion);
             packageCost.val(response[0].costo);
             userPay.val(response[0].costo);
+<<<<<<< HEAD
+=======
+            userPayGet.focus();
+            return false;
+>>>>>>> 110056c103263769268c2a96e4c7e2a7cbbe8379
         });
 
         var path = '../' + nameEntity + '/GetPendiente/';

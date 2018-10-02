@@ -210,18 +210,65 @@
     <Content Include="Content\datatables\bootstrap-grid.css" />
     <Content Include="Content\datatables\ui.jqgrid-bootstrap.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
+    <Content Include="Content\icons\baseline-add_circle-24px.svg" />
     <Content Include="Content\icons\baseline-assignment_turned_in-24px.svg" />
+    <Content Include="Content\icons\baseline-assignment_turned_in-white-18\1x\baseline_assignment_turned_in_white_18dp.png" />
+    <Content Include="Content\icons\baseline-assignment_turned_in-white-18\2x\baseline_assignment_turned_in_white_18dp.png" />
+    <Content Include="Content\icons\baseline-assignment_turned_in-white-18\baseline-assignment_turned_in-24px.svg" />
     <Content Include="Content\icons\baseline-attach_money-24px.svg" />
+    <Content Include="Content\icons\baseline-attach_money-white-18\1x\baseline_attach_money_white_18dp.png" />
+    <Content Include="Content\icons\baseline-attach_money-white-18\2x\baseline_attach_money_white_18dp.png" />
+    <Content Include="Content\icons\baseline-attach_money-white-18\baseline-attach_money-24px.svg" />
+    <Content Include="Content\icons\baseline-card_membership-white-18\1x\baseline_card_membership_white_18dp.png" />
+    <Content Include="Content\icons\baseline-card_membership-white-18\2x\baseline_card_membership_white_18dp.png" />
     <Content Include="Content\icons\baseline-folder-24px.svg" />
+    <Content Include="Content\icons\baseline-folder-white-18\1x\baseline_folder_white_18dp.png" />
+    <Content Include="Content\icons\baseline-folder-white-18\2x\baseline_folder_white_18dp.png" />
+    <Content Include="Content\icons\baseline-folder-white-18\baseline-folder-24px.svg" />
+    <Content Include="Content\icons\baseline-grid_on-white-18\1x\baseline_grid_on_white_18dp.png" />
+    <Content Include="Content\icons\baseline-grid_on-white-18\2x\baseline_grid_on_white_18dp.png" />
+    <Content Include="Content\icons\baseline-healing-white-18\1x\baseline_healing_white_18dp.png" />
+    <Content Include="Content\icons\baseline-healing-white-18\2x\baseline_healing_white_18dp.png" />
     <Content Include="Content\icons\baseline-history-24px.svg" />
+    <Content Include="Content\icons\baseline-history-white-18\1x\baseline_history_white_18dp.png" />
+    <Content Include="Content\icons\baseline-history-white-18\2x\baseline_history_white_18dp.png" />
+    <Content Include="Content\icons\baseline-history-white-18\baseline-history-24px.svg" />
     <Content Include="Content\icons\baseline-home-24px.svg" />
+    <Content Include="Content\icons\baseline-home-white-18\1x\baseline_home_white_18dp.png" />
+    <Content Include="Content\icons\baseline-home-white-18\2x\baseline_home_white_18dp.png" />
+    <Content Include="Content\icons\baseline-home-white-18\baseline-home-24px.svg" />
     <Content Include="Content\icons\baseline-insert_chart-24px.svg" />
+    <Content Include="Content\icons\baseline-insert_chart-white-18\1x\baseline_insert_chart_white_18dp.png" />
+    <Content Include="Content\icons\baseline-insert_chart-white-18\2x\baseline_insert_chart_white_18dp.png" />
+    <Content Include="Content\icons\baseline-insert_chart-white-18\baseline-insert_chart-24px.svg" />
     <Content Include="Content\icons\baseline-list-24px.svg" />
+    <Content Include="Content\icons\baseline-list-white-18\1x\baseline_list_white_18dp.png" />
+    <Content Include="Content\icons\baseline-list-white-18\2x\baseline_list_white_18dp.png" />
+    <Content Include="Content\icons\baseline-list-white-18\baseline-list-24px.svg" />
     <Content Include="Content\icons\baseline-person-24px.svg" />
+    <Content Include="Content\icons\baseline-person-white-18\1x\baseline_person_white_18dp.png" />
+    <Content Include="Content\icons\baseline-person-white-18\2x\baseline_person_white_18dp.png" />
+    <Content Include="Content\icons\baseline-person-white-18\baseline-person-24px.svg" />
     <Content Include="Content\icons\baseline-shopping_cart-24px.svg" />
+    <Content Include="Content\icons\baseline-shopping_cart-white-18\1x\baseline_shopping_cart_white_18dp.png" />
+    <Content Include="Content\icons\baseline-shopping_cart-white-18\2x\baseline_shopping_cart_white_18dp.png" />
+    <Content Include="Content\icons\baseline-shopping_cart-white-18\baseline-shopping_cart-24px.svg" />
+    <Content Include="Content\icons\baseline-supervised_user_circle-white-18\1x\baseline_supervised_user_circle_white_18dp.png" />
+    <Content Include="Content\icons\baseline-supervised_user_circle-white-18\2x\baseline_supervised_user_circle_white_18dp.png" />
+    <Content Include="Content\icons\baseline-supervised_user_circle-white-18\baseline-supervised_user_circle-24px.svg" />
     <Content Include="Content\icons\baseline-timer-24px %281%29.svg" />
     <Content Include="Content\icons\baseline-timer-24px.svg" />
+    <Content Include="Content\icons\baseline-timer-white-18\1x\baseline_timer_white_18dp.png" />
+    <Content Include="Content\icons\baseline-timer-white-18\2x\baseline_timer_white_18dp.png" />
+    <Content Include="Content\icons\baseline-timer-white-18\baseline-timer-24px.svg" />
     <Content Include="Content\icons\baseline-widgets-24px.svg" />
+    <Content Include="Content\icons\baseline-widgets-white-18\1x\baseline_widgets_white_18dp.png" />
+    <Content Include="Content\icons\baseline-widgets-white-18\2x\baseline_widgets_white_18dp.png" />
+    <Content Include="Content\icons\baseline-widgets-white-18\baseline-widgets-24px.svg" />
+    <Content Include="Content\icons\baseline_add_circle_white_18dp.png" />
+    <Content Include="Content\icons\baseline_delete_white_18dp.png" />
+    <Content Include="Content\icons\baseline_edit_white_18dp.png" />
+    <Content Include="Content\icons\outline-grid_on-24px.svg" />
     <Content Include="Content\jquery\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\jquery\images\ui-icons_555555_256x240.png" />
     <Content Include="Content\jquery\images\ui-icons_777620_256x240.png" />
@@ -238,6 +285,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Application\AJAXRequest.js" />
+    <Content Include="Scripts\Application\HistorialFisico.js" />
+    <Content Include="Scripts\Application\HistorialMedico.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Pago.js" />
     <Content Include="Scripts\Application\Paquete.js" />
@@ -286,8 +335,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\ChecadorSocio\" />
     <Folder Include="Views\Checador\" />
-    <Folder Include="Views\HistorialFisico\" />
-    <Folder Include="Views\HistorialMedico\" />
     <Folder Include="Views\HistorialPeso\" />
     <Folder Include="Views\Modulos\" />
     <Folder Include="Views\Modulo\" />
@@ -328,6 +375,9 @@
     <Content Include="Views\Paquete\Index.cshtml" />
     <Content Include="Views\Pago\Index.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\HistorialFisico\Index.cshtml" />
+    <Content Include="Views\HistorialMedico\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
