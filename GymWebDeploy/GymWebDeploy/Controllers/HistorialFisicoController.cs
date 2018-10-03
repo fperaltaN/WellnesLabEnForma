@@ -26,5 +26,11 @@ namespace GymWebDeploy.Controllers
         {
             throw new System.NotImplementedException();
         }
+        public JsonResult GetSocios()
+        {
+            return Json(new GenericBaseDao().Get<SocioId>(string.Format(
+                ConfigurationManager.AppSettings["QuerySocios"]))
+                , JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -15,18 +15,19 @@ var Neurologicos = $('#Neurologicos');
 var Riesgo_Cardiovascular = $('#RiesgoCardiovascular');
 var Dolencias = $('#Dolencias');
 var Enfermedad = $('#Enfermedad');
+var SocioId = $('#SocioId');
 //edit
 var colModel = [
     { label: 'Opciones', name: 'Opciones', width: 20, formatter: CustomCellOptions },
-    { label: 'Número', name: 'num_Socio', width: 20 },
-    { label: 'Nombre Completo', name: 'nombre_Completo', width: 30 },
-    { label: 'Problema Cardiaco', name: 'problema_Cardiaco', width: 30 },
-    { label: 'Dolor Pecho', name: 'dolor_Pecho', width: 30 },
-    { label: 'Asma', name: 'Asma', width: 30 },
-    { label: 'Presion Alta', name: 'presionAlta', width: 30 },
+    { label: 'Número', name: 'num_socio', width: 15 },
+    { label: 'Nombre Completo', name: 'nombre_Completo', width: 50 },
+    { label: 'Problema Cardiaco', name: 'problema_Cardiaco', width: 35 },
+    { label: 'Dolor Pecho', name: 'dolor_Pecho', width: 30, hidden: true },
+    { label: 'Asma', name: 'asma', width: 20 },
+    { label: 'Presion Alta', name: 'presion_Alta', width: 30 },
     { label: 'Medicamento', name: 'medicamento', width: 50 },
-    { label: 'Neurologicos', name: 'neurologicos', width: 30 },
-    { label: 'Riesgo Cardiovascular', name: 'riesgoCardiovascular', width: 30 },
+    { label: 'Neurologicos', name: 'neurologicos', width: 30, hidden: true },
+    { label: 'Riesgo Cardiovascular', name: 'riesgo_Cardiovascular', width: 30, hidden: true },
     { label: 'Dolencias', name: 'dolencias', width: 30 },
     { label: 'Enfermedad', name: 'enfermedad', width: 30 },
     { label: 'id_historial_medico', name: 'id_historial_medico', width: 30, hidden: true },
@@ -90,13 +91,14 @@ function SetDeleteMsg() {
 function UpdateElement(response) {
     console.log(response);
     //poner id
-    if (response[0].num_socio > 0) {
+    /*if (response[0].num_socio > 0) {
         employeeNumber.val(response[0].num_socio)
     }
-    else if (response[0].id_socio > 0) {
-        $('#EmployeeType option').remove();
+    else*/
+    if (response[0].id_socio > 0) {
+        $('#SocioId option').remove();
         $.each(response, function (responseValue, item) {
-            employeeType.append('<option value=' + item.id_socio + '>' + item.num_socio + ' ' + item.nombre_Completo + '</option>');
+            SocioId.append('<option value=' + item.id_socio + '>' + item.num_socio + '-' + item.nombre_Completo + '</option>');
         });
     }
 
