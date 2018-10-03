@@ -16,6 +16,7 @@ var userPay = $('#userPay');
 var userPending = $('#userPending');
 var payType = $('#payType');
 var userTotal = $('#userTotal');
+var userRecargo = $('#userRecargo');
 var userPayGet = $('#pay');
 
 var btnPay = $('#btnPay');
@@ -53,11 +54,13 @@ $(document).ready(function () {
         data.id_socio = id_partner;
         var path = '../'+ nameEntity + '/GetPaqueteID/';
         ajaxPostCall(path, ReturnJson(data)).done(function (response) {
+            console.log(response);
             packageName.val(response[0].nombre);
             packageDescription.val(response[0].descripcion);
             packageCost.val(response[0].costo);
             userPay.val(response[0].costo);
             userPayGet.focus();
+            data.id_paquete = response[0].id_paquete; 
             return false;
         });
 
@@ -70,12 +73,17 @@ $(document).ready(function () {
             userTotal.val(parseInt(packageCost.val()) + parseInt(userPending.val()));
             console.log(date);
 
-            var d = new Date();
-            var n = d.getMonth();
-            console.log(n);
-            console.log(date)
-            if ((parseInt(userPending.val()) > 0)&&(date.getMonth=n)) {
+            var d = new Date().getMonth();
+            var n = new Date(date).getMonth();
+            
+            if ((parseInt(userPending.val()) > 0) && (d === n)) {
                 userTotal.val(userPending.val());
+            } else if (d === (n + 3)) {
+                userRecargo.val(30);
+                userTotal.val(parseInt(packageCost.val()) + 30);
+            } else if (d == (n + 6)) {
+                userRecargo.text(100);
+                userTotal.val(parseInt(packageCost.val()) + 100);
             }
 
         });
