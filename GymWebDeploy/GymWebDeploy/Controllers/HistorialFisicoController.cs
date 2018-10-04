@@ -1,5 +1,7 @@
-﻿using GymWebDeploy.Models.Dao;
+﻿using GymWebDeploy.Controllers.utils;
+using GymWebDeploy.Models.Dao;
 using GymWebDeploy.Models.Domain;
+using System;
 using System.Configuration;
 using System.Web.Mvc;
 
@@ -19,12 +21,18 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(HistorialFisico data)
         {
-            throw new System.NotImplementedException();
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveHistorialFisico"],
+               data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+               data.actividad_Fisica, data.tiempo_Actividad_Fisica, data.tipo_Actividad_Fisica, data.fuma, data.toma, data.lesiones,data.fatigado_ejercicio)), JsonRequestBehavior.AllowGet);
+
         }
 
         public JsonResult Update(HistorialFisico data)
         {
-            throw new System.NotImplementedException();
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATEHistorialFisico"],
+                data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+               data.actividad_Fisica, data.tiempo_Actividad_Fisica, data.tipo_Actividad_Fisica, data.fuma, data.toma, data.lesiones, data.fatigado_ejercicio)), JsonRequestBehavior.AllowGet);
+
         }
         public JsonResult GetSocios()
         {
