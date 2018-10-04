@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AsignacionController.cs" />
+    <Compile Include="Controllers\CatInventarioController.cs" />
     <Compile Include="Controllers\ChecadorController.cs" />
     <Compile Include="Controllers\ChecadorSocioController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Controllers\HistorialPesoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IGenericController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\MembresiaController.cs" />
     <Compile Include="Controllers\ModuloController.cs" />
     <Compile Include="Controllers\ModulosController.cs" />
@@ -173,6 +175,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dao\GenericBaseDao.cs" />
+    <Compile Include="Models\Domain\CatalogoInventario.cs" />
+    <Compile Include="Models\Domain\Inventario.cs" />
     <Compile Include="Models\Domain\PerfilModulo.cs" />
     <Compile Include="Models\Utils\SqlUtils.cs" />
     <Compile Include="Models\Domain\HistorialMedico.cs" />
@@ -333,9 +337,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CatInventario\" />
     <Folder Include="Views\ChecadorSocio\" />
     <Folder Include="Views\Checador\" />
     <Folder Include="Views\HistorialPeso\" />
+    <Folder Include="Views\Inventario\" />
     <Folder Include="Views\Modulos\" />
     <Folder Include="Views\Modulo\" />
     <Folder Include="Views\PagoRecargo\" />
