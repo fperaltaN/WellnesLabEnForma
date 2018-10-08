@@ -22,7 +22,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult Save(HistorialMedico data)
         {
             return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveHistorialMedico"],
-               data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+               data.id_socio, "Historial Medico socio:" + data.id_socio.ToString(), data.activo, Utils.FormatDates(DateTime.Today),
                data.problema_Cardiaco, data.dolor_Pecho, data.asma, data.medicamento, data.neurologicos, data.riesgo_Cardiovascular, 
                data.dolencias, data.enfermedad, data.presion_Alta)), JsonRequestBehavior.AllowGet);
 
@@ -31,7 +31,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult Update(HistorialMedico data)
         {
             return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATEHistorialMedico"],
-               data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+               data.id_historial_medico, data.id_socio, "Historial Medico socio:" + data.id_socio.ToString(), data.activo, Utils.FormatDates(DateTime.Today),
                data.problema_Cardiaco, data.dolor_Pecho, data.asma, data.medicamento, data.neurologicos, data.riesgo_Cardiovascular,
                data.dolencias, data.enfermedad, data.presion_Alta)), JsonRequestBehavior.AllowGet);
         }

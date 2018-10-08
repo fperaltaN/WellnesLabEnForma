@@ -5,7 +5,6 @@ CRUD = true;
 //edit
 var nameEntity = 'HistorialMedico';
 //form //edit
-var id_socio = $('#id_socio');
 var Problema_Cardiaco = $('#ProblemaCardiaco');
 var Dolor_Pecho = $('#DolorPecho');
 var Asma = $('#Asma');
@@ -31,6 +30,7 @@ var colModel = [
     { label: 'Dolencias', name: 'dolencias', width: 30 },
     { label: 'Enfermedad', name: 'enfermedad', width: 30 },
     { label: 'id_historial_medico', name: 'id_historial_medico', width: 30, hidden: true },
+    { label: 'id_socio', name: 'id_socio', width: 30, hidden: true },
     { label: 'Activo', name: 'activo', width: 30, hidden: true },
 ];
 //edit
@@ -59,30 +59,27 @@ function CreateObject(getLastNumber) {
 //edit
 function FillInputs() {
     idDataSource = data.id_socio;
-    num_socio.val(data.num_socio);
-    nombre_Completo.val(data.nombre_Completo);
-    problema_Cardiaco.val(data.problema_Cardiaco);
-    dolor_Pecho.val(data.dolor_Pecho);
-    asma.val(data.asma);
-    presion_Alta.val(data.presion_Alta);
-    medicamento.val(data.medicamento);
-    neurologicos.val(data.neurologicos);
-    riesgo_Cardiovascular.val(data.riesgo_Cardiovascular);
-    dolencias.val(data.dolencias);
-    enfermedad.val(data.enfermedad);
+    Problema_Cardiaco.val(data.problema_Cardiaco);
+    Dolor_Pecho.val(data.dolor_Pecho);
+    Asma.val(data.asma);
+    Presion_Alta.val(data.presion_Alta);
+    Medicamento.val(data.medicamento);
+    Neurologicos.val(data.neurologicos);
+    Riesgo_Cardiovascular.val(data.riesgo_Cardiovascular);
+    Dolencias.val(data.dolencias);
+    Enfermedad.val(data.enfermedad);
 }
 function GetInputs() {
-    data.num_socio = num_socio.val();
-    data.nombre_Completo = nombre_Completo.val();
-    data.problemaCardiaco = problema_Cardiaco.val();
-    data.dolorPecho = dolor_Pecho.val();
-    data.asma = asma.val();
-    presion_Alta.val(data.presion_Alta);
-    data.medicamento = medicamento.val();
-    data.neurologicos = neurologicos.val();
-    data.riesgo_Cardiovascular = riesgo_Cardiovascular.val();
-    data.dolencias = dolencias.val();
-    data.enfermedad = enfermedad.val();
+    data.id_socio = SocioId.val();
+    data.problema_Cardiaco = Problema_Cardiaco.val();
+    data.dolor_Pecho = Dolor_Pecho.val();
+    data.asma = Asma.val();
+    data.presion_Alta = Presion_Alta.val();
+    data.medicamento = Medicamento.val();
+    data.neurologicos = Neurologicos.val();
+    data.riesgo_Cardiovascular = Riesgo_Cardiovascular.val();
+    data.dolencias = Dolencias.val();
+    data.enfermedad = Enfermedad.val();
 }
 function SetDeleteMsg() {
     SetDeleteData(' Socio NÚM: ' + data.num_socio + ' --- NOMBRE: ' + nombre_Completo);

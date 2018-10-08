@@ -21,8 +21,8 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(HistorialFisico data)
         {
-            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveHistorialFisico"],
-               data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVEHistorialFisico"],
+               data.id_socio, "Historial Medico socio:" + data.id_socio.ToString(), data.activo, Utils.FormatDates(DateTime.Today),
                data.actividad_Fisica, data.tiempo_Actividad_Fisica, data.tipo_Actividad_Fisica, data.fuma, data.toma, data.lesiones,data.fatigado_ejercicio)), JsonRequestBehavior.AllowGet);
 
         }
@@ -30,7 +30,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult Update(HistorialFisico data)
         {
             return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATEHistorialFisico"],
-                data.id_socio, "Historial Medico socio:" + data.nombre_Completo, data.activo, Utils.FormatDates(DateTime.Today),
+               data.id_historial_fisico,data.id_socio, "Historial Medico socio:" + data.id_socio.ToString(), data.activo, Utils.FormatDates(DateTime.Today),
                data.actividad_Fisica, data.tiempo_Actividad_Fisica, data.tipo_Actividad_Fisica, data.fuma, data.toma, data.lesiones, data.fatigado_ejercicio)), JsonRequestBehavior.AllowGet);
 
         }

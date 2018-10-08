@@ -5,7 +5,6 @@ CRUD = true;
 //edit
 var nameEntity = 'HistorialFisico';
 //form //edit
-var id_socio = $('#id_socio');
 var actividad_Fisica = $('#ActividadFisica');
 var tiempo_Actividad_Fisica = $('#TiempoActividadFisica');
 var tipo_Actividad_Fisica = $('#TipoActividadFisica');
@@ -56,8 +55,6 @@ function CreateObject(getLastNumber) {
 //edit
 function FillInputs() {
     idDataSource = data.id_socio;
-    //num_socio.val(data.num_socio);
-    //nombre_Completo.val(data.nombre_Completo);
     actividad_Fisica.val(data.actividad_Fisica);
     tiempo_Actividad_Fisica.val(data.tiempo_Actividad_Fisica);
     tipo_Actividad_Fisica.val(data.tipo_Actividad_Fisica);
@@ -67,16 +64,14 @@ function FillInputs() {
     fatigado_Ejercicio.val(data.fatigado_ejercicio);
 }
 function GetInputs() {
-    //data.num_socio = num_socio.val();
-    //data.nombre_Completo = nombre_Completo.val();
+    data.id_socio = SocioId.val();
     data.actividad_Fisica = actividad_Fisica.val();
     data.tiempo_Actividad_Fisica = tiempo_Actividad_Fisica.val();
     data.tipo_Actividad_Fisica = tipo_Actividad_Fisica.val();
     data.fuma = fuma.val();
     data.toma = toma.val();
     data.lesiones = lesiones.val();
-    data.fatigado_ejercicio = fatigado_ejercicio.val();
-    data.SocioId.val();
+    data.fatigado_ejercicio = fatigado_Ejercicio.val();
 }
 function SetDeleteMsg() {
     SetDeleteData(' Socio NÚM: ' + data.num_socio + ' --- NOMBRE: ' + nombre_Completo);
