@@ -5,6 +5,9 @@ namespace GymWebDeploy.Models.Domain
     {
         public int id_historial_fisico { get; set; }
         public int id_socio { get; set; }
+        public string descripcion { get; set; }
+        public int num_socio { get; set; }
+        public string nombre_Completo { get; set; }
         public string actividad_Fisica { get; set; }
         public string tiempo_Actividad_Fisica { get; set; }
         public string tipo_Actividad_Fisica { get; set; }

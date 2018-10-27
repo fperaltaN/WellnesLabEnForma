@@ -179,6 +179,7 @@
     <Compile Include="Models\Domain\Inventario.cs" />
     <Compile Include="Models\Domain\InventarioAsignado.cs" />
     <Compile Include="Models\Domain\PerfilModulo.cs" />
+    <Compile Include="Models\Domain\SocioId.cs" />
     <Compile Include="Models\Utils\SqlUtils.cs" />
     <Compile Include="Models\Domain\HistorialMedico.cs" />
     <Compile Include="Models\Domain\Asignacion.cs" />
