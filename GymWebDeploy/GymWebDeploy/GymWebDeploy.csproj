@@ -177,6 +177,7 @@
     <Compile Include="Models\Dao\GenericBaseDao.cs" />
     <Compile Include="Models\Domain\CatalogoInventario.cs" />
     <Compile Include="Models\Domain\Inventario.cs" />
+    <Compile Include="Models\Domain\InventarioAsignado.cs" />
     <Compile Include="Models\Domain\PerfilModulo.cs" />
     <Compile Include="Models\Utils\SqlUtils.cs" />
     <Compile Include="Models\Domain\HistorialMedico.cs" />
@@ -289,8 +290,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Application\AJAXRequest.js" />
+    <Content Include="Scripts\Application\CatInventario.js" />
     <Content Include="Scripts\Application\HistorialFisico.js" />
     <Content Include="Scripts\Application\HistorialMedico.js" />
+    <Content Include="Scripts\Application\Home.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Pago.js" />
     <Content Include="Scripts\Application\Paquete.js" />
@@ -337,7 +340,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CatInventario\" />
     <Folder Include="Views\ChecadorSocio\" />
     <Folder Include="Views\Checador\" />
     <Folder Include="Views\HistorialPeso\" />
@@ -384,6 +386,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\HistorialFisico\Index.cshtml" />
     <Content Include="Views\HistorialMedico\Index.cshtml" />
+    <Content Include="Views\CatInventario\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

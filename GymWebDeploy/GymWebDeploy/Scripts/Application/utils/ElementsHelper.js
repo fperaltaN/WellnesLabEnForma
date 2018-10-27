@@ -46,6 +46,7 @@ function ShowModalDelete() {
 //datatable
 //data
 var DataTable = $('#DataTable');
+var DataTableInventario = $('#DataTableInventario');
 var CardTitle = $('#CardTitle');
 function SetCardTitle(title) { CardTitle.text('Administración de '+title); }
 //add

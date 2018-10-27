@@ -11,7 +11,9 @@ function ajaxPostCall(url, data) {
 }
 function GETData(entity, parameters) {
     var path = '../' + entity + '/Get/';
+    MsgSuccess('info', 'Cargando Información...');
     ajaxPostCall(path, ReturnJson(parameters)).done(function (response) {
+        console.log(response);
         updateTable(DataTable, response);
     });
 }

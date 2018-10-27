@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using GymWebDeploy.Models.Dao;
+using GymWebDeploy.Models.Domain;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace GymWebDeploy.Controllers
@@ -13,18 +12,6 @@ namespace GymWebDeploy.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        public JsonResult Get() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioNow"]), JsonRequestBehavior.AllowGet);
     }
 }

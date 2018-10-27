@@ -16,7 +16,11 @@
         if (timer) { clearTimeout(timer); }
         timer = setTimeout(function () { DataTable.jqGrid('filterInput', self.value); }, 0);
     });
-
+    $("#SearchInv").on("keyup", function () {
+        var self = this;
+        if (timer) { clearTimeout(timer); }
+        timer = setTimeout(function () { DataTableInventario.jqGrid('filterInput', self.value); }, 0);
+    });
 });
 //0 add | 1update | 2 delete
 var mode = -1;

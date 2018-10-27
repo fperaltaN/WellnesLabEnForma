@@ -1,7 +1,174 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
 }
 
-<h2>Index</h2>
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs nav-fill" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Inventario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Cumpleaños</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="input-group mb-1">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="Search">Búsqueda</label>
+                                            </div>
+                                            <input type="search" class="form-control" id="Search" aria-label="Buscar..." placeholder="Buscar...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                        <button type="button" id="BtnAdd" class="btn btn-block btn-success" data-toggle="modal"></button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="table-responsive mb-1">
+                                        <div class="mx-auto text-center mb-1" style="width: 500px;">
+                                            <table id="DataTable" class="table table-sm table-primary table-hover table-bordered mb-1"></table>
+                                            <div id="DataTablePager"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <table class="table table-sm table-bordered table-hover">
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th scope="col">Opciones</th>
+                                                <th scope="col">Núm. Socio</th>
+                                                <th scope="col">Nombre de Socio</th>
+                                                <th scope="col">Años cumplidos</th>
+                                                <th scope="col">Reg. visita</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th><button type="button" class="btn btn-success">Enviar mensaje</button></th>
+                                                <td>1</td>
+                                                <td>Luis Hernández</td>
+                                                <td>26</td>
+                                                <td>
+                                                    <label class="switch">
+                                                        <input type="checkbox" checked="">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="../News/Stock/" class="btn btn-block btn-success">Ir Socio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header ">
+                    <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModal">Nueva Nota</button>
+                </div>
+                <div class="card-body">
+                    <div class="card-columns">
+                        <div class="card">
+                            <div class="card-header text-white bg-info"><strong>titulo</strong></div>
+                            <div class="card-body">
+                                <p class="card-text">Deesscripcion</p>
+                            </div>
+                            <div class="card-footer text-white bg-info">
+                                Fecha y hora
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-primary btn-sm col-md-5">
+                                    <img src="/Content/img/icons/baseline_edit_white_18dp.png">
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm col-md-5">
+                                    <img src="/Content/img/icons/baseline_delete_white_18dp.png">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-white bg-info"><strong>titulo</strong></div>
+                            <div class="card-body">
+                                <p class="card-text">Deesscripcion</p>
+                            </div>
+                            <div class="card-footer">
+                                Fecha y hora
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <img src="/Content/img/icons/baseline_delete_white_18dp.png">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajustes de nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="dataForm" class="form form-group container">
+                        <div class="row mb-3">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 input-group-text" for="userNumber">Titulo</label>
+                            <input type="email" class="form-control col-md-8" id="userNumber11" aria-label="Número de usuario" placeholder="Número de usuario">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 input-group-text" for="userName">Descripción</label>
+                            <textarea class="form-control col-md-8" id="moduleDescription" rows="3" aria-label="Nombre de modulo" placeholder="Nombrede modulo"></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 input-group-text" for="userLast">Prioridad</label>
+                            <select class="custom-select col-md-8">
+                                <option class="alert-info" value="0">Baja</option>
+                                <option class="alert-warning" value="1">Normal</option>
+                                <option class="alert-danger" value="2">Alta</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/Home.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>

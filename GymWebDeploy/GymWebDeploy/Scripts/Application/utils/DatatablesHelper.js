@@ -16,6 +16,7 @@ function updateTable(grid, response) {
     grid.jqGrid('setGridParam', { data: response });
     grid[0].grid.endReq();
     grid.trigger('reloadGrid');
+    MsgSuccess('info', 'Carga completa');
 }
 //local datatable funcions
 function CustomCellOptions(cellValue, options, rowdata, action) {

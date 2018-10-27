@@ -16,15 +16,16 @@ namespace GymWebDeploy.Controllers
             return View();
         }
 
-        public JsonResult Save(CatalogoInventario data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVECatInventario"],
-                data.nombre)
-                ), JsonRequestBehavior.AllowGet);
+
+        public JsonResult Save(CatalogoInventario data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveCatInventario"],
+               data.nombre)
+               ), JsonRequestBehavior.AllowGet);
 
 
         public JsonResult Update(CatalogoInventario data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATECatInventario"],
                 data.nombre,
+                data.activo,
                 data.Id_cat_inventario)
                 ), JsonRequestBehavior.AllowGet);
-        }
     }
 }
