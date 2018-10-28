@@ -3,6 +3,11 @@
         <strong id="CardTitle"></strong>
     </div>
     <div class="card-body">
+        @{if (ViewBag.report != null)
+            {
+                Html.RenderPartial("_DataDatesViews");
+            }
+        }
         <div class="row">
             <div class="col-md-9">
                 <div class="input-group mb-1">

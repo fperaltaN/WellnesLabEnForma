@@ -1,6 +1,6 @@
 ﻿var responseGet = {};
 function ajaxPostCall(url, data) {
-    return $.ajax({
+   return $.ajax({
         cache: false,
         type: "POST",
         url: url,

@@ -164,6 +164,9 @@
     <Compile Include="Controllers\RecordTicketController.cs" />
     <Compile Include="Controllers\RegistroVisitaController.cs" />
     <Compile Include="Controllers\PerfilModuloController.cs" />
+    <Compile Include="Models\Domain\GenericDataClass.cs" />
+    <Compile Include="Models\Domain\ReportePago.cs" />
+    <Compile Include="Controllers\ReportePagoController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="Controllers\SocioMembresiaController.cs" />
@@ -298,6 +301,7 @@
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Pago.js" />
     <Content Include="Scripts\Application\Paquete.js" />
+    <Content Include="Scripts\Application\ReportPago.js" />
     <Content Include="Scripts\Application\Socio.js" />
     <Content Include="Scripts\Application\utils\AfterJS.js" />
     <Content Include="Scripts\Application\utils\DatatablesHelper.js" />
@@ -388,6 +392,8 @@
     <Content Include="Views\HistorialFisico\Index.cshtml" />
     <Content Include="Views\HistorialMedico\Index.cshtml" />
     <Content Include="Views\CatInventario\Index.cshtml" />
+    <Content Include="Views\ReportePago\Index.cshtml" />
+    <Content Include="Views\Shared\_DataDatesViews.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
