@@ -36,7 +36,7 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Get()
         {
-            throw new System.NotImplementedException();
+            return Json("");
         }
 
         public JsonResult Save(Pago data)
@@ -46,7 +46,7 @@ namespace GymWebDeploy.Controllers
                 data.id_socio,
                 data.ID_USUARIO,
                 data.importe,
-//                data.fecha_pago_vence,
+                data.fecha_pago_vence,
                 data.pendiente)), JsonRequestBehavior.AllowGet);
         }
 

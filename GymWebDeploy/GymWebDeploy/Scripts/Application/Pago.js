@@ -13,6 +13,7 @@ var packageDescription = $('#packageDescription');
 var packageCost = $('#packageCost');
 
 var userPay = $('#userPay');
+var payMonths = $('#payMonths');
 var userPending = $('#userPending');
 var payType = $('#payType');
 var userTotal = $('#userTotal');
@@ -32,7 +33,7 @@ function CreateObject() {
         ID_USUARIO: '',
         fecha_pago_vence: '',
         pendiente: '',
-        importe:''
+        importe: ''
     };
 }
 $(document).ready(function () {
@@ -52,7 +53,7 @@ $(document).ready(function () {
             }
         });
         data.id_socio = id_partner;
-        var path = '../'+ nameEntity + '/GetPaqueteID/';
+        var path = '../' + nameEntity + '/GetPaqueteID/';
         ajaxPostCall(path, ReturnJson(data)).done(function (response) {
             console.log(response);
             packageName.val(response[0].nombre);
@@ -60,7 +61,7 @@ $(document).ready(function () {
             packageCost.val(response[0].costo);
             userPay.val(response[0].costo);
             userPayGet.focus();
-            data.id_paquete = response[0].id_paquete; 
+            data.id_paquete = response[0].id_paquete;
             return false;
         });
 
@@ -75,7 +76,7 @@ $(document).ready(function () {
 
             var d = new Date().getMonth();
             var n = new Date(date).getMonth();
-            
+
             if ((parseInt(userPending.val()) > 0) && (d === n)) {
                 userTotal.val(userPending.val());
             } else if (d === (n + 3)) {
@@ -88,6 +89,15 @@ $(document).ready(function () {
 
         });
         userPayGet.focus();
+    });
+
+    //Calculo de total
+    $('#userPending').change(function () {
+        updateCost();
+    });
+
+    $('#userRecargo').change(function () {
+        updateCost();
     });
 
     btnPay.click(function () {
@@ -103,13 +113,14 @@ function UpdateElement(response) {
 function GetInputs() {
     id_paquete = data.id_paquete;
     data = {
-        id_paquete: id_paquete ,
-        id_socio: partnerID.val() ,
+        id_paquete: id_paquete,
+        id_socio: partnerID.val(),
         ID_USUARIO: 1,
-        fecha_pago_vence: 1,
-        pendiente:0.00,
+        //fecha_pago_vence: 1,
+        pendiente: 0.00,
         importe: userPayGet.val()
     }
+    getDateNextPay();
 }
 function FillPartners(response) {
     partners = response;
@@ -119,4 +130,68 @@ function FillPartners(response) {
     });
     $('.selectpicker').selectpicker();
     $('#partnerID').selectpicker('refresh');
+}
+
+/*
+ *  Realiza los cálculos automaticamente, obtieniendo los valores bajados.
+ */
+function updateCost() {
+    var total = 0;
+    total = parseInt($('#packageCost').val()) + (parseInt($('#userPending').val()) + parseInt($('#userRecargo').val()));
+    $('#userTotal').val(total);
+}
+/*
+* Guarda la información de los pagos
+*/
+function getDateNextPay() {  
+    switch (payMonths.val())
+    {
+        case "1":
+            date = now(1);  
+            break;
+        case "3":
+            date = now(3);  
+            break;
+        case "6":
+            date = now(6);  
+            break;
+        case "9":
+            date = now(9);  
+            break;
+        case "12":
+            date = now(12);  
+            break;
+        default:
+            date = date + 1;
+    }
+    data.fecha_pago_vence = date;  
+    data.importe = $('#userPay').val();
+    data.pendiente = $('#userPending').val();
+}
+
+// Actual Date
+function now(monthAdd) {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth(); 
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+        
+    var dateEnd = new Date(yyyy, mm, dd);
+    //Agregamos los nuevos meses
+    dateEnd.setMonth(dateEnd.getMonth() + monthAdd);
+
+    //Formamos la fecha 
+    dd = dateEnd.getDate() -1;
+    mm = dateEnd.getMonth() +1; //January is 0!
+    yyyy = dateEnd.getFullYear();
+
+    return yyyy + '/' + mm + '/' + dd;
 }

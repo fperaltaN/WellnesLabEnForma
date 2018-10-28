@@ -69,7 +69,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="packageCost">Costo $</label>
                                     </div>
-                                    <input id="packageCost" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                                    <input id="packageCost" type="number"  class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
                                 </div>
                             </div>
                         </div>
@@ -77,11 +77,12 @@
                 </div>
             </div>
         </div>
+        <div class="alert alert-secondary">Verificación de pago</div>
         <div class="card">
             <div class="card-body">
                 <div class="card-text">
+                    <strong>Forma de Pago / Meses Cubiertos</strong>
                     <div class="row">
-                        <div class="col-md-4"><div class="alert alert-secondary">Verificación de pago</div></div>
                         <div class="col-md-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -92,31 +93,65 @@
                                     <option>Tarjeta</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="userRecargo">Recargo $</label>
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Meses Cubiertos</span>
                                 </div>
-                                <input id="userRecargo" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                                <select id="payMonths" class="selectpicker form-control">
+                                    <option value="1">Mensualidad</option>
+                                    <option value="3">3 Meses</option>
+                                    <option value="6">6 Meses</option>
+                                    <option value="9">9 Meses</option>
+                                    <option value="12">12 Meses</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <strong>Detalles del Pago</strong>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="userPending" class="input-group-text">Pendiente $</label>
+                                </div>
+                                <input id="userPending" type="number" value="0" class="form-control bfh-number calc" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend col-md-5">
-                                    <label class="input-group-text col-md-12" for="userPending">Pendiente $</label>
+                                <div class="input-group-prepend">
+                                    <label for="userRecargo" class="input-group-text">Recargo $</label>
                                 </div>
-                                <input id="userPending" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                                <input id="userRecargo" type="number" value="0" class="form-control bfh-number calc" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
                             </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend col-md-5">
-                                    <label class="input-group-text col-md-12" for="userTotal">Total a Pagar $</label>
+                                <div class="input-group-prepend">
+                                    <label for="userTotal" class="input-group-text">Total $</label>
                                 </div>
-                                <input id="userTotal" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                                <input id="userTotal" type="number" class="form-control bfh-number" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
                             </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend col-md-5">
-                                    <label class="input-group-text col-md-12" for="pay">Recibido $</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-8">
+                            <div class="input-group mb-6">
+                                @*<div class="input-group-prepend">
+                                    <label for="employee" class="input-group-text">Registrado por:</label>
                                 </div>
-                                <input id="pay" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <input id="employee" type="text" class="input-group-text col-md-8" aria-label="Default" aria-describedby="inputGroup-sizing-default" disabled>*@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="userPay" class="input-group-text">Recibido $</label>
+                                </div>
+                                <input id="userPay" type="number" class="form-control bfh-number" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
                             </div>
                         </div>
                     </div>

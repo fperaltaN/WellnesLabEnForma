@@ -50,9 +50,6 @@ function CreateObject() {
 function FillInputs() {
     
 }
-function GetInputs() {
-   
-}
 function SetDeleteMsg() {
     //SetDeleteData(' Socio NÚM: ' + data.num_socio + ' --- NOMBRE: ' + data.nombre + ' ' + data.ap_paterno + ' ' + data.ap_materno);
 }

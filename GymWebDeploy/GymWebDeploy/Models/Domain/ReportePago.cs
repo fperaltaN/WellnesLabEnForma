@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GymWebDeploy.Controllers
+namespace GymWebDeploy.Models.Domain
 {
     public class ReportePago
     {
@@ -12,7 +12,7 @@ namespace GymWebDeploy.Controllers
         public String paquete { get; set; }
         public DateTime? fecha_pago { get; set; }
         public DateTime? fecha_pago_vence { get; set; }
-        public String meses { get; set; }
+        public int meses { get; set; }
         public String empleado { get; set; }
         public Decimal? importe { get; set; }
         public Decimal? pendiente { get; set; }
