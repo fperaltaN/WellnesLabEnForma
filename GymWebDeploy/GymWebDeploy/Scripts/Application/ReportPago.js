@@ -54,7 +54,8 @@ function SetDeleteMsg() {
     //SetDeleteData(' Socio NÚM: ' + data.num_socio + ' --- NOMBRE: ' + data.nombre + ' ' + data.ap_paterno + ' ' + data.ap_materno);
 }
 $('#datepicker').datepicker({
-    format: 'yyyy/mm/dd',
+    //format: 'yyyy/mm/dd',
+    format: 'dd/mm/yyyy',
     clearBtn: true,
     language: 'es',
     orientation: 'bottom auto',
@@ -101,6 +102,7 @@ function now() {
         mm = '0' + mm
     }
 
-    today = yyyy +'/' + mm + '/' + dd;
+    //today = yyyy +'/' + mm + '/' + dd;
+    today = dd + '/' + mm + '/' + yyyy;
     return today;
 }

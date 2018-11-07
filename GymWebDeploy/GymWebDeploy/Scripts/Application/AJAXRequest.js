@@ -1,6 +1,6 @@
 ﻿var responseGet = {};
 function ajaxPostCall(url, data) {
-   return $.ajax({
+    return $.ajax({
         cache: false,
         type: "POST",
         url: url,
@@ -14,7 +14,9 @@ function GETData(entity, parameters) {
     MsgSuccess('info', 'Cargando Información...');
     ajaxPostCall(path, ReturnJson(parameters)).done(function (response) {
         console.log(response);
-        updateTable(DataTable, response);
+        if (CRUD) {
+            updateTable(DataTable, response);
+        }
     });
 }
 function ADDData(entity, parameters) {

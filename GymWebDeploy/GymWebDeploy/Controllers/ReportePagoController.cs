@@ -21,7 +21,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult GetByDate(GenericDataClass data)
         {
             return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETReportePago"],data.start,data.end)),
+               ConfigurationManager.AppSettings["QueryGETReportePago"],Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
                JsonRequestBehavior.AllowGet);
         }
 

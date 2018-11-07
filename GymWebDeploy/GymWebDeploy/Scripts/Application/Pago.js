@@ -104,6 +104,7 @@ $(document).ready(function () {
         MsgSuccess('info', 'Registrando Pago\n espere...');
         mode = 0;
         Save();
+        clean();
     });
 });
 
@@ -194,4 +195,21 @@ function now(monthAdd) {
     yyyy = dateEnd.getFullYear();
 
     return yyyy + '/' + mm + '/' + dd;
+}
+//clean
+function clean() {
+    $('#form')[0].reset();
+    $('.form')[0].reset();
+    $('#partnerID').val('');
+    $('#partnerNum').val('');
+    $('#partnerName').val('');
+    $('#partnerPhone').val('');
+
+    $('#packageName').val('');
+    $('#packageDescription').val('');
+    $('#packageCost').val(0);
+
+    $('#userPending').val(0);
+    $('#userTotal').val(0);
+    $('#userRecargo').val(0);
 }
