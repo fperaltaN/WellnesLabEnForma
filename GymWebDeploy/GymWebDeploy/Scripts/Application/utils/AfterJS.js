@@ -3,6 +3,8 @@
     if (CRUD) {
         CreateDataTable(colModel);
         GETData(nameEntity, '');
+    } if (note) {
+        GetNotes();
     }
 
     $(document).on('submit', '#DataForm', function (event) {
