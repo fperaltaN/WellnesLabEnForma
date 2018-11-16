@@ -188,6 +188,7 @@
     <Compile Include="Controllers\MembresiaController.cs" />
     <Compile Include="Controllers\ModuloController.cs" />
     <Compile Include="Controllers\ModulosController.cs" />
+    <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\PagoRecargoController.cs" />
     <Compile Include="Controllers\PaqueteController.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Controllers\RegistroVisitaController.cs" />
     <Compile Include="Controllers\PerfilModuloController.cs" />
     <Compile Include="Models\Domain\GenericDataClass.cs" />
+    <Compile Include="Models\Domain\Notes.cs" />
     <Compile Include="Models\Domain\ReportePago.cs" />
     <Compile Include="Controllers\ReportePagoController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
@@ -392,6 +394,7 @@
     <Folder Include="Views\Inventario\" />
     <Folder Include="Views\Modulos\" />
     <Folder Include="Views\Modulo\" />
+    <Folder Include="Views\Note\" />
     <Folder Include="Views\PagoRecargo\" />
     <Folder Include="Views\PaqueteServicio\" />
     <Folder Include="Views\Perfiles\" />
