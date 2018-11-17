@@ -26,7 +26,11 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Update(Notes data)
         {
-            throw new NotImplementedException();
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATENote"], data.Note,data.IdNote)), JsonRequestBehavior.AllowGet) ;
+        }
+        public JsonResult Delete(Notes data)
+        {
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryDELETENote"], data.IdNote)), JsonRequestBehavior.AllowGet);
         }
     }
 }

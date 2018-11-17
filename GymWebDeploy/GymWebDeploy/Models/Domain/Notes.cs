@@ -1,4 +1,5 @@
-﻿namespace GymWebDeploy.Models.Domain
+﻿using System;
+namespace GymWebDeploy.Models.Domain
 {
     public class Notes
     {

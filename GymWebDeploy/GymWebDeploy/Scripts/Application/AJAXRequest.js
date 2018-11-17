@@ -6,6 +6,9 @@ function ajaxPostCall(url, data) {
         url: url,
         data: data,
         contentType: "application/json; charset=utf-8",
+        error: function (xhr, ajaxOptions, throwError) {
+            console.log(xhr.status + "\n" + xhr.responseText, "\n" + throwError);
+        },
         dataType: "json"
     });
 }

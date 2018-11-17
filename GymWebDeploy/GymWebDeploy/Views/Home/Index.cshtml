@@ -88,18 +88,16 @@
                     <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModal">Nueva Nota</button>
                 </div>
                 <div class="card-body">
-                    <div class="card-columns">
                         <label id="notes">
                             
                         </label>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editNote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,27 +110,13 @@
                     <form id="dataForm" class="form form-group container">
                         <div class="row mb-3">
                             <div class="col-md-1"></div>
-                            <label class="col-md-2 input-group-text" for="userNumber">Titulo</label>
-                            <input type="email" class="form-control col-md-8" id="userNumber11" aria-label="Número de usuario" placeholder="Número de usuario">
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-1"></div>
                             <label class="col-md-2 input-group-text" for="userName">Descripción</label>
-                            <textarea class="form-control col-md-8" id="moduleDescription" rows="3" aria-label="Nombre de modulo" placeholder="Nombrede modulo"></textarea>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-1"></div>
-                            <label class="col-md-2 input-group-text" for="userLast">Prioridad</label>
-                            <select class="custom-select col-md-8">
-                                <option class="alert-info" value="0">Baja</option>
-                                <option class="alert-warning" value="1">Normal</option>
-                                <option class="alert-danger" value="2">Alta</option>
-                            </select>
+                            <textarea class="form-control col-md-8" id="noteStr" rows="3" aria-label="Nota" placeholder="Nota"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button id="btnUpdateNote" class="btn btn-primary">Guardar Cambios</button>
                 </div>
             </div>
         </div>
