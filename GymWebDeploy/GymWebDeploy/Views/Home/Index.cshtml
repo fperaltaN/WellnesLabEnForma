@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 text-left">
-                                        <button type="button" id="BtnAdd" class="btn btn-block btn-success" data-toggle="modal"></button>
+                                        <button type="button" id="BtnAddInventario" class="btn btn-block btn-success" data-toggle="modal" data-target="#editInventario">Agregar Inventario</button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -88,9 +88,9 @@
                     <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModal">Nueva Nota</button>
                 </div>
                 <div class="card-body">
-                        <label id="notes">
-                            
-                        </label>
+                    <label id="notes">
+
+                    </label>
                 </div>
             </div>
         </div>
@@ -117,6 +117,45 @@
                 </div>
                 <div class="modal-footer">
                     <button id="btnUpdateNote" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editInventario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajustes de nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="dataForm" class="form form-group container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+                                    </div>
+                                    <select id="partnerID" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="inventario" class="input-group-text" id="inputGroup-sizing-default">Selecciona un recurso</label>
+                                    </div>
+                                    <select id="inventario" class="selectpicker form-control" data-live-search="true" title="Selecciona un recurso..."></select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnUpdateInventario" class="btn btn-primary">Guardar Cambios</button>
                 </div>
             </div>
         </div>

@@ -199,7 +199,6 @@ function now(monthAdd) {
 //clean
 function clean() {
     $('#form')[0].reset();
-    $('.form')[0].reset();
     $('#partnerID').val('');
     $('#partnerNum').val('');
     $('#partnerName').val('');

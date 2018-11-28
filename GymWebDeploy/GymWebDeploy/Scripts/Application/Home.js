@@ -1,5 +1,5 @@
 ﻿//Titulo para la exportación de archivos
-var FileTitle = 'Catalogo de Socios';
+var FileTitle = '';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
 note = true
@@ -108,3 +108,59 @@ function deleteNote(id) {
         GetNotes();
     });
 }
+var partnerID = $('#partnerID');
+var inventario = $('#inventario');
+var BtnAddInventario = $('#BtnAddInventario');
+var inventarioData = {
+    Id_cat_inventario: ''
+    , Num_control: ''
+    , Id_socio: ''
+    , Activo: 1
+};
+
+BtnAddInventario.click(function () {
+    var path = '../Pago/GetSocios/';
+    ajaxPostCall(path, ReturnJson('')).done(function (response) {
+        $('#partnerID option').remove();
+        $.each(response, function (responseValue, item) {
+            partnerID.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+        });
+        $('#partnerID').selectpicker();
+        $('#partnerID').selectpicker('refresh');
+    });
+    var path = '../Inventario/GetInventarioAsignado/';
+    ajaxPostCall(path, ReturnJson('')).done(function (response) {
+        $('#inventario option').remove();
+        $.each(response, function (responseValue, item) {
+            inventario.append('<option data-tokens="' + item.id_inventario + '" value=' + item.id_inventario + ' data-numControl=' + item.num_control +'>' + item.nombre + " --- " + item.num_control + '</option>');
+        });
+        $('#inventario').selectpicker();
+        $('#inventario').selectpicker('refresh');
+    });
+});
+
+partnerID.change(function () {
+    inventarioData.Id_socio = partnerID.val();
+});
+inventario.chage(function () {
+    inventarioData.Id_cat_inventario = inventario.val();
+    inventarioData.Num_control = inventario.numControl();
+});
+
+
+
+
+$('#btnUpdateInventario').click(function () {
+  
+    var path = '../Inventario/SaveAsignado/';
+
+
+    ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
+        $('#inventario option').remove();
+        $.each(response, function (responseValue, item) {
+            inventario.append('<option data-tokens="' + item.id_inventario + '" value=' + item.id_inventario + '>' + item.nombre + " --- " + item.num_control + '</option>');
+        });
+        $('.selectpicker').selectpicker();
+        $('#inventario').selectpicker('refresh');
+    });
+});

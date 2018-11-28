@@ -13,6 +13,11 @@ namespace GymWebDeploy.Controllers
     public class InventarioController : Controller, IGenericController<Inventario>
     {
         public JsonResult Get() => Json(new GenericBaseDao().Get<CatalogoInventario>(ConfigurationManager.AppSettings["QueryGETInventario"]), JsonRequestBehavior.AllowGet);
+        public JsonResult GetInventarioAsignado() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioAsignado"]), JsonRequestBehavior.AllowGet);
+        public JsonResult SaveAsignado(InventarioAsignado data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveInventarioAsignado"],
+               data.id_cat_inventario,data.num_control,data.id_socio,1)
+               ), JsonRequestBehavior.AllowGet);
+
         public JsonResult GetById(Inventario data)
         {
             return Json(new GenericBaseDao().Get<Inventario>(String.Format(ConfigurationManager.AppSettings["QueryGETInventario"], data.Id_cat_inventario)), JsonRequestBehavior.AllowGet);
