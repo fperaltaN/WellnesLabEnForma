@@ -31,13 +31,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 text-left">
-                                        <button type="button" id="BtnAddInventario" class="btn btn-block btn-success" data-toggle="modal" data-target="#editInventario">Agregar Inventario</button>
+                                        <button type="button" id="BtnAddInventario" class="btn btn-block btn-success" data-toggle="modal" data-target="#editInventario">Agregar </button>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="table-responsive mb-1">
-                                        <div class="mx-auto text-center mb-1" style="width: 500px;">
-                                            <table id="DataTable" class="table table-sm table-primary table-hover table-bordered mb-1"></table>
+                                    <div class="table-responsive mb-3">
+                                        <div class="mx-auto text-center mb-1" style="width: 600px;">
+                                            <table id="DataTable" class="table table-responsive-xl table-primary table-hover table-bordered mb-lg-3"></table>
                                             <div id="DataTablePager"></div>
                                         </div>
                                     </div>
@@ -47,11 +47,30 @@
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <table id="DataTableCumple" class="table table-sm table-primary table-hover table-bordered mb-1"></table>
-                                    <div id="DataTablePagerCumple"></div>
-                                </div>
-                                <div class="card-footer ">
-                                    <a href="../News/Stock/" class="btn btn-block btn-success">Ir Socio</a>
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="input-group mb-1">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="Search">Búsqueda</label>
+                                                </div>
+                                                <input type="search" class="form-control" id="Search" aria-label="Buscar..." placeholder="Buscar...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-left">
+                                            @*<button type="button" id="BtnAddInventario" class="btn btn-block btn-success" data-toggle="modal" data-target="#editInventario">Agregar Inventario</button>*@
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive mb-3">
+                                            <div class="mx-auto text-center mb-1" style="width: 600px;">
+                                                <table id="DataTableCumple" class="table table-responsive-md table-primary table-hover table-bordered mb-3"></table>
+                                                <div id="DataTablePagerCumple"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer ">
+                                            @*<a href="../News/Stock/" class="btn btn-block btn-success">Ir Socio</a>*@
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +123,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajustes de nota</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ajustes de inventario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

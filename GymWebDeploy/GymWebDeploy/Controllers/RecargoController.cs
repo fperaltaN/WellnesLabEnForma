@@ -1,4 +1,5 @@
-﻿using GymWebDeploy.Models.Dao;
+﻿using GymWebDeploy.Controllers.utils;
+using GymWebDeploy.Models.Dao;
 using GymWebDeploy.Models.Domain;
 using System.Configuration;
 using System.Web.Mvc;
@@ -18,9 +19,12 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(Recargo data)
         {
-            throw new System.NotImplementedException();
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVERecargo"],
+                data.id_socio,
+                data.id_paquete,
+                data.importe)), JsonRequestBehavior.AllowGet);
         }
-
+        
         public JsonResult Update(Recargo data)
         {
             throw new System.NotImplementedException();

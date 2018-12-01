@@ -1,6 +1,8 @@
 ﻿CRUD = false;
+note = false;
 //edit
 var nameEntity = 'Pago';
+var FileTitle = "Pago";
 var partners = [];
 //form //edit
 var partnerID = $('#partnerID');
@@ -69,7 +71,7 @@ $(document).ready(function () {
         var date;
         ajaxPostCall(path, ReturnJson(data)).done(function (response) {
             console.log(response);
-            userPending.val(response[0].pendiente);
+            userPending.val(response[0].pendiente == undefined ? 0 : response[0].pendiente);
             date = new Date(response[0].fecha_pago_vence.match(/\d+/)[0] * 1);
             userTotal.val(parseInt(packageCost.val()) + parseInt(userPending.val()));
             console.log(date);
@@ -104,7 +106,7 @@ $(document).ready(function () {
         MsgSuccess('info', 'Registrando Pago\n espere...');
         mode = 0;
         Save();
-        clean();
+        SavePendiente();
     });
 });
 
@@ -117,7 +119,7 @@ function GetInputs() {
         id_paquete: id_paquete,
         id_socio: partnerID.val(),
         ID_USUARIO: 1,
-        //fecha_pago_vence: 1,
+        fecha_pago_vence: 1,
         pendiente: 0.00,
         importe: userPayGet.val()
     }
@@ -190,7 +192,7 @@ function now(monthAdd) {
     dateEnd.setMonth(dateEnd.getMonth() + monthAdd);
 
     //Formamos la fecha 
-    dd = dateEnd.getDate() -1;
+    dd = dateEnd.getDate();
     mm = dateEnd.getMonth() +1; //January is 0!
     yyyy = dateEnd.getFullYear();
 
@@ -211,4 +213,20 @@ function clean() {
     $('#userPending').val(0);
     $('#userTotal').val(0);
     $('#userRecargo').val(0);
+}
+
+function SavePendiente() {
+    var dataRecargo = {
+        id_socio: '',
+        id_paquete: '',
+        importe: ''
+    };
+    dataRecargo.id_socio = partnerID.val();
+    dataRecargo.id_paquete = data.id_paquete;
+    dataRecargo.importe = data.importe;
+    
+    ADDData('Recargo', dataRecargo);
+    ADDData('PagoRecargo', '');
+
+    clean();
 }

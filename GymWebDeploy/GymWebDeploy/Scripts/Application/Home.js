@@ -2,7 +2,7 @@
 var FileTitle = '';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
-note = true
+note = true;
 //edit
 var nameEntity = 'Home';
 //form //edit
@@ -16,17 +16,17 @@ function CreateDataTableCumple(modelCumple) {
         colModel: modelCumple,
         gridview: true,
         height: 400,
-        width: 450,
+        width: 600,
         //rowNum: 7,
         //pager: "#DataTablePager",
         rowattr: CheckActives
     });
 }
 var modelCumple = [
-    { label: 'id_socio', name: 'id_socio', width: 30 },
-    { label: 'num_socio', name: 'num_socio', width: 30 },
-    { label: 'nombre', name: 'nombre', width: 30 },
-    { label: 'direccion', name: 'direccion', width: 30 },
+    { label: 'id_socio', name: 'id_socio', width: 30, hidden: true },
+    { label: 'num_socio', name: 'num_socio', width: 40 },
+    { label: 'nombre', name: 'nombre', width: 50 },
+    { label: 'direccion', name: 'direccion', width: 30, hidden: true },
     { label: 'mail', name: 'mail', width: 50 },
     { label: 'Enviar', name: 'Enviar', width: 30, formatter: CustomCellOptionsCumple }
 ];
@@ -42,7 +42,7 @@ function CreateDataTable(model) {
         colModel: model,
         gridview: true,
         height: 400,
-        width: 450,
+        width: 600,
         //rowNum: 7,
         //pager: "#DataTablePager",
         rowattr: CheckActives
@@ -54,7 +54,7 @@ var colModel = [
     { label: 'Nombre', name: 'catnombre', width: 30 },
     { label: '# Control', name: 'num_control', width: 30 },
     { label: 'ID Socio', name: 'id_socio', width: 30 },
-    { label: 'Socio', name: 'socioName', width: 50 },
+    { label: 'Socio', name: 'socioName', width: 80 },
     { label: 'Entregar', name: 'Entregar', width: 30, formatter: CustomCellOptions }
 ];
 function CustomCellOptions(cellValue, options, rowdata, action) {
