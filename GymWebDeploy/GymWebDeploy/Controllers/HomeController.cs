@@ -12,6 +12,7 @@ namespace GymWebDeploy.Controllers
             return View();
         }
 
+
         public JsonResult Get() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioNow"]), JsonRequestBehavior.AllowGet);
     }
 }

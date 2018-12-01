@@ -7,6 +7,34 @@ note = true
 var nameEntity = 'Home';
 //form //edit
 //edit
+
+var DataTableCumple = $('#DataTableCumple');
+function CreateDataTableCumple(modelCumple) {
+    DataTableCumple.jqGrid({
+        viewrecords: true,
+        datatype: "local",
+        colModel: modelCumple,
+        gridview: true,
+        height: 400,
+        width: 450,
+        //rowNum: 7,
+        //pager: "#DataTablePager",
+        rowattr: CheckActives
+    });
+}
+var modelCumple = [
+    { label: 'id_socio', name: 'id_socio', width: 30 },
+    { label: 'num_socio', name: 'num_socio', width: 30 },
+    { label: 'nombre', name: 'nombre', width: 30 },
+    { label: 'direccion', name: 'direccion', width: 30 },
+    { label: 'mail', name: 'mail', width: 50 },
+    { label: 'Enviar', name: 'Enviar', width: 30, formatter: CustomCellOptionsCumple }
+];
+function CustomCellOptionsCumple(cellValue, options, rowdata, action) {
+    return '<button type="button" class="btn btn-sm btn-success" onclick="SendMail(' + rowdata.id_socio + ')">' +
+        '<img src="../Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
+        '</button>';
+}
 function CreateDataTable(model) {
     DataTable.jqGrid({
         viewrecords: true,
@@ -27,10 +55,9 @@ var colModel = [
     { label: '# Control', name: 'num_control', width: 30 },
     { label: 'ID Socio', name: 'id_socio', width: 30 },
     { label: 'Socio', name: 'socioName', width: 50 },
-    { label: 'Entregar', name: 'Entregar', width: 30, formatter: CustomCellOptions },
+    { label: 'Entregar', name: 'Entregar', width: 30, formatter: CustomCellOptions }
 ];
 function CustomCellOptions(cellValue, options, rowdata, action) {
-    console.log(rowdata.Id_inventario);
     return '<button type="button" class="btn btn-sm btn-success" onclick="updateInventario(' + rowdata.Id_inventario+')">' +
         '<img src="../Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
         '</button>';
@@ -53,15 +80,30 @@ function CreateObject(getLastNumber) {
 
 //edit
 function GetNotes() {
+    CreateDataTableCumple(modelCumple);
+    var path1 = '../Note/GetCumple/';
+    ajaxPostCall(path1, '').done(function (response) {
+        UpdateElementCumple(response);
+    });
+
     var path = '../Note/Get/';
     ajaxPostCall(path, '').done(function (response) {
-        console.log(response);
         UpdateElementNote(response);
+        CreateDataTableCumple(modelCumple);
+        var path1 = '../Note/GetCumple/';
+        ajaxPostCall(path1, '').done(function (response) {
+            UpdateElementCumple(response);
+        });
     });
+
+    
+}
+
+function UpdateElementCumple(response) {
+    updateTable(DataTableCumple, response);
 }
 
 function UpdateElementNote(response) {
-    console.log(response);
     var stringCard = '<div class="card-columns"><br />';
     $.each(response, function (responseValue, item) {
         stringCard += ('<div class="card mb-2 mr-md-2"><br />' +
@@ -155,9 +197,6 @@ inventario.on("change", function () {
     inventarioData.Num_control = dataname ;
 });
 
-
-
-
 $('#btnUpdateInventario').click(function () {
   
     var path = '../Inventario/SaveAsignado/';
@@ -176,4 +215,8 @@ function updateInventario(id_inventario) {
     ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
         GETData(nameEntity, '');
     });
+}
+
+function SendMail(id_socio) {
+    console.log(id_socio);
 }
