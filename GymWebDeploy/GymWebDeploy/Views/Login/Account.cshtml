@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="card card-register mx-auto mt-5">
+    <div class="card-header">Registrar una cuenta</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="name">Nombre</label>
+                        <input class="form-control" id="name" type="text" aria-describedby="nameHelp" placeholder="Escribe tu nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname">Apellidos</label>
+                        <input class="form-control" id="lastname" type="text" aria-describedby="nameHelp" placeholder="Escribe tus apellidos">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="email" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="password">Contraseña</label>
+                        <input class="form-control" id="password" type="password" placeholder="Contraseña">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="confirmPassword">Confirmar tu contraseña</label>
+                        <input class="form-control" id="confirmPassword" type="password" placeholder="Confirma tu contraseña">
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-primary btn-block" href="login.html">Registrarse!</a>
+        </form>
+        <div class="text-center">
+            <a class="d-block small mt-3" href="/Login">Iniciar sesión</a>
+        </div>
+    </div>
+</div>

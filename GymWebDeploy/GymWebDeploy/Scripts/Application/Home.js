@@ -22,12 +22,19 @@ function CreateDataTable(model) {
 }
 var colModel = [
     //{ label: 'Opciones', name: 'Opciones', width: 30, formatter: CustomCellOptions },
+    { label: 'Id_inventario', name: 'Id_inventario', width: 30 , hidden:true},
     { label: 'Nombre', name: 'catnombre', width: 30 },
     { label: '# Control', name: 'num_control', width: 30 },
     { label: 'ID Socio', name: 'id_socio', width: 30 },
     { label: 'Socio', name: 'socioName', width: 50 },
-    { label: 'activo', name: 'activo', width: 30 }
+    { label: 'Entregar', name: 'Entregar', width: 30, formatter: CustomCellOptions },
 ];
+function CustomCellOptions(cellValue, options, rowdata, action) {
+    console.log(rowdata.Id_inventario);
+    return '<button type="button" class="btn btn-sm btn-success" onclick="updateInventario(' + rowdata.Id_inventario+')">' +
+        '<img src="../Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
+        '</button>';
+}
 //edit
 function CreateObject(getLastNumber) {
     data = {
@@ -112,7 +119,7 @@ var partnerID = $('#partnerID');
 var inventario = $('#inventario');
 var BtnAddInventario = $('#BtnAddInventario');
 var inventarioData = {
-    Id_cat_inventario: ''
+    Id_inventario: ''
     , Num_control: ''
     , Id_socio: ''
     , Activo: 1
@@ -132,7 +139,7 @@ BtnAddInventario.click(function () {
     ajaxPostCall(path, ReturnJson('')).done(function (response) {
         $('#inventario option').remove();
         $.each(response, function (responseValue, item) {
-            inventario.append('<option data-tokens="' + item.id_inventario + '" value=' + item.id_inventario + ' data-numControl=' + item.num_control +'>' + item.nombre + " --- " + item.num_control + '</option>');
+            inventario.append('<option data-tokens="' + item.Id_inventario + '" value=' + item.Id_inventario + ' data-numControl=' + item.num_control +'>' + item.nombre + " --- " + item.num_control + '</option>');
         });
         $('#inventario').selectpicker();
         $('#inventario').selectpicker('refresh');
@@ -142,9 +149,10 @@ BtnAddInventario.click(function () {
 partnerID.change(function () {
     inventarioData.Id_socio = partnerID.val();
 });
-inventario.chage(function () {
-    inventarioData.Id_cat_inventario = inventario.val();
-    inventarioData.Num_control = inventario.numControl();
+inventario.on("change", function () {
+    inventarioData.Id_inventario = inventario.val();
+    var dataname = $("option[value=" + $(this).val() + "]", this).attr('data-numcontrol');
+    inventarioData.Num_control = dataname ;
 });
 
 
@@ -153,14 +161,19 @@ inventario.chage(function () {
 $('#btnUpdateInventario').click(function () {
   
     var path = '../Inventario/SaveAsignado/';
-
-
+    console.log(inventarioData);
     ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
-        $('#inventario option').remove();
-        $.each(response, function (responseValue, item) {
-            inventario.append('<option data-tokens="' + item.id_inventario + '" value=' + item.id_inventario + '>' + item.nombre + " --- " + item.num_control + '</option>');
-        });
-        $('.selectpicker').selectpicker();
-        $('#inventario').selectpicker('refresh');
+        console.log(response);
+        $('#editInventario').modal("toggle");
+        GETData(nameEntity, '');
     });
 });
+
+function updateInventario(id_inventario) {
+    var path = '../Inventario/UpdateInventario/';
+    inventarioData.Id_inventario = id_inventario;
+    console.log(inventarioData);
+    ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
+        GETData(nameEntity, '');
+    });
+}

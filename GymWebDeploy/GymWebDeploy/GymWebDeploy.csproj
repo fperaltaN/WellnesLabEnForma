@@ -185,6 +185,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IGenericController.cs" />
     <Compile Include="Controllers\InventarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MembresiaController.cs" />
     <Compile Include="Controllers\ModuloController.cs" />
     <Compile Include="Controllers\ModulosController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Controllers\RegistroVisitaController.cs" />
     <Compile Include="Controllers\PerfilModuloController.cs" />
     <Compile Include="Models\Domain\GenericDataClass.cs" />
+    <Compile Include="Models\Domain\Login.cs" />
     <Compile Include="Models\Domain\Notes.cs" />
     <Compile Include="Models\Domain\ReportePago.cs" />
     <Compile Include="Controllers\ReportePagoController.cs" />
@@ -341,6 +343,7 @@
     <Content Include="Scripts\Application\HistorialFisico.js" />
     <Content Include="Scripts\Application\HistorialMedico.js" />
     <Content Include="Scripts\Application\Home.js" />
+    <Content Include="Scripts\Application\Login.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Note.js" />
     <Content Include="Scripts\Application\Pago.js" />
@@ -439,6 +442,10 @@
     <Content Include="Views\CatInventario\Index.cshtml" />
     <Content Include="Views\ReportePago\Index.cshtml" />
     <Content Include="Views\Shared\_DataDatesViews.cshtml" />
+    <Content Include="Views\Login\Account.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

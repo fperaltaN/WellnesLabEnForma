@@ -15,7 +15,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult Get() => Json(new GenericBaseDao().Get<CatalogoInventario>(ConfigurationManager.AppSettings["QueryGETInventario"]), JsonRequestBehavior.AllowGet);
         public JsonResult GetInventarioAsignado() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioAsignado"]), JsonRequestBehavior.AllowGet);
         public JsonResult SaveAsignado(InventarioAsignado data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveInventarioAsignado"],
-               data.id_cat_inventario,data.num_control,data.id_socio,1)
+               data.id_socio, data.Id_inventario)
                ), JsonRequestBehavior.AllowGet);
 
         public JsonResult GetById(Inventario data)
@@ -35,6 +35,10 @@ namespace GymWebDeploy.Controllers
         public JsonResult Update(Inventario data)
         {
             return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATEInventario"])), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult UpdateInventario(InventarioAsignado data)
+        {
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryDELETEInventarioAsignado"],data.Id_inventario)), JsonRequestBehavior.AllowGet);
         }
     }
 }
