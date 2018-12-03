@@ -19,7 +19,14 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(PagoRecargo data)
         {
-            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVEPagoRecargo"])), JsonRequestBehavior.AllowGet);
+            try
+            {
+                return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVEPagoRecargo"])), JsonRequestBehavior.AllowGet);
+            }
+            catch(System.Exception e)
+            {
+                return null;
+            }
         }
 
         public JsonResult Update(PagoRecargo data)
