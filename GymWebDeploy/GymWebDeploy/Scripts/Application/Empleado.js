@@ -2,6 +2,7 @@
 var FileTitle = 'Catalogo de Empleados';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
+note = false;
 //edit
 var nameEntity = 'Empleado';
 //form //edit

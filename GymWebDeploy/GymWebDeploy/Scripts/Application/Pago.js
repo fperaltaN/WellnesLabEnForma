@@ -1,4 +1,7 @@
-﻿CRUD = false;
+﻿//Titulo para la exportación de archivos
+var FileTitle = 'Catalogo de Pago';
+// si crud true tiene grid si no es solo captura
+CRUD = false;
 note = false;
 //edit
 var nameEntity = 'Pago';

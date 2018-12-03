@@ -2,6 +2,7 @@
 var FileTitle = 'Catalogo de Historial Medico';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
+note = false;
 //edit
 var nameEntity = 'HistorialMedico';
 //form //edit

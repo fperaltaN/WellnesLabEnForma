@@ -3,6 +3,33 @@
     ViewBag.report = true;
     Html.RenderPartial("_DataGridView");
 }
+<form id="form" class="card-body">
+    <div class="form form-group row">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+                        </div>
+                        <select id="partnerID" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
+                    </div>
+                    <strong>Detalles del cliente</strong>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="partnerNum" class="input-group-text">Número de socio</label>
+                                </div>
+                                <input id="partnerNum" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <script src="~/Scripts/Application/utils/AfterJS.js"></script>
 <script src="~/Scripts/Application/AJAXRequest.js"></script>
 <script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>

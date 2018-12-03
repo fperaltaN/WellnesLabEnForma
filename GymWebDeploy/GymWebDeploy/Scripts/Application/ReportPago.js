@@ -2,6 +2,7 @@
 var FileTitle = 'Catalogo de Reporte de Pago';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
+note = false;
 //edit
 var nameEntity = 'ReportePago';
 var dataDate = {};
@@ -86,6 +87,45 @@ $(document).ready(function () {
         GetDataDate();
     });
     GetDataDate();
+
+    ///Total de Pago 
+    $('#DataTable').DataTable({
+        "footerCallback": function (row, data, start, end, display) {
+            var api = this.api(), data;
+
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '') * 1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+
+            // Total over all pages
+            total = api
+                .column(6)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Total over this page
+            pageTotal = api
+                .column(6, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Update footer
+            $(api.column(6).footer()).html(
+                '$' + pageTotal + ' ( $' + total + ' total)'
+            );
+        }
+    });
+});
+
+
 });
 
 function now() {
