@@ -50,7 +50,7 @@ namespace GymWebDeploy.Controllers
                 data.ID_USUARIO,
                 data.importe,
                 data.fecha_pago_vence,
-                data.pendiente)), JsonRequestBehavior.AllowGet);
+                data.pendiente,data.refTicketVenta)), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Update(Pago data)

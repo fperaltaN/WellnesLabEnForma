@@ -7,6 +7,7 @@ namespace GymWebDeploy.Models.Domain
         public int id_paquete { get; set; }
         public int id_socio { get; set; }
         public int ID_USUARIO { get; set; }
+        public int refTicketVenta { get; set; }
         public decimal? importe { get; set; }
         public DateTime? fecha_pago { get; set; }
         public bool activo { get; set; }

@@ -17,6 +17,7 @@ var data = {
     ID_USUARIO: '',
     fecha_pago_vence: '',
     pendiente: '',
+    refTicketVenta: '',
     importe: ''
 };
 //form //edit
@@ -39,6 +40,7 @@ var payType = $('#payType');
 
 var userRecargo = $('#userRecargo');
 var userPayGet = $('#pay');
+var refTicketVenta = $('#refTicketVenta');
 
 var btnPay = $('#btnPay');
 
@@ -53,6 +55,7 @@ function CreateObject() {
         ID_USUARIO: '',
         fecha_pago_vence: '',
         pendiente: '',
+        refTicketVenta : '',
         importe: ''
     };
 }
@@ -126,7 +129,14 @@ $(document).ready(function () {
         mode = 0;
         Save();
         SavePendiente();
+        payType.val(1)
+        ticketRef();
     });
+
+    payType.change(function () {
+        ticketRef();
+    });
+    ticketRef();
 });
 
 function UpdateElement(response) {
@@ -140,6 +150,7 @@ function GetInputs() {
         ID_USUARIO: 1,
         fecha_pago_vence: 1,
         pendiente: (parseInt(userTotal.val()) - parseInt(userPay.val())),
+        refTicketVenta: refTicketVenta.val(),
         importe: userPay.val()
     }
     data.pendiente = (parseInt(userTotal.val()) - parseInt(userPay.val())).toString();
@@ -248,4 +259,16 @@ function SavePendiente() {
     ADDData('PagoRecargo', '');
 
     clean();
+}
+
+//habilita la referencia del pago
+function ticketRef() {
+    if (payType.val() == 1) {
+        refTicketVenta.prop('disabled', true);
+        refTicketVenta.css("background-color", "#e2e3e5");
+    } else if (payType.val() == 2){
+        refTicketVenta.prop('disabled', false); 
+        refTicketVenta.css("background-color", "white");
+    }
+    
 }
