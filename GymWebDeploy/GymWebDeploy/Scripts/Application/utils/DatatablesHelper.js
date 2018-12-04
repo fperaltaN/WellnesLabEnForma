@@ -1,4 +1,6 @@
 ﻿function CreateDataTable(model) {
+
+
     DataTable.jqGrid({
         viewrecords: true,
         datatype: "local",
@@ -6,9 +8,39 @@
         gridview: true,
         height: 'auto',
         width: 1180,
-        rowNum: 7,
+        rowNum: 2,
+        rownumbers: true,
         pager: "#DataTablePager",
-        rowattr: CheckActives
+        rowattr: CheckActives,
+        footerrow: true,
+        gridComplete: function () {
+            var $grid = DataTable;
+            
+            //$grid.jqGrid('footerData', 'set', {'importe': colSu });
+        },
+        loadComplete: function () {
+            var $grid = DataTable;
+            var i = 0, item;
+            localData = $grid.jqGrid("getGridParam", "data"),
+                itemCount = localData.length,
+                totalCredit = 0,
+                i,
+                item;
+
+            for (i = 0; i < itemCount; i++) {
+                item = localData[i];
+                totalCredit += parseFloat(item.importe);
+                console.log(totalCredit)
+            }
+            var colSum = $grid.jqGrid('getCol', 'importe', false, 'sum');
+
+            $grid.jqGrid('footerData', 'set', { name: 'TOTAL','importe': totalCredit });
+            $grid.jqGrid('footerData', 'set', { name: 'TOTAL en página','pendiente': colSum });
+
+            
+        
+        }
+
     });
 }
 function updateTable(grid, response) {
