@@ -1,31 +1,31 @@
 ﻿//Titulo para la exportación de archivos
-var FileTitle = 'Catalogo de Reporte de Checador de Socios';
+var FileTitle = 'Catalogo de Reporte de Checador de Empleados';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
 note = false;
 //edit
-var nameEntity = 'ReporteChecadorSocio';
+var nameEntity = 'ReporteChecadorEmpleado';
 var dataDate = {};
 //form //edit
 //edit
 var colModel = [
     //{ label: 'Opciones', name: 'Opciones', width: 30, formatter: CustomCellOptions },
-    { label: 'Nombre Socio', name: 'nombre', width: 60 },
-    { label: 'Num Socio', name: 'num_socio', width: 30, align: 'center',},  
+    { label: 'Nombre Empleado', name: 'nombre', width: 60 },
+    { label: 'Num Empleado', name: 'num_empleado', width: 30,align: 'center',  } ,
     { label: 'Registro Entrada', name: 'entrada', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', },
     { label: 'Hora Entrada', name: 'entrada', width: 35, formatter: 'date', formatoptions: { newformat: 'H:m:s' }, align: 'center', },
     { label: 'Registro salida', name: 'salida', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', },
     { label: 'Hora Entrada', name: 'salida', width: 35, formatter: 'date', formatoptions: { newformat: 'H:m:s' }, align: 'center', },
-    { label: 'id_socio', name: 'id_socio', width: 0, hidden: true }
+    { label: 'id_empleado', name: 'id_empleado', width: 0, hidden: true }
 ];
 //edit
 function CreateObject() {
     data = {
         nombre: '',
-        num_socio,
+        num_empleado,
         entrada: '',
         salida: '',
-        id_socio: ''
+        id_empleado: ''
     };
     GETDataSingle(nameEntity + '/Get/', '');
 }
@@ -61,6 +61,7 @@ function GetDataDate() {
         updateTable(DataTable, response);
     });
 }
+
 
 $(document).ready(function () {
     $('#start').val(now());

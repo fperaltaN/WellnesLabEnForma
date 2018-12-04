@@ -13,14 +13,16 @@ namespace GymWebDeploy.Controllers
     {
         public JsonResult Get()
         {
-            return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETReportePago"], DateTime.Today.ToShortDateString(), DateTime.Today.ToShortDateString())),
-               JsonRequestBehavior.AllowGet);
+            var jsonResult = Json(new GenericBaseDao().Get<ReporteChecadorSocio>(
+             ConfigurationManager.AppSettings["QueryGETChecadorSocio"]),
+             JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
         public JsonResult GetByDate(GenericDataClass data)
         {
             return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETReportePago"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
+               ConfigurationManager.AppSettings["QueryGETChecadorSocioByDate"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
                JsonRequestBehavior.AllowGet);
         }
         // GET: ReporteChecadorSocio

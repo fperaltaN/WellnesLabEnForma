@@ -352,6 +352,7 @@
     <Content Include="Scripts\Application\Note.js" />
     <Content Include="Scripts\Application\Pago.js" />
     <Content Include="Scripts\Application\Paquete.js" />
+    <Content Include="Scripts\Application\ReporteChecadorEmpleado.js" />
     <Content Include="Scripts\Application\ReporteChecadorSocio.js" />
     <Content Include="Scripts\Application\ReportPago.js" />
     <Content Include="Scripts\Application\Socio.js" />
@@ -414,7 +415,6 @@
     <Folder Include="Views\Record\" />
     <Folder Include="Views\RegistroVisita\" />
     <Folder Include="Views\Rel_Perfil_Modulo\" />
-    <Folder Include="Views\ReporteChecadorEmpleado\" />
     <Folder Include="Views\Servicio\" />
     <Folder Include="Views\SocioMembresia\" />
     <Folder Include="Views\Usuario\" />
@@ -453,6 +453,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Logout.cshtml" />
     <Content Include="Views\ReporteChecadorSocio\Index.cshtml" />
+    <Content Include="Views\ReporteChecadorEmpleado\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
