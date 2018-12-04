@@ -1,50 +1,31 @@
 ﻿//Titulo para la exportación de archivos
-var FileTitle = 'Catalogo de Reporte de Pago';
+var FileTitle = 'Catalogo de Reporte de Checador de Socios';
 // si crud true tiene grid si no es solo captura
 CRUD = true;
 note = false;
 //edit
-var nameEntity = 'ReportePago';
+var nameEntity = 'ReporteChecadorSocio';
 var dataDate = {};
 //form //edit
 //edit
 var colModel = [
     //{ label: 'Opciones', name: 'Opciones', width: 30, formatter: CustomCellOptions },
     { label: 'Nombre Socio', name: 'nombre', width: 60 },
-    { label: 'Paquete', name: 'paquete', width: 40 },
-    { label: 'Fecha Pago', name: 'fecha_pago', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }  , align: 'center',},
-    { label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' } , align: 'center', },
-    { label: 'Meses pagados', name: 'meses', width: 30, hidden: true  },
-    { label: 'Empleado Registro', name: 'empleado', width: 70 },
-    {
-        label: '$ Recibido', name: 'importe', width: 40, formatter: 'number',
-        formatoptions: { decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: '0.00' },
-        align: 'center',},
-    {
-        label: '$ Pendiente', name: 'pendiente', width: 40, formatter: 'number',
-        formatoptions: {  decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: '0.00' },
-        align: 'center', },    
-    { label: 'id_pago', name: 'id_pago', width: 0, hidden: true },
-    { label: 'id_socio', name: 'id_socio', width: 0, hidden: true },
-    { label: 'id_paquete', name: 'id_paquete', width: 0, hidden: true },
-    { label: 'activo', name: 'activo', width: 0, hidden: true }
+    { label: 'Num Socio', name: 'num_socio', width: 70 }  
+    { label: 'Registro Entrada', name: 'entrada', width: 35, formatter: 'date', formatoptions: { newformat: 'dd-MM-yy' }, align: 'center', },
+    { label: 'Hora Entrada', name: 'entrada', width: 35, formatter: 'date', formatoptions: { newformat: 'HH:mm:ss' }, align: 'center', },
+    { label: 'Registro salida', name: 'salida', width: 35, formatter: 'date', formatoptions: { newformat: 'MM/dd/yy' }, align: 'center', },
+    { label: 'Hora Entrada', name: 'salida', width: 35, formatter: 'date', formatoptions: { newformat: 'HH:mm:ss' }, align: 'center', },
+    { label: 'id_socio', name: 'id_socio', width: 0, hidden: true }
 ];
 //edit
 function CreateObject() {
     data = {
-        //Optiones: '',
-        id_pago: '',
-        id_paquete: '',
-        id_socio: '',
-        ID_USUARIO: '',
         nombre: '',
-        paquete: '',
-        fecha_pago: '',
-        fecha_pago_vence: '',
-        meses: '',
-        empleado: '',
-        pendiente: '',
-        activo: ''
+        num_socio,
+        entrada: '',
+        salida: '',
+        id_socio: ''
     };
 }
 //edit

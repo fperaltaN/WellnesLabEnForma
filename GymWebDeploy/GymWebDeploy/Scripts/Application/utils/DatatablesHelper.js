@@ -8,7 +8,7 @@
         gridview: true,
         height: 'auto',
         width: 1180,
-        rowNum: 2,
+        rowNum: 7,
         rownumbers: true,
         pager: "#DataTablePager",
         rowattr: CheckActives,
@@ -33,12 +33,11 @@
                 console.log(totalCredit)
             }
             var colSum = $grid.jqGrid('getCol', 'importe', false, 'sum');
-
-            $grid.jqGrid('footerData', 'set', { name: 'TOTAL','importe': totalCredit });
-            $grid.jqGrid('footerData', 'set', { name: 'TOTAL en página','pendiente': colSum });
-
+            var dataShow = 'Total: $' + totalCredit;// + ' (en página:) $';
+            $grid.jqGrid('footerData', 'set', { 'empleado': dataShow, 'importe': colSum });
             
-        
+            //$grid.jqGrid('footerData', 'set', { 'pendiente': 'TOTAL en página','pendiente': colSum });
+
         }
 
     });
