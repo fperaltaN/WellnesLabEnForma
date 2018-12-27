@@ -148,11 +148,12 @@ function UpdateElement(response) {
 }
 function GetInputs() {
     id_paquete = data.id_paquete;
+    vence = data.fecha_pago_vence,
     data = {
         id_paquete: id_paquete,
         id_socio: partnerID.val(),
         ID_USUARIO: 1,
-        fecha_pago_vence: 1,
+        fecha_pago_vence: vence,
         pendiente: (parseInt(userTotal.val()) - parseInt(userPay.val())),
         refTicketVenta: refTicketVenta.val(),
         importe: userPay.val()
