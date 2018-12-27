@@ -16,7 +16,7 @@ namespace GymWebDeploy.Models.Domain.Utils
                 if (!reader.IsDBNull(reader.GetOrdinal(field)))
                     ok = true;
             }
-            catch (Exception) { }
+            catch (Exception ex) { }
             return ok;
         }
 

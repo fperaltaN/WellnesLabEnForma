@@ -39,11 +39,11 @@ var userPending = $('#userPending');
 var payType = $('#payType');
 
 var userRecargo = $('#userRecargo');
+var userPayDate = $('#userPayDate');
 var userPayGet = $('#pay');
 var refTicketVenta = $('#refTicketVenta');
 
 var btnPay = $('#btnPay');
-
 function CreateObject() {
     data = {
         nombre: '',
@@ -57,7 +57,7 @@ function CreateObject() {
         pendiente: '',
         refTicketVenta : '',
         importe: ''
-    };
+    };    
 }
 $(document).ready(function () {
     GETDataSingle(nameEntity + '/GetSocios/ ', '');
@@ -95,9 +95,14 @@ $(document).ready(function () {
                     date = new Date(response[0].fecha_pago_vence.match(/\d+/)[0] * 1);
                 }
                 console.log(date);
-
                 var d = new Date().getMonth();
                 var n = new Date(date).getMonth();
+                var lastdd = new Date(date).getDate();
+                var lastmm = new Date(date).getMonth();
+                var lastyyyy = new Date(date).getFullYear();
+                data.fecha_pago_vence = addMonth(lastyyyy, lastmm, lastdd);
+                //ponemos las fechas del pago
+                getDateNextPay(date);
                 $('#userTotal').val(parseInt(packageCost.val()) + parseInt(userPending.val()));
                 if ((parseInt(userPending.val()) > 0) && (d === n)) {
                     $('#userTotal').val(parseInt(packageCost.val()) + parseInt(userPending.val()));
@@ -114,7 +119,6 @@ $(document).ready(function () {
             return false;
         });
     });
-
     //Calculo de total
     $('#userPending').change(function () {
         updateCost();
@@ -154,7 +158,6 @@ function GetInputs() {
         importe: userPay.val()
     }
     data.pendiente = (parseInt(userTotal.val()) - parseInt(userPay.val())).toString();
-    getDateNextPay();
 }
 function FillPartners(response) {
     partners = response;
@@ -177,45 +180,41 @@ function updateCost() {
 /*
 * Guarda la información de los pagos
 */
-function getDateNextPay() {
+function getDateNextPay(date) {
     switch (payMonths.val()) {
         case "1":
-            date = now(1);
+            date = now(date,1);
             break;
         case "3":
-            date = now(3);
+            date = now(date,3);
             break;
         case "6":
-            date = now(6);
+            date = now(date,6);
             break;
         case "9":
-            date = now(9);
+            date = now(date,9);
             break;
         case "12":
-            date = now(12);
+            date = now(date,12);
             break;
         default:
             date = date + 1;
     }
+    userPayDate.val(data.fecha_pago_vence + ' - ' + date);
     data.fecha_pago_vence = date;/*
     data.importe = $('#userPay').val();
     data.pendiente = $('#userPending').val();*/
+    data.refTicketVenta = refTicketVenta.val();
+    
 }
 
 // Actual Date
-function now(monthAdd) {
-    var today = new Date();
+function now(date, monthAdd) {  
+    var today = new Date(date);
     var dd = today.getDate();
     var mm = today.getMonth();
     var yyyy = today.getFullYear();
 
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm
-    }
 
     var dateEnd = new Date(yyyy, mm, dd);
     //Agregamos los nuevos meses
@@ -226,7 +225,39 @@ function now(monthAdd) {
     mm = dateEnd.getMonth() + 1; //January is 0!
     yyyy = dateEnd.getFullYear();
 
-    return yyyy + '/' + mm + '/' + dd;
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    return dd + '/' + mm + '/' + yyyy ;
+}
+
+// Actual Date
+function addMonth(yyyy, mm, dd) {
+   
+    var dateEnd = new Date(yyyy, mm, dd);
+    //Agregamos los nuevos meses
+    dateEnd.setMonth(dateEnd.getMonth());
+
+    //Formamos la fecha 
+    dd = dateEnd.getDate();
+    mm = dateEnd.getMonth() + 1; //January is 0!
+    yyyy = dateEnd.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    return dd + '/' + mm + '/' + yyyy;
 }
 //clean
 function clean() {
@@ -272,3 +303,27 @@ function ticketRef() {
     }
     
 }
+
+//change de los meses a pagar
+$('#payMonths').on('change', function () {
+    var path = '../' + nameEntity + '/GetPendiente/';
+    var date = new Date().getMonth();
+    ajaxPostCall(path, ReturnJson(data)).done(function (response) {
+        console.log(response);
+        userPending.val(0);
+        if (response.length > 0) {
+            userPending.val(response[0].pendiente == undefined ? 0 : response[0].pendiente);
+            date = new Date(response[0].fecha_pago_vence.match(/\d+/)[0] * 1);
+        }
+        console.log(date);
+        var d = new Date().getMonth();
+        var n = new Date(date).getMonth();
+        var lastdd = new Date(date).getDate();
+        var lastmm = new Date(date).getMonth();
+        var lastyyyy = new Date(date).getFullYear();
+        data.fecha_pago_vence = addMonth(lastyyyy, lastmm, lastdd);
+        //ponemos las fechas del pago
+        getDateNextPay(date);
+    });
+    return false;
+});

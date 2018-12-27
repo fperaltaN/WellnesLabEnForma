@@ -58,6 +58,7 @@ $('#datepicker').datepicker({
     //format: 'yyyy/mm/dd',
     format: 'dd/mm/yyyy',
     clearBtn: true,
+    todayHighlight: true,
     language: 'es',
     orientation: 'bottom auto',
     calendarWeeks: true,

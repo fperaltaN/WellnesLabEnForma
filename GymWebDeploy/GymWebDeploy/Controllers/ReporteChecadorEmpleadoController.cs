@@ -19,7 +19,7 @@ namespace GymWebDeploy.Controllers
         }
         public JsonResult GetByDate(GenericDataClass data)
         {
-            return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
+            return Json(new GenericBaseDao().Get<ReporteChecadorEmpleado>(string.Format(
                ConfigurationManager.AppSettings["QueryGETChecadorByDate"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
                JsonRequestBehavior.AllowGet);
         }

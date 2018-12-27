@@ -19,9 +19,9 @@ namespace GymWebDeploy.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-        public JsonResult GetByDate(GenericDataClass data)
+        public JsonResult GetByDateSocio(GenericDataClass data)
         {
-            return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
+            return Json(new GenericBaseDao().Get<ReporteChecadorSocio>(string.Format(
                ConfigurationManager.AppSettings["QueryGETChecadorSocioByDate"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
                JsonRequestBehavior.AllowGet);
         }

@@ -39,6 +39,7 @@ function SetDeleteMsg() {
 $('#datepicker').datepicker({
     //format: 'yyyy/mm/dd',
     format: 'dd/mm/yyyy',
+    todayHighlight: true,
     clearBtn: true,
     language: 'es',
     orientation: 'bottom auto',
@@ -54,7 +55,7 @@ function GetDataDate() {
         start: $('#start').val(),
         end: $('#end').val()
     };
-    var path = '../' + nameEntity + '/GetByDate/';
+    var path = '../' + nameEntity + '/GetByDateSocio/';
     MsgSuccess('info', 'Cargando Información...');
     ajaxPostCall(path, ReturnJson(dataDates)).done(function (response) {
         console.log(response);
