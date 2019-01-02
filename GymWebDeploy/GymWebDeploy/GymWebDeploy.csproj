@@ -357,6 +357,7 @@
     <Content Include="Scripts\Application\ReportPago.js" />
     <Content Include="Scripts\Application\Socio.js" />
     <Content Include="Scripts\Application\utils\AfterJS.js" />
+    <Content Include="Scripts\Application\utils\checkSession.js" />
     <Content Include="Scripts\Application\utils\DatatablesHelper.js" />
     <Content Include="Scripts\Application\utils\ElementsHelper.js" />
     <Content Include="Scripts\Application\Empleado.js" />

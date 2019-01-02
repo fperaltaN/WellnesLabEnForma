@@ -42,6 +42,31 @@ namespace GymWebDeploy.Controllers
             }            
         }
 
+        [HttpPost]
+        public JsonResult sessionAbandon()
+        {
+            LoginStatus status = new LoginStatus();
+            Session["User"] = null;
+            Session["UserName"] = null;
+            Session["UserRol"] = null;
+            Session["LoggedIn"] = null;
+            status.Message = "Hasta luego.. " ;
+            status.Success = false;
+            status.TargetURL = "Login" ;
+            return Json(status);
+        }
+
+        [HttpPost]
+        public JsonResult sessionStatus()
+        {
+            if(Session["User"] != null)
+                return Json(true);
+            else
+                return Json(false);
+        }
+
+
+
         public JsonResult Get()
         {
             return Json(new GenericBaseDao().Get<Login>(ConfigurationManager.AppSettings["QueryGET"]), JsonRequestBehavior.AllowGet);
