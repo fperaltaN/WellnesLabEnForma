@@ -26,7 +26,7 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(Notes data)
         {
-            throw new NotImplementedException();
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryInsertNote"], data.Note)), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Update(Notes data)

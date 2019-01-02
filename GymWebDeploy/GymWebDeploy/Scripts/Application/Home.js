@@ -113,7 +113,7 @@ function UpdateElementNote(response) {
             '<div class="card-footer"><br />' +
             '   <button type="button" onclick="editNote(' + item.IdNote + ' )" class="btn btn-warning btn-xs"><br />' +
             '       <img src="../Content/icons/baseline_edit_white_18dp.png"><br />' +
-            '   </button><br />' +
+            '   </button>&nbsp' +
             '   <button type="button" onclick="deleteNote(' + item.IdNote + ' )" class="btn btn-danger btn-xs"><br />' +
             '       <img src="../Content/icons/baseline_delete_white_18dp.png"><br />' +
             '   </button > <br />' +
@@ -128,6 +128,8 @@ var noteData = {
 };
 
 function editNote(id) {
+    $('#btnUpdateNote').show();
+    $('#btnInsertNote').hide();
     $('#editNote').modal("toggle");
     noteData = {
         IdNote: id,
@@ -138,6 +140,16 @@ function editNote(id) {
 $('#btnUpdateNote').click(function () {
     console.log(noteData);
     var path = '../Note/Update/';
+    noteData.Note = $('#noteStr').val();
+    ajaxPostCall(path, ReturnJson(noteData)).done(function (response) {
+        console.log(response);
+        GetNotes();
+        $('#editNote').modal("toggle");
+    });
+});
+$('#btnInsertNote').click(function () {
+    console.log(noteData);
+    var path = '../Note/Save/';
     noteData.Note = $('#noteStr').val();
     ajaxPostCall(path, ReturnJson(noteData)).done(function (response) {
         console.log(response);

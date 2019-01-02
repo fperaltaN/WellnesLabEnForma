@@ -1,15 +1,15 @@
 ﻿//Titulo para la exportación de archivos
-var FileTitle = 'Catalogo de Historial Medico';
+var FileTitle = 'Catalogo de Login';
 // si crud true tiene grid si no es solo captura
 CRUD = false;
 note = false;
 //edit
 var nameEntity = 'Login';
 //form //edit
-var userText = $('#partnerID');
-var passText = $('#partnerNum');
+var userText = $('#userText');
+var passText = $('#passText');
 var path = '../' + nameEntity + '/ValidateUser/';
-var btnLogin = $('#btnPay');
+var btnLogin = $('#btnLogin');
 //
 function CreateObject() {
     data = {
@@ -20,7 +20,7 @@ function CreateObject() {
 
 $(document).ready(function () {
     CreateObject();
-    btnPay.click(function () {
+    btnLogin.click(function () {
         MsgSuccess('info', 'Ingresando al sistema\n espere...');
         mode = 0;
         login();
