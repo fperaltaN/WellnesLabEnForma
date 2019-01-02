@@ -2,6 +2,7 @@
 using GymWebDeploy.Models.Dao;
 using GymWebDeploy.Models.Domain;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -18,26 +19,27 @@ namespace GymWebDeploy.Controllers
         [HttpPost]
         public JsonResult ValidateUser(Login data)
         {
+            List<Usuarios> usuarioData = new GenericBaseDao().Get<Usuarios>(ConfigurationManager.AppSettings["QueryGETUsuarios"]);
+            Usuarios usuario = usuarioData.Find(x => x.USUARIO == data.user && x.PASSWORD == data.pass);
             LoginStatus status = new LoginStatus();
-            if (Membership.ValidateUser(data.user, data.pass))
+            if (usuario != null)
             {
-                FormsAuthentication.SetAuthCookie(data.user, false);
+                Session["User"] = usuario.USUARIO;
+                Session["UserName"] = usuario.NOMBRE +" "+ usuario.APELLIDO_MAT;
+                Session["UserRol"] = usuario.ID_PERFIL;
+                Session["LoggedIn"] = "ok";
+                status.Message = "Bienvenid@ " + usuario.USUARIO;
                 status.Success = true;
-                status.TargetURL = FormsAuthentication.
-                                   GetRedirectUrl(data.user, false);
-                if (string.IsNullOrEmpty(status.TargetURL))
-                {
-                    status.TargetURL = FormsAuthentication.DefaultUrl;
-                }
-                status.Message = "Acesso Correcto!";
+                status.TargetURL = "Home" + "/" + "Index";
+                return Json(status);
             }
             else
             {
+                status.Message = "El nombre y/o contraseña son incorrectos";
                 status.Success = false;
-                status.Message = "Usuario o contraseña incorrecto";
-                status.TargetURL = FormsAuthentication.LoginUrl;
-            }
-            return Json(status);
+                status.TargetURL = "..." ;
+                return Json(status);
+            }            
         }
 
         public JsonResult Get()

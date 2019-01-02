@@ -31,7 +31,7 @@ $(document).ready(function () {
 function GetInputs() {
     data = {
         user: userText.val(),
-        id_socio: passText.val()
+        pass: passText.val()
     }
 }
 
@@ -40,7 +40,12 @@ function login() {
     ajaxPostCall(path, ReturnJson(data)).done(function (response) {
         console.log(response);
         if (response.Success) {
-            window.location.href = response.TargetURL;
+            MsgSuccess('success', response.Message);
+            var url = response.TargetURL ;
+            window.location.href = url;
+        }
+        else {
+            MsgSuccess('warning', response.Message);
         }
     });
 }
