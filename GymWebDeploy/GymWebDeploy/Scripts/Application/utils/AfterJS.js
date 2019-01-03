@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     console.log('ready!');
-    if (CRUD) {
+    checkStatus();
+    if (CRUD) {        
         CreateDataTable(colModel);
         GETData(nameEntity, '');
     } if (note) {

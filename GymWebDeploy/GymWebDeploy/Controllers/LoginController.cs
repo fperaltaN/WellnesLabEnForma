@@ -14,20 +14,21 @@ namespace GymWebDeploy.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            ViewBag.UserRol = "0";
             return View();
         }
         [HttpPost]
         public JsonResult ValidateUser(Login data)
         {
             List<Usuarios> usuarioData = new GenericBaseDao().Get<Usuarios>(ConfigurationManager.AppSettings["QueryGETUsuarios"]);
-            Usuarios usuario = usuarioData.Find(x => x.USUARIO == data.user && x.PASSWORD == data.pass);
+            Usuarios usuario = usuarioData.Find(x => x.USUARIO.Trim() == data.user.Trim() && x.PASSWORD.Trim() == data.pass.Trim());
             LoginStatus status = new LoginStatus();
             if (usuario != null)
             {
                 Session["User"] = usuario.USUARIO;
                 Session["UserName"] = usuario.NOMBRE +" "+ usuario.APELLIDO_MAT;
                 Session["UserRol"] = usuario.ID_PERFIL;
-                ViewData["UserRol"] = usuario.ID_PERFIL;
+                ViewBag.UserRol = usuario.ID_PERFIL;
                 Session["LoggedIn"] = "ok";
                 status.Message = "Bienvenid@ " + usuario.USUARIO;
                 status.Success = true;

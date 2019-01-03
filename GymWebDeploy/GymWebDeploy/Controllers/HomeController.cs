@@ -5,8 +5,13 @@ using System.Web.Mvc;
 
 namespace GymWebDeploy.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller, IGenericController<Empleado>
     {
+        public JsonResult Get()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public ActionResult Index()
         {
             if (Request.HttpMethod == "POST")
@@ -18,6 +23,16 @@ namespace GymWebDeploy.Controllers
                 return View(); 
             }
             
+        }
+
+        public JsonResult Save(Empleado data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public JsonResult Update(Empleado data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

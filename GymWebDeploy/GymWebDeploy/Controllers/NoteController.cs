@@ -13,7 +13,7 @@ namespace GymWebDeploy.Controllers
             return Json(new GenericBaseDao().Get<Notes>(ConfigurationManager.AppSettings["QueryGETNote"]), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetHome() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioNow"]), JsonRequestBehavior.AllowGet);
+       
 
         public JsonResult GetCumple()
         {

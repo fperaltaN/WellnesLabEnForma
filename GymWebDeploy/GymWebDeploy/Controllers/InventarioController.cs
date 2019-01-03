@@ -40,5 +40,6 @@ namespace GymWebDeploy.Controllers
         {
             return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryDELETEInventarioAsignado"],data.Id_inventario)), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetInventarioHome() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioNow"]), JsonRequestBehavior.AllowGet);
     }
 }

@@ -347,6 +347,7 @@
     <Content Include="Scripts\Application\HistorialFisico.js" />
     <Content Include="Scripts\Application\HistorialMedico.js" />
     <Content Include="Scripts\Application\Home.js" />
+    <Content Include="Scripts\Application\Inventario.js" />
     <Content Include="Scripts\Application\Login.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Note.js" />
