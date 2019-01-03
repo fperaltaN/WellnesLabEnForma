@@ -27,6 +27,7 @@ namespace GymWebDeploy.Controllers
                 Session["User"] = usuario.USUARIO;
                 Session["UserName"] = usuario.NOMBRE +" "+ usuario.APELLIDO_MAT;
                 Session["UserRol"] = usuario.ID_PERFIL;
+                ViewData["UserRol"] = usuario.ID_PERFIL;
                 Session["LoggedIn"] = "ok";
                 status.Message = "Bienvenid@ " + usuario.USUARIO;
                 status.Success = true;
@@ -53,6 +54,7 @@ namespace GymWebDeploy.Controllers
             status.Message = "Hasta luego.. " ;
             status.Success = false;
             status.TargetURL = "Login" ;
+            Session.Abandon();
             return Json(status);
         }
 

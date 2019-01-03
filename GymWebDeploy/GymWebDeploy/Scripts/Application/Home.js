@@ -80,17 +80,25 @@ function CreateObject(getLastNumber) {
 
 //edit
 function GetNotes() {
+
+    //GetNote
+    //CreateDataTableCumple(modelCumple);//tabla de home
+    var path1 = '../WEBDEPLOY/Note/GetHome/';
+    ajaxPostCall(path1, '').done(function (response) {
+        //UpdateElementCumple(response);//llenar de home
+    });
+
     CreateDataTableCumple(modelCumple);
-    var path1 = '../Note/GetCumple/';
+    var path1 = '../WEBDEPLOY/Note/GetCumple/';
     ajaxPostCall(path1, '').done(function (response) {
         UpdateElementCumple(response);
     });
 
-    var path = '../Note/Get/';
+    var path = '../WEBDEPLOY/Note/Get/';
     ajaxPostCall(path, '').done(function (response) {
         UpdateElementNote(response);
         CreateDataTableCumple(modelCumple);
-        var path1 = '../Note/GetCumple/';
+        var path1 = '../WEBDEPLOY/Note/GetCumple/';
         ajaxPostCall(path1, '').done(function (response) {
             UpdateElementCumple(response);
         });

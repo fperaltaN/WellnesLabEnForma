@@ -9,10 +9,15 @@ namespace GymWebDeploy.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Request.HttpMethod == "POST")
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View(); 
+            }
+            
         }
-
-
-        public JsonResult Get() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioNow"]), JsonRequestBehavior.AllowGet);
     }
 }
