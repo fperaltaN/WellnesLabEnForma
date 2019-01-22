@@ -194,22 +194,23 @@ namespace GymWebDeploy.Models.Domain.Utils
         {
             String lines = /*"WELLNESS LAB EN FORMA" + Environment.NewLine +
                   "EXPEDIDO EN:" + Environment.NewLine +*/
-                  "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
+                  "CALLE ODONTOLOGÍA NO. 13 " + Environment.NewLine + 
+                  "FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
                   "TEL: 4922285758" + Environment.NewLine +
                   "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  "FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
+                  "FACEBOOK: facebook.com/Wellness-Lab-en-Forma " + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
-                  "Fecha de revisión: " + DateTime.Now.ToShortDateString() + "" + Environment.NewLine +
+                  "Fecha de emisión: " + DateTime.Now.ToShortDateString() + "" + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** DATOS DEL PAQUETE  ****** " + Environment.NewLine +
                   " " + "*" + "Paquete: " + paquete + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** DATOS DEL PAGO  ****** " + Environment.NewLine +
-                  " " + "*" + "Fecha Pago: " + DateTime.Now.ToShortDateString() + Environment.NewLine +
-                  " " + "*" + "Fecha Vence: " + registro.fecha_pago_vence.ToString().Substring(0, 10) + Environment.NewLine +
+                  " " + "*" + "Fecha de Inicio : " + DateTime.Now.ToShortDateString() + Environment.NewLine +
+                  " " + "*" + "Fecha de Vencimiento: " + registro.fecha_pago_vence.ToString().Substring(0, 10) + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "*" + "SUBTOTAL: " + registro.importe + Environment.NewLine +
                   " " + "*" + "IVA : " + 0 + Environment.NewLine +
@@ -219,11 +220,11 @@ namespace GymWebDeploy.Models.Domain.Utils
                   " " + "*" + "PENDIENTE : " + registro.pendiente + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** REGISTRADO POR  ****** " + Environment.NewLine +
-                  "ENTRENADOR: " + entrenador + Environment.NewLine +
+                  entrenador + Environment.NewLine +
                   " " + " " + Environment.NewLine +
                   " " + "TU SALUD ES NUESTRA PASION..." + " " + Environment.NewLine +
                  "VIVE LA EXPERIENCIA WELLNESS LAB EN FORMA" + " " + Environment.NewLine +
-                  "GRACIAS POR SU PREFERENCIA" + " ";
+                  "GRACIAS POR SU PREFERENCIA!!!";
             return CreatePdf(lines, @"\Ticket_Venta__" + registro.id_pago + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf", true);
         }
     }

@@ -37,7 +37,8 @@ function GetInputs() {
 
 function login() {
     GetInputs();
-    ajaxPostCall(path, ReturnJson(data)).done(function (response) {
+    //ajaxPostCall(path, ReturnJson(data)).done(function (response) {
+        ajaxPostCallAction(nameEntity, 'ValidateUser', ReturnJson(data)).done(function (response) {
         console.log(response);
         if (response.Success) {
             MsgSuccess('success', response.Message);
@@ -52,5 +53,5 @@ function login() {
 
 //clean
 function clean() {
-    $('#form')[0].reset();
+   // $('#form')[0].reset();
 }

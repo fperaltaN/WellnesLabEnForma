@@ -12,6 +12,20 @@ function ajaxPostCall(url, data) {
         dataType: "json"
     });
 }
+function ajaxPostCallAction(controller, action, data) {
+    //url = '@Url.Action("'+ action + '", "' + controller + '")'
+    return $.ajax({
+        cache: false,
+        type: "POST",
+        url: '/' + nameEntity + '/ValidateUser/',
+        data: data,
+        contentType: "application/json; charset=utf-8",
+        error: function (xhr, ajaxOptions, throwError) {
+            console.log(xhr.status + "\n" + xhr.responseText, "\n" + throwError);
+        },
+        dataType: "json"
+    });
+}
 function GETData(entity, parameters) {
     var path = '../' + entity + '/Get/';
     MsgSuccess('info', 'Cargando Información...');
