@@ -7,6 +7,7 @@ namespace GymWebDeploy.Controllers
 {
     public class HomeController : Controller, IGenericController<Empleado>
     {
+        LoginController status = new LoginController();
         public JsonResult Get()
         {
             throw new System.NotImplementedException();
@@ -14,7 +15,8 @@ namespace GymWebDeploy.Controllers
 
         public ActionResult Index()
         {
-            if (Request.HttpMethod == "POST")
+            
+            if (!status.checkSession())
             {
                 return RedirectToAction("Index", "Login");
             }

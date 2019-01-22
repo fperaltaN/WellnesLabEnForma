@@ -10,12 +10,13 @@ namespace GymWebDeploy.Models.Domain
     public class Login
     {
         [Required]
-        [Display(Name = "Usuario requerido")]
-        public string user { get; set; }
+        [Display(Name = "Nombre de Usuario")]
+        public string User { get; set; }
 
         [Required]
-        [Display(Name = "Contraseña requerida")]
-        public string pass { get; set; }
+        [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]       
+        public string Password { get; set; }
     }
 
     public class LoginStatus
