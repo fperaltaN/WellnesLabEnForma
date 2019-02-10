@@ -9,10 +9,18 @@ namespace GymWebDeploy.Controllers
 {
     public class SocioController : Controller, IGenericController<Socio>
     {
+        LoginController status = new LoginController();
         // GET: Socio
         public ActionResult Index()
         {
-            return View();
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
         public JsonResult Get()
         {

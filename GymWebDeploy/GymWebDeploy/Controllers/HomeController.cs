@@ -26,6 +26,16 @@ namespace GymWebDeploy.Controllers
             }
             
         }
+        //
+        // POST: /Account/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            LoginController logout = new LoginController();
+            logout.sessionAbandon();
+            return RedirectToAction("Index", "Home");
+        }
 
         public JsonResult Save(Empleado data)
         {

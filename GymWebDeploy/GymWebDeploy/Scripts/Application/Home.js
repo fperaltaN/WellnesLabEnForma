@@ -5,6 +5,9 @@ CRUD = true;
 note = true;
 //edit
 var nameEntity = 'Home';
+///variable para el nombre del proyecto publicado puesto que cambian las rutas
+//dejar en blanco si se trabaja de manera local
+var publish = 'webdeploy/';
 //form //edit
 //edit
 
@@ -32,7 +35,7 @@ var modelCumple = [
 ];
 function CustomCellOptionsCumple(cellValue, options, rowdata, action) {
     return '<button type="button" class="btn btn-sm btn-success" onclick="SendMail(' + rowdata.id_socio + ')">' +
-        '<img src="../Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
+        '<img src="../' + publish +'Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
         '</button>';
 }
 //edit

@@ -5,21 +5,24 @@ CRUD = true;
 note = true;
 //edit
 var nameEntity = 'Note';
+///variable para el nombre del proyecto publicado puesto que cambian las rutas
+//dejar en blanco si se trabaja de manera local
+var publish = 'webdeploy/';
 //form //edit
 //edit
 
 function GetNotes() {
     CreateDataTableCumple(modelCumple);
-    var path1 = '../Note/GetCumple/';
+    var path1 = '../' + publish +'Note/GetCumple/';
     ajaxPostCall(path1, '').done(function (response) {
         UpdateElementCumple(response);
     });
 
-    var path = '../Note/Get/';
+    var path = '../' + publish +'Note/Get/';
     ajaxPostCall(path, '').done(function (response) {
         UpdateElementNote(response);
         CreateDataTableCumple(modelCumple);
-        var path1 = '../Note/GetCumple/';
+        var path1 = '../' + publish +'Note/GetCumple/';
         ajaxPostCall(path1, '').done(function (response) {
             UpdateElementCumple(response);
         });
@@ -36,10 +39,10 @@ function UpdateElementNote(response) {
             '</div ><br />' +
             '<div class="card-footer"><br />' +
             '   <button type="button" onclick="editNote(' + item.IdNote + ' )" class="btn btn-warning btn-xs"><br />' +
-            '       <img src="../Content/icons/baseline_edit_white_18dp.png"><br />' +
+            '       <img src="../' + publish +'Content/icons/baseline_edit_white_18dp.png"><br />' +
             '   </button>&nbsp' +
             '   <button type="button" onclick="deleteNote(' + item.IdNote + ' )" class="btn btn-danger btn-xs"><br />' +
-            '       <img src="../Content/icons/baseline_delete_white_18dp.png"><br />' +
+            '       <img src="../' + publish +'Content/icons/baseline_delete_white_18dp.png"><br />' +
             '   </button > <br />' +
             '</div></div ><br />');
     });
@@ -63,7 +66,7 @@ function editNote(id) {
 
 $('#btnUpdateNote').click(function () {
     console.log(noteData);
-    var path = '../Note/Update/';
+    var path = '../' + publish +'Note/Update/';
     noteData.Note = $('#noteStr').val();
     ajaxPostCall(path, ReturnJson(noteData)).done(function (response) {
         console.log(response);
@@ -73,7 +76,7 @@ $('#btnUpdateNote').click(function () {
 });
 $('#btnInsertNote').click(function () {
     console.log(noteData);
-    var path = '../Note/Save/';
+    var path = '../' + publish +'Note/Save/';
     noteData.Note = $('#noteStr').val();
     ajaxPostCall(path, ReturnJson(noteData)).done(function (response) {
         console.log(response);
@@ -87,7 +90,7 @@ function deleteNote(id) {
         IdNote: id,
         Note: ""
     };
-    var path = '../Note/Delete/';
+    var path = '../' + publish +'Note/Delete/';
     ajaxPostCall(path, ReturnJson(noteData)).done(function (response) {
         console.log(response);
         GetNotes();

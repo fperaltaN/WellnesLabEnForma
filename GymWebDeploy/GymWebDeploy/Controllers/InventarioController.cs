@@ -12,6 +12,7 @@ namespace GymWebDeploy.Controllers
 {
     public class InventarioController : Controller, IGenericController<Inventario>
     {
+        LoginController status = new LoginController();
         public JsonResult Get() => Json(new GenericBaseDao().Get<CatalogoInventario>(ConfigurationManager.AppSettings["QueryGETInventario"]), JsonRequestBehavior.AllowGet);
         public JsonResult GetInventarioAsignado() => Json(new GenericBaseDao().Get<InventarioAsignado>(ConfigurationManager.AppSettings["QueryGETInventarioAsignado"]), JsonRequestBehavior.AllowGet);
         public JsonResult SaveAsignado(InventarioAsignado data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySaveInventarioAsignado"],
@@ -25,7 +26,14 @@ namespace GymWebDeploy.Controllers
         // GET: Inventario
         public ActionResult Index()
         {
-            return View();
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public JsonResult Save(Inventario data) => Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVEInventario"],

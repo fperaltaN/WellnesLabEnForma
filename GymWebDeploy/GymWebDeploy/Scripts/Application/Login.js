@@ -5,10 +5,13 @@ CRUD = false;
 note = false;
 //edit
 var nameEntity = 'Login';
+///variable para el nombre del proyecto publicado puesto que cambian las rutas
+//dejar en blanco si se trabaja de manera local
+var publish = 'webdeploy/';
 //form //edit
 var userText = $('#userText');
 var passText = $('#passText');
-var path = '../' + nameEntity + '/ValidateUser/';
+var path = '../' + publish + nameEntity + '/ValidateUser/';
 var btnLogin = $('#btnLogin');
 //
 function CreateObject() {

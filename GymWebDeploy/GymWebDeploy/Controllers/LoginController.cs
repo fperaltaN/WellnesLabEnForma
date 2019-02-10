@@ -17,6 +17,7 @@ namespace GymWebDeploy.Controllers
         {
             ViewBag.UserRol = "0";
             Session["UserRol"] = "0";
+            sessionAbandon();
             return View();
         }
         [HttpPost]
@@ -84,8 +85,7 @@ namespace GymWebDeploy.Controllers
         [HttpPost]
         public JsonResult sessionAbandon()
         {
-            LoginStatus status = new LoginStatus();
-            usuario = null;
+            LoginStatus status = new LoginStatus();            
             Session["User"] = null;
             Session["UserName"] = null;
             Session["UserRol"] = null;
@@ -94,6 +94,11 @@ namespace GymWebDeploy.Controllers
             status.Success = false;
             status.TargetURL = "Login";
             Session.Abandon();
+            try
+            {
+                usuario = null;
+            }
+            catch (Exception ) { RedirectToAction("Index", "Home"); }
             return Json(status);
         }
         private ActionResult RedirectToLocal(string returnUrl)
@@ -126,9 +131,18 @@ namespace GymWebDeploy.Controllers
             else
                 return Json(false);
         }
-        
+        //
+        // POST: /Account/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            sessionAbandon();
+            return RedirectToAction("Index", "Home");
+        }
 
-        public JsonResult Get()
+
+            public JsonResult Get()
         {
             return Json(new GenericBaseDao().Get<Login>(ConfigurationManager.AppSettings["QueryGET"]), JsonRequestBehavior.AllowGet);
             //return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryDELETENote"], data.user, data.pass)), JsonRequestBehavior.AllowGet);

@@ -9,10 +9,18 @@ namespace GymWebDeploy.Controllers
 {
     public class HistorialFisicoController : Controller, IGenericController<HistorialFisico>
     {
-        // GET: HistorialFisico
+        LoginController status = new LoginController();
+        // GET: 
         public ActionResult Index()
         {
-            return View();
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
         public JsonResult Get()
         {

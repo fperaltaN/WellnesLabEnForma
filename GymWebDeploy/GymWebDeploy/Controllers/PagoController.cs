@@ -9,10 +9,18 @@ namespace GymWebDeploy.Controllers
 {
     public class PagoController : Controller, IGenericController<Pago>
     {
-        // GET: Pago
+        LoginController status = new LoginController();
+        // GET: 
         public ActionResult Index()
         {
-            return View();
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public JsonResult GetSocios()

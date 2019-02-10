@@ -11,6 +11,19 @@ namespace GymWebDeploy.Controllers
 {
     public class ReporteChecadorSocioController : Controller, IGenericController<ReporteChecadorSocio>
     {
+        LoginController status = new LoginController();
+        // GET: 
+        public ActionResult Index()
+        {
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
+        }
         public JsonResult Get()
         {
             var jsonResult = Json(new GenericBaseDao().Get<ReporteChecadorSocio>(
@@ -24,11 +37,6 @@ namespace GymWebDeploy.Controllers
             return Json(new GenericBaseDao().Get<ReporteChecadorSocio>(string.Format(
                ConfigurationManager.AppSettings["QueryGETChecadorSocioByDate"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
                JsonRequestBehavior.AllowGet);
-        }
-        // GET: ReporteChecadorSocio
-        public ActionResult Index()
-        {
-            return View();
         }
 
         public JsonResult Save(ReporteChecadorSocio data)

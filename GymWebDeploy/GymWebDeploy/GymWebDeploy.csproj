@@ -353,6 +353,7 @@
     <Content Include="Scripts\Application\Home.js" />
     <Content Include="Scripts\Application\Inventario.js" />
     <Content Include="Scripts\Application\Login.js" />
+    <Content Include="Scripts\Application\SocioMembresia.js" />
     <Content Include="Scripts\Application\Membresia.js" />
     <Content Include="Scripts\Application\Note.js" />
     <Content Include="Scripts\Application\Pago.js" />
@@ -455,6 +456,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\SocioMembresia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -464,6 +466,7 @@
     <Folder Include="Views\Inventario\" />
     <Folder Include="Views\Modulos\" />
     <Folder Include="Views\Modulo\" />
+    <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\Note\" />
     <Folder Include="Views\PagoRecargo\" />
     <Folder Include="Views\PaqueteServicio\" />
@@ -476,7 +479,6 @@
     <Folder Include="Views\RegistroVisita\" />
     <Folder Include="Views\Rel_Perfil_Modulo\" />
     <Folder Include="Views\Servicio\" />
-    <Folder Include="Views\SocioMembresia\" />
     <Folder Include="Views\Usuario\" />
     <Folder Include="Views\VentaProducto\" />
     <Folder Include="Views\Venta\" />

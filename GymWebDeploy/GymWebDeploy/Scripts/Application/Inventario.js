@@ -5,6 +5,9 @@ CRUD = true;
 note = false;
 //edit
 var nameEntity = 'Inventario';
+///variable para el nombre del proyecto publicado puesto que cambian las rutas
+//dejar en blanco si se trabaja de manera local
+var publish = 'webdeploy/';
 //form //edit
 //edit
 var DataTable = $('#DataTable');
@@ -34,7 +37,7 @@ function CreateDataTable(model) {
 
 function CustomCellOptions(cellValue, options, rowdata, action) {
     return '<button type="button" class="btn btn-sm btn-success" onclick="updateInventario(' + rowdata.Id_inventario + ')">' +
-        '<img src="../Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
+        '<img src="../' + publish +'Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
         '</button>';
 }
 
@@ -49,7 +52,7 @@ var inventarioData = {
 
 
 function updateInventario(id_inventario) {
-    var path = '../Inventario/UpdateInventario/';
+    var path = '../' + publish +'Inventario/UpdateInventario/';
     inventarioData.Id_inventario = id_inventario;
     console.log(inventarioData);
     ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
@@ -63,7 +66,7 @@ function UpdateElementInv(response) {
 }
 
 function UpdateInv(){
-    var path = '../Inventario/GetInventarioHome/';
+    var path = '../' + publish +'Inventario/GetInventarioHome/';
     ajaxPostCall(path, ReturnJson('')).done(function (response) {
         $('#inventario option').remove();
         $.each(response, function (responseValue, item) {
@@ -79,7 +82,7 @@ $(document).ready(function () {
     UpdateInv();
 
     $('#BtnAddInventario').click(function () {
-        var path = '../Pago/GetSocios/';
+        var path = '../' + publish +'Pago/GetSocios/';
         ajaxPostCall(path, ReturnJson('')).done(function (response) {
             $('#partnerID option').remove();
             $.each(response, function (responseValue, item) {
@@ -88,7 +91,7 @@ $(document).ready(function () {
             $('#partnerID').selectpicker();
             $('#partnerID').selectpicker('refresh');
         });
-        var path = '../Inventario/GetInventarioAsignado/';
+        var path = '../' + publish +'Inventario/GetInventarioAsignado/';
         ajaxPostCall(path, ReturnJson('')).done(function (response) {
             $('#inventario option').remove();
             $.each(response, function (responseValue, item) {
@@ -101,7 +104,7 @@ $(document).ready(function () {
 
     $('#btnUpdateInventario').click(function () {
 
-        var path = '../Inventario/SaveAsignado/';
+        var path = '../' + publish +'Inventario/SaveAsignado/';
         console.log(inventarioData);
         ajaxPostCall(path, ReturnJson(inventarioData)).done(function (response) {
             console.log(response);

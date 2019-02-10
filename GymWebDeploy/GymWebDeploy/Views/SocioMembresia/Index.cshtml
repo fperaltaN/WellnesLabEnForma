@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "SocioMembresia";
+    Html.RenderPartial("_DataGridView");
+    Html.RenderPartial("_ModalDeleteView");
+}
+
+<div class="modal fade" id="ModalData" tabindex="-1" role="dialog" aria-labelledby="ModalEmployeeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header card-header alert-secondary text-center">
+                <h5 class="modal-title">
+                    <label id="ModalTitle"></label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DataForm" class="needs-validation form form-group container" novalidate>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label for="partnerID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+                        </div>
+                        <select id="partnerID" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label for="packageID" class="input-group-text" id="inputGroup-sizing-default">Selecciona un paquete</label>
+                        </div>
+                        <select id="packageID" class="selectpicker form-control" data-live-search="true" title="Selecciona un paquete..."></select>
+                    </div>                    
+                    <div class="modal-body text-center">
+                        <button type="submit" class="btn btn-block btn-success">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/SocioMembresia.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>

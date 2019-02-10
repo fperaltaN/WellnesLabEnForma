@@ -8,6 +8,7 @@ namespace GymWebDeploy.Controllers
 {
     public class NoteController : Controller, IGenericController<Notes>
     {
+        LoginController status = new LoginController();
         public JsonResult Get()
         {
             return Json(new GenericBaseDao().Get<Notes>(ConfigurationManager.AppSettings["QueryGETNote"]), JsonRequestBehavior.AllowGet);
@@ -23,7 +24,14 @@ namespace GymWebDeploy.Controllers
         // GET: Note
         public ActionResult Index()
         {
-            return View();
+            if (!status.checkSession())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public JsonResult Save(Notes data)
