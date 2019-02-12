@@ -2,6 +2,7 @@
 
 
     DataTable.jqGrid({
+        sorttype: 'date',
         viewrecords: true,
         datatype: "local",
         colModel: model,
@@ -61,7 +62,7 @@ function CustomCellOptions(cellValue, options, rowdata, action) {
         '</button>';
 }
 function CheckActives(rd) {
-    if (rd.activo === false) {
+    if (rd.activo === false || rd.ACTIVO === false) {
         return { "class": "table-danger" };
     }
 }

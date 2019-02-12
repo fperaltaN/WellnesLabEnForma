@@ -12,6 +12,8 @@ using iText.IO.Source;
 using iText.IO.Image;
 using System.Configuration;
 using GymWebDeploy.Models.Domain;
+using iText.Kernel.Pdf.Action;
+using System.Diagnostics;
 
 namespace GymWebDeploy.Models.Domain.Utils
 {
@@ -49,9 +51,13 @@ namespace GymWebDeploy.Models.Domain.Utils
                 // Adding Image  to the PDF
                 document.Add(image);
                 // Adding area break to the PDF
-                document.Add(para);
+                document.Add(para);                
                 // Closing the document
                 document.Close();
+                //Open Document
+                Process.Start(DEST + Nombre);
+                //Print
+                printPDF(DEST + Nombre);
                 return true;
             }
             catch (Exception ex)
@@ -226,6 +232,20 @@ namespace GymWebDeploy.Models.Domain.Utils
                  "VIVE LA EXPERIENCIA WELLNESS LAB EN FORMA" + " " + Environment.NewLine +
                   "GRACIAS POR SU PREFERENCIA!!!";
             return CreatePdf(lines, @"\Ticket_Venta__" + registro.id_pago + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf", true);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void printPDF(String pdfPath)
+        {
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo()
+            {
+                CreateNoWindow = true,
+                Verb = "print",
+                FileName = pdfPath //put the correct path here
+            };
+            p.Start();
         }
     }
 }

@@ -41,7 +41,7 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Save(SocioMembresia data)
         {
-            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVE"],
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QuerySAVESocioMembresia"],
                 data.id_socio,
                 data.id_paquete,
                 Utils.FormatDates(DateTime.Today), 
@@ -52,7 +52,8 @@ namespace GymWebDeploy.Controllers
 
         public JsonResult Update(SocioMembresia data)
         {
-            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATE"],
+            return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryUPDATESocioMembresia"],
+                data.id_socio_membresia,
                 data.id_socio,
                 data.id_paquete,
                 Utils.FormatDates(DateTime.Today),

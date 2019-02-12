@@ -19,7 +19,8 @@ var colModel = [
     { label: 'Descripción', name: 'descripcion', width: 50 },
     { label: 'id_socio_membresia', name: 'id_socio_membresia', width: 0, hidden: true },
     { label: 'id_socio', name: 'id_socio', width: 0, hidden: true },
-    { label: 'id_paquete', name: 'id_paquete', width: 0, hidden: true }
+    { label: 'id_paquete', name: 'id_paquete', width: 0, hidden: true },
+    { label: 'activo', name: 'activo', width: 0, hidden: true }
 ];
 //edit
 function CreateObject() {
@@ -55,9 +56,9 @@ function FillInputs() {
     //packageID.val(data.id_paquete);
 }
 function GetInputs() {
-    //data.id_socio_membresia = partnerNumber.val();
-    data.partnerID = partnerID.val();
-    data.packageID = packageID.val();
+    data.id_socio_membresia = data.id_socio_membresia;
+    data.id_socio = partnerID.val();
+    data.id_paquete = packageID.val();
 }
 function SetDeleteMsg() {
     data.activo = 0;

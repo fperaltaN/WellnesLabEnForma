@@ -50,7 +50,7 @@
                     </a>
                 </li>
 
-                @if (@Session["UserRol"] !=null && @Session["UserRol"].ToString() == "1")
+                @if (@Session["UserRol"] != null && @Session["UserRol"].ToString() == "1")
                 {
                     @* Menu paquetes*@
                     <li class="nav-item">
@@ -60,11 +60,28 @@
                     </li>
 
                     @* Menu Empleados*@
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Empleado/">
-                            <img src="~/Content/icons/baseline-supervised_user_circle-white-18/1x/baseline_supervised_user_circle_white_18dp.png" />Empleados
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="~/Content/icons/baseline-supervised_user_circle-white-18/1x/baseline_supervised_user_circle_white_18dp.png" />Administración
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="~/Empleado/">
+                                <img src="~/Content/icons/baseline-supervised_user_circle-white-18/baseline-supervised_user_circle-24px.svg" />
+                                <img src="~/Content/icons/baseline-list-white-18/baseline-list-24px.svg" />
+                                Empleados
+                            </a>
+                            <a class="dropdown-item" href="~/Usuario/">
+                                <img src="~/Content/icons/baseline-supervised_user_circle-white-18/baseline-supervised_user_circle-24px.svg" />
+                                <img src="~/Content/icons/baseline-list-white-18/baseline-list-24px.svg" />
+                                Usuarios
+                            </a>
+                        </div>
                     </li>
+                    @*<li class="nav-item">
+                <a class="nav-link" href="~/Empleado/">
+                    <img src="~/Content/icons/baseline-supervised_user_circle-white-18/1x/baseline_supervised_user_circle_white_18dp.png" />Empleados
+                </a>
+            </li>*@
                 }
                 @* Menu Socios-> Ver Socios*@
                 <li class="nav-item dropdown">

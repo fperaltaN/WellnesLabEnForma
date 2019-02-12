@@ -109,7 +109,9 @@ PrintData.on("click", function () {
 //add
 function Save() {
     GetInputs();
-    data.activo = 'true';
+    if (!data.hasOwnProperty('ACTIVO')) {
+        data.activo = 'true';
+    }
     if (mode === 0) {
         ADDData(nameEntity, data);
     } else {
@@ -121,6 +123,8 @@ function Save() {
 function Delete() {
     mode = 2;
     GetInputs();
-    data.activo = 'false';
+    if (!data.hasOwnProperty('ACTIVO')) {
+        data.activo = 'false';
+    }
     UPDATEData(nameEntity, data);
 }

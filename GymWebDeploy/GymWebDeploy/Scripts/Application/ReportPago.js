@@ -8,12 +8,23 @@ var nameEntity = 'ReportePago';
 var dataDate = {};
 //form //edit
 //edit
+datePick = function (elem) {
+    jQuery(elem).datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+}
 var colModel = [
     //{ label: 'Opciones', name: 'Opciones', width: 30, formatter: CustomCellOptions },
-    { label: 'Nombre Socio', name: 'nombre', width: 60 },
-    { label: 'Paquete', name: 'paquete', width: 40 },
-    { label: 'Fecha Pago', name: 'fecha_pago', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }  , align: 'center',},
-    { label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' } , align: 'center', },
+    { label: 'Nombre Socio', name: 'nombre', width: 60, search: true },
+    { label: 'Paquete', name: 'paquete', width: 40, search: true },
+    { label: 'Fecha Pago', name: 'fecha_pago', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date"},
+    {
+        label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date",
+        searchoptions: {
+            dataInit: datePick,
+            title: 'Select Date'
+        }
+    },
     { label: 'Meses pagados', name: 'meses', width: 30, hidden: true  },
     { label: 'Empleado Registro', name: 'empleado', width: 70 },
     {
