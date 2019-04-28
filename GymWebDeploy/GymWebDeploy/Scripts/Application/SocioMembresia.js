@@ -34,6 +34,9 @@ function CreateObject() {
         activo: "",
         descripcion:""
     };
+    $('#socio').show();
+    document.getElementById('packageID').value = 0;
+    $('#partnerID').selectpicker('refresh');
 }
 $(document).ready(function () {
     GETDataSingle(nameEntity + '/GetSocios/ ', '');
@@ -49,7 +52,8 @@ $(document).ready(function () {
 //edit
 function FillInputs() {
     idDataSource = data.id_socio_membresia;
-    document.getElementById('partnerID').value=data.id_socio;
+    //document.getElementById('partnerID').value=data.id_socio;
+    $('#socio').hide();
     document.getElementById('packageID').value =data.id_paquete;
     $('.selectpicker').selectpicker('refresh');
     //partnerID.val(data.num_socio);
@@ -68,12 +72,13 @@ function UpdateElement(response) {
     console.log(response);
     //poner id
     FillPartners(response);
+   
 }
 function FillPartners(response) {
     partners = response;
     $('#partnerID option').remove();
     $.each(response, function (responseValue, item) {
-        partnerID.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + ".-" + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+        partnerID.append('<option value=' + item.id_socio + '>' + item.num_socio + '-' + item.nombre_Completo + '</option>');
     });
     //$('.selectpicker').selectpicker();
     $('#partnerID').selectpicker('refresh');
@@ -82,7 +87,7 @@ function FillPackage(response) {
     package = response;
     $('#packageID option').remove();
     $.each(response, function (responseValue, item) {
-        packageID.append('<option data-tokens="' + item.id_paquete + '" value=' + item.id_paquete + '>' + item.id_paquete + ".-" + item.descripcion  + '</option>');
+        packageID.append('<option value=' +  item.id_paquete + '>' + item.id_paquete + ".-" + item.descripcion  + '</option>');
     });
     //$('.selectpicker').selectpicker();
     $('#packageID').selectpicker('refresh');

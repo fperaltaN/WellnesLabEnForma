@@ -77,7 +77,8 @@ function SetDeleteMsg() {
     SetDeleteData(' Socio NÚM: ' + data.num_socio + ' --- NOMBRE: ' + data.nombre + ' ' + data.ap_paterno + ' ' + data.ap_materno);
 }
 $('#datepicker').datepicker({
-    format: 'yyyy/mm/dd',
+    //format: 'yyyy/mm/dd',
+    format: 'dd/mm/yyyy',
     clearBtn: true,
     language: 'es',
     orientation: 'bottom auto',
@@ -86,10 +87,10 @@ $('#datepicker').datepicker({
 });
 
 function UpdateElement(response) {
-    console.log(response);
+    //console.log(response);
     //poner id
     if (response[0].num_socio > 0) {
-        partnerNumber.val(response[0].num_socio)
+        partnerNumber.val(response[0].num_socio);
     }
 
 }

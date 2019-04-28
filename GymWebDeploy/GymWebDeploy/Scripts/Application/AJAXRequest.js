@@ -6,10 +6,16 @@ function ajaxPostCall(url, data) {
         url: url,
         data: data,
         contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            console.log(url + "\n" + data);
+        },
         error: function (xhr, ajaxOptions, throwError) {
             console.log(xhr.status + "\n" + xhr.responseText, "\n" + throwError);
         },
         dataType: "json"
+    }).fail(function (response) {
+        alert("error" + response);
+        console.log(response + "\n");
     });
 }
 function ajaxPostCallAction(controller, action, data) {
@@ -20,6 +26,9 @@ function ajaxPostCallAction(controller, action, data) {
         url: '/' + nameEntity + '/ValidateUser/',
         data: data,
         contentType: "application/json; charset=utf-8",
+        beforeSend: function (xhr) {
+            console.log(xhr.status + "\n" + data);
+        },
         error: function (xhr, ajaxOptions, throwError) {
             console.log(xhr.status + "\n" + xhr.responseText, "\n" + throwError);
         },
@@ -30,7 +39,7 @@ function GETData(entity, parameters) {
     var path = '../' + entity + '/Get/';
     MsgSuccess('info', 'Cargando Información...');
     ajaxPostCall(path, ReturnJson(parameters)).done(function (response) {
-        console.log(response);
+        //console.log(response);
         if (CRUD) {
             updateTable(DataTable, response);
         }
@@ -51,12 +60,12 @@ function UPDATEData(entity, parameters) {
 function GETDataSingle(entity, parameters) {
     var path = '../' + entity;
     ajaxPostCall(path, ReturnJson(parameters)).done(function (response) {
-        console.log(response);
+        //console.log(response);
         UpdateElement(response);
     });
 }
 function CheckExecution(response) {
-    console.log(response);
+    //console.log(response);
     if (response) {
         GETData(nameEntity, '');
         if (mode === 0 || mode === 1) {

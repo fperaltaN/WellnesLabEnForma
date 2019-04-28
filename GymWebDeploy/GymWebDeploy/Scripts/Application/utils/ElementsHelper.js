@@ -1,5 +1,5 @@
 ﻿//Modal 
-var note = true
+var note = true;
 //Add elementts
 var ModalData = $('#ModalData');
 var ModalTitle = $('#ModalTitle');
@@ -9,7 +9,7 @@ function ShowModalAdd() {
     CreateObject(true);
     ModalData.modal();
     document.getElementById("DataForm").reset();
-    SetModalTitleAdd('Agregar ' + FileTitle);
+    SetModalTitleAdd('Agregar ' + nameEntity);
 }
 //modal
 //update

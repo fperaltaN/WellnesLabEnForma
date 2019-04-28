@@ -143,7 +143,7 @@ namespace GymWebDeploy.Models.Domain.Utils
             try
             {
                 // Set a variable to the My Documents path.
-                string mydocpath = ConfigurationManager.ConnectionStrings[pathProgreso].ConnectionString;
+                string mydocpath = ConfigurationManager.AppSettings[pathProgreso].ToString();
                 //Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 // Write the string array to a new file named "WriteLines.txt".

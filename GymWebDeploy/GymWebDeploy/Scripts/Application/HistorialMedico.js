@@ -16,6 +16,7 @@ var Riesgo_Cardiovascular = $('#RiesgoCardiovascular');
 var Dolencias = $('#Dolencias');
 var Enfermedad = $('#Enfermedad');
 var SocioId = $('#SocioId');
+
 //edit
 var colModel = [
     { label: 'Opciones', name: 'Opciones', width: 20, formatter: CustomCellOptions },
@@ -87,7 +88,7 @@ function SetDeleteMsg() {
 }
 
 function UpdateElement(response) {
-    console.log(response);
+    //console.log(response);
     //poner id
     /*if (response[0].num_socio > 0) {
         employeeNumber.val(response[0].num_socio)
@@ -98,6 +99,6 @@ function UpdateElement(response) {
         $.each(response, function (responseValue, item) {
             SocioId.append('<option value=' + item.id_socio + '>' + item.num_socio + '-' + item.nombre_Completo + '</option>');
         });
+        form.find(".error").removeClass("error");
     }
-
 }

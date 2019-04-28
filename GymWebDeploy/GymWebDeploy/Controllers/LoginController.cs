@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace GymWebDeploy.Controllers
 {
-    public class LoginController :  Controller, IGenericController<Login>
+    public class LoginController : Controller, IGenericController<Login>
     {
         private static Usuarios usuario;
         // GET: Login
@@ -29,7 +29,7 @@ namespace GymWebDeploy.Controllers
             if (usuario != null)
             {
                 Session["User"] = usuario.USUARIO;
-                Session["UserName"] = usuario.NOMBRE +" "+ usuario.APELLIDO_MAT;
+                Session["UserName"] = usuario.NOMBRE + " " + usuario.APELLIDO_MAT;
                 Session["UserRol"] = usuario.ID_PERFIL;
                 ViewBag.UserRol = usuario.ID_PERFIL;
                 Session["LoggedIn"] = "ok";
@@ -42,9 +42,9 @@ namespace GymWebDeploy.Controllers
             {
                 status.Message = "El nombre y/o contraseña son incorrectos";
                 status.Success = false;
-                status.TargetURL = "..." ;
+                status.TargetURL = "...";
                 return Json(status);
-            }            
+            }
         }
 
         //
@@ -85,20 +85,21 @@ namespace GymWebDeploy.Controllers
         [HttpPost]
         public JsonResult sessionAbandon()
         {
-            LoginStatus status = new LoginStatus();            
-            Session["User"] = null;
-            Session["UserName"] = null;
-            Session["UserRol"] = null;
-            Session["LoggedIn"] = null;
-            status.Message = "Hasta luego.. ";
-            status.Success = false;
-            status.TargetURL = "Login";
-            Session.Abandon();
+            LoginStatus status = new LoginStatus();
             try
             {
+                Session["User"] = null;
+                Session["UserName"] = null;
+                Session["UserRol"] = null;
+                Session["LoggedIn"] = null;
+                status.Message = "Hasta luego.. ";
+                status.Success = false;
+                status.TargetURL = "Login";
+                Session.Abandon();
+
                 usuario = null;
             }
-            catch (Exception ) { RedirectToAction("Index", "Home"); }
+            catch (Exception) { RedirectToAction("Index", "Login"); }
             return Json(status);
         }
         private ActionResult RedirectToLocal(string returnUrl)
@@ -126,7 +127,7 @@ namespace GymWebDeploy.Controllers
         [HttpPost]
         public JsonResult sessionStatus()
         {
-            if(Session["User"] != null)
+            if (Session["User"] != null)
                 return Json(true);
             else
                 return Json(false);
@@ -142,7 +143,7 @@ namespace GymWebDeploy.Controllers
         }
 
 
-            public JsonResult Get()
+        public JsonResult Get()
         {
             return Json(new GenericBaseDao().Get<Login>(ConfigurationManager.AppSettings["QueryGET"]), JsonRequestBehavior.AllowGet);
             //return Json(Utils.Execute(string.Format(ConfigurationManager.AppSettings["QueryDELETENote"], data.user, data.pass)), JsonRequestBehavior.AllowGet);

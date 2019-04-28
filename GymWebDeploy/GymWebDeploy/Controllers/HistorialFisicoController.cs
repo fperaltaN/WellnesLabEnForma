@@ -45,7 +45,7 @@ namespace GymWebDeploy.Controllers
         public JsonResult GetSocios()
         {
             return Json(new GenericBaseDao().Get<SocioId>(string.Format(
-                ConfigurationManager.AppSettings["QuerySocios"]))
+                ConfigurationManager.AppSettings["QuerySociosHistorialFisico"]))
                 , JsonRequestBehavior.AllowGet);
         }
     }

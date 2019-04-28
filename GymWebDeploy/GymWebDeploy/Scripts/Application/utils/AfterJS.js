@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    console.log('ready!');
+    //console.log('ready!');
     checkStatus();
     if (CRUD) {        
         CreateDataTable(colModel);

@@ -7,7 +7,7 @@ note = false;
 var nameEntity = 'Inventario';
 ///variable para el nombre del proyecto publicado puesto que cambian las rutas
 //dejar en blanco si se trabaja de manera local
-var publish = 'webdeploy/';
+var publish = '';//'webdeploy/';
 //form //edit
 //edit
 var DataTable = $('#DataTable');
