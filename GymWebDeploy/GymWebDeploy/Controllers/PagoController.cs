@@ -2,6 +2,7 @@
 using GymWebDeploy.Models.Dao;
 using GymWebDeploy.Models.Domain;
 using GymWebDeploy.Models.Domain.Utils;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
@@ -57,7 +58,7 @@ namespace GymWebDeploy.Controllers
                 data.id_socio,
                 data.ID_USUARIO,
                 data.importe,
-                data.fecha_pago_vence,
+                Convert.ToDateTime(data.fecha_pago_vence).ToString("yyyy-MM-dd HH:mm:ss"),
                 data.pendiente,data.refTicketVenta)), JsonRequestBehavior.AllowGet);
         }
 
@@ -81,11 +82,12 @@ namespace GymWebDeploy.Controllers
             Socio socio = socioData.Find(x => x.id_socio == data.id_socio);
             Empleado empleado = empleadoData.Find(x => x.id_empleado == data.ID_USUARIO);
             Paquete paquete = paqueteData.Find(x => x.id_paquete == data.id_paquete);
-            bool impreso = pdfticket.printTicketPayment(socioData[0].num_socio.ToString(),
-                socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno,
-                empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno,
-                paqueteData[0].nombre + " " + paqueteData[0].descripcion,
-                data); 
+            bool impreso = pdfticket.printTicketPayment(socio.num_socio.ToString(),
+                socio.nombre + " " + socio.ap_materno + " " + socio.ap_paterno,
+                empleado.nombre + " " + empleado.ap_materno + " " + empleado.ap_paterno,
+                paquete.nombre + " " + paquete.descripcion,
+                data);
+            data.refTicketVenta = "Ticket_Venta__" + socio.num_socio + "_Socio_ " + socio.nombre + " " + socio.ap_materno + " " + socio.ap_paterno + "_" + DateTime.Now.ToLongDateString() + ".pdf";
             return impreso;
         }
 

@@ -67,13 +67,14 @@ $(document).ready(function () {
         var id_partner = 0;
         $.each(partners, function (partnersData, item) {
             if (item.id_socio == partnerID.val()) {
-                console.log(item);
+                //console.log(item);
                 partnerNum.val(item.num_socio);
                 partnerName.val(item.nombre + " " + item.ap_paterno + " " + item.ap_materno);
                 partnerPhone.val(item.telefono);
                 id_partner = item.id_socio;
                 return false;
             }
+           // id_partner = partnerID.val();
         });
         data.id_socio = id_partner;
 
@@ -88,7 +89,7 @@ $(document).ready(function () {
             var path = '../' + nameEntity + '/GetPendiente/';
             var date = new Date().getMonth();
             ajaxPostCall(path, ReturnJson(data)).done(function (response) {
-                console.log(response);
+                //console.log(response);
                 userPending.val(0);
                 if (response.length > 0) {
                     userPending.val(response[0].pendiente == undefined ? 0 : response[0].pendiente);

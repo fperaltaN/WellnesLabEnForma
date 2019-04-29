@@ -20,7 +20,7 @@ namespace GymWebDeploy.Models.Domain.Utils
     public class PDFTicket
     {
         static String path = "ticketPath";
-        public String DEST = ConfigurationManager.ConnectionStrings[path].ConnectionString;
+        public String DEST = ConfigurationManager.AppSettings[path].ToString();
         //public String IMAGEPATH = System.Web.HttpContext.Current.Server.MapPath("LogoOficial.JPG");
         public String IMAGEPATH = "c:/LogoOficial.jpg";
         //System.Web.Hosting.HostingEnvironment.MapPath(path);

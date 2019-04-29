@@ -14,14 +14,17 @@ namespace GymWebDeploy.Controllers
     {
         public JsonResult Get()
         {
+            String toDay = DateTime.Today.ToString("yyyy - MM - dd");
             return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETReportePago"], DateTime.Today.ToShortDateString(), DateTime.Today.ToShortDateString())),
+               ConfigurationManager.AppSettings["QueryGETReportePago"], toDay,toDay)),
                JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetByDate(GenericDataClass data)
         {
+            String start = Convert.ToDateTime(data.start).ToString("yyyy - MM - dd");
+            String end = Convert.ToDateTime(data.end).ToString("yyyy - MM - dd");
             return Json(new GenericBaseDao().Get<ReportePago>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETReportePago"],Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
+               ConfigurationManager.AppSettings["QueryGETReportePago"],Convert.ToDateTime(start), Convert.ToDateTime(end))),
                JsonRequestBehavior.AllowGet);
         }
 
