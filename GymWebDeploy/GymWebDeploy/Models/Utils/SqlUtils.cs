@@ -22,22 +22,27 @@ namespace GymWebDeploy.Models.Domain.Utils
 
         public static List<T> SqlToList<T>(SqlDataReader reader) where T : class, new()
         {
-            List<T> listData = new List<T>();
-            using (reader)
+            try
             {
-                var props = typeof(T).GetProperties();
-                while (reader.Read())
+                List<T> listData = new List<T>();
+                using (reader)
                 {
-                    T resp = new T();
-                    foreach (PropertyInfo item in props)
+                    var props = typeof(T).GetProperties();
+                    while (reader.Read())
                     {
-                        if (validaCampo(reader, item.Name))
-                            typeof(T).GetProperty(item.Name).SetValue(resp, reader[item.Name]);
+                        T resp = new T();
+                        foreach (PropertyInfo item in props)
+                        {
+                            if (validaCampo(reader, item.Name))
+                                typeof(T).GetProperty(item.Name).SetValue(resp, reader[item.Name]);
+                        }
+                        listData.Add(resp);
                     }
-                    listData.Add(resp);
                 }
+                return listData;
             }
-            return listData;
+            catch (Exception ex) { return null; }
+           
         }
 
         public static T SqlToObject<T>(SqlDataReader reader) where T : class, new()

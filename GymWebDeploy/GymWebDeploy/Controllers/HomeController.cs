@@ -1,5 +1,7 @@
 ﻿using GymWebDeploy.Models.Dao;
 using GymWebDeploy.Models.Domain;
+using GymWebDeploy.Models.Domain.Utils;
+using System;
 using System.Configuration;
 using System.Web.Mvc;
 
@@ -45,6 +47,21 @@ namespace GymWebDeploy.Controllers
         public JsonResult Update(Empleado data)
         {
             throw new System.NotImplementedException();
+        }
+
+        public JsonResult sendBirthDayMail(String data)
+        {
+            try
+            {
+                Mail mail = new Mail();
+                mail.mail = data;
+                mail.send(true);
+                return Json(true);
+            }
+            catch(Exception ex)
+            {
+                return Json(false);
+            }
         }
     }
 }

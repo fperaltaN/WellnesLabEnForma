@@ -34,7 +34,7 @@ var modelCumple = [
     { label: 'Enviar', name: 'Enviar', width: 30, formatter: CustomCellOptionsCumple }
 ];
 function CustomCellOptionsCumple(cellValue, options, rowdata, action) {
-    return '<button type="button" class="btn btn-sm btn-success" onclick="SendMail(' + rowdata.id_socio + ')">' +
+    return '<button type="button" class="btn btn-sm btn-success" onclick="SendMail(&#39;' + rowdata.mail + '&#39;)">' +
         '<img src="../' + publish +'Content/icons/baseline-assignment_turned_in-white-18/1x/baseline_assignment_turned_in_white_18dp.png" />' +
         '</button>';
 }
@@ -78,6 +78,9 @@ partnerID.change(function () {
     inventarioData.Id_socio = partnerID.val();
 });
 
-function SendMail(id_socio) {
-    console.log(id_socio);
+function SendMail(socioMail) {
+    var path = '../' + publish + 'Home/sendBirthDayMail/';
+    ajaxPostCall(path, ReturnJson(socioMail)).done(function (response) {
+        MsgSuccess('info', "El correo de felicitación ha sido enviado.");
+    });
 }

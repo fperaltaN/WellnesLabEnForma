@@ -32,8 +32,10 @@ namespace GymWebDeploy.Controllers
         }
         public JsonResult GetByDate(GenericDataClass data)
         {
+            String start = Convert.ToDateTime(data.start).ToString("yyyy - MM - dd") + " 00:00:00";
+            String end = Convert.ToDateTime(data.end).ToString("yyyy - MM - dd") + " 23:59:00";
             return Json(new GenericBaseDao().Get<ReporteChecadorEmpleado>(string.Format(
-               ConfigurationManager.AppSettings["QueryGETChecadorByDate"], Convert.ToDateTime(data.start).ToShortDateString(), Convert.ToDateTime(data.end).ToShortDateString())),
+               ConfigurationManager.AppSettings["QueryGETChecadorByDate"], start,end)),
                JsonRequestBehavior.AllowGet);
         }
         
