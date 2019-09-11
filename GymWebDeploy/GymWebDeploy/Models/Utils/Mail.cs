@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Net.Mime;
 using GymWebDeploy.Models.Domain;
+using System.Configuration;
 
 namespace GymWebDeploy.Models.Domain.Utils
 {
@@ -17,14 +18,20 @@ namespace GymWebDeploy.Models.Domain.Utils
         MailMessage mmsg = new MailMessage();
         Attachment adjuntos;
         SmtpClient cliente = new SmtpClient();
+        static String mailPass = "mailPass";
+        public String pass = ConfigurationManager.AppSettings[mailPass].ToString();
         String archivos = "";
         List<String> destinatario = new List<String>();
         String destinatarioCopia = "";
+        static String html = "<img src='cid:imagen' />";
         String cuerpo = "";
         String footer = "Este mensaje se dirige exclusivamente a su destinatario. " +
             "Contiene información CONFIDENCIAL sometida a secreto profesional o cuya divulgación está prohibida por la ley. " +
             "Si ha recibido este mensaje por error, debe saber que su lectura, copia y uso están prohibidos. " +
             "Le rogamos que nos lo comunique inmediatamente por esta misma vía o por teléfono y proceda a su destrucción.";
+        AlternateView htmlViewImg, plainViewBody, plainViewFooter;
+        String contentID = "Image";
+        Attachment inlineLogo = new Attachment(@"C:\globos.jpg");
         #endregion Variables
 
         #region funcionality
@@ -39,6 +46,52 @@ namespace GymWebDeploy.Models.Domain.Utils
         /// </summary>
         public Mail()
         {
+            //try
+            //{
+
+            //    cuerpo = "<br><br>" +
+            //            "Estimado:Socio <br><br><br>" +
+            //            " Sería imposible olvidarnos de un día tan especial como éste, por esto quisimos darte una sorpresa muy especial. Esperamos que la pases muy bien y que puedas celebrar, como te lo mereces!!!" +
+            //            "<br><br>";
+            //    footer = " <br>" +
+            //            " Recibe un calido abrazo de parte de WellnessLab EnForma." +
+            //            "<br><br>" +
+            //            "Gracias por ser parte de nuestra familia" +
+            //            "<br><br>" +
+            //            "<h6>" + footer + "</h6></br>" +
+            //            "<h6>/////************************* Por Favor, No respondas este correo  =)   " + DateTime.Now.ToShortDateString() + " SISA - Wellness Lab En Forma 2018. *************************////<br>";
+            //    // Creamos el recurso a incrustar. Observa que el ID que le asignamos (arbitrario) está referenciado desde el código HTML como origen
+            //    // de la imagen (resaltado en amarillo)...
+            //    plainViewBody = AlternateView.CreateAlternateViewFromString(cuerpo, null, MediaTypeNames.Text.Plain);
+
+            //    htmlViewImg = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
+            //    LinkedResource img = new LinkedResource(@"C:\globos.jpg", MediaTypeNames.Image.Jpeg);
+            //    img.ContentId = "imagen";
+            //    // Lo incrustamos en la vista HTML...
+            //    htmlViewImg.LinkedResources.Add(img);
+
+            //    plainViewFooter = AlternateView.CreateAlternateViewFromString(footer, null, MediaTypeNames.Text.Plain);
+            //}
+            //catch (Exception ex)
+            //{
+                
+                inlineLogo.ContentId = contentID;
+                inlineLogo.ContentDisposition.Inline = true;
+                inlineLogo.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
+
+               
+                cuerpo = "<br><br>" +
+                         "<h4 style='padding - left: 30px; '><strong><span style='color: #003366;'>Estimado:Socio&nbsp;</span></strong><br /><br /><br />" +
+                         " <strong><span style='color: #003366;'>Ser&iacute;a imposible olvidarnos de un d&iacute;a tan especial como &eacute;ste, por esto quisimos darte una sorpresa muy especial. Esperamos que la pases muy bien y que puedas celebrar, como te lo mereces!!!</span></strong></h4>" +
+                         "<br><br>" +
+                         "<htm><body> <img src=\"cid:" + contentID + "\"> </body></html>" +
+                         " <br>" +
+                         "<p style='padding - left: 30px;text-align: center; '><strong><span style='color: #003366;'>Recibe un calido abrazo de parte de WellnessLabEnForma. </span></strong></p> " +
+                         "<p style = 'text-align: center;' ><strong><span style = 'color: #003366;'> Gracias por ser parte de nuestra familia.....</span></strong ></p>" +
+                         "<br><br>" +
+                         "<h6>" + footer + "</h6></br>" +
+                         "<h6>/////************************* Por Favor, No respondas este correo  =)   " + DateTime.Now.ToShortDateString() + " SISA - Wellness Lab En Forma 2018. *************************////<br>";
+           // }
         }
 
         /// <summary>
@@ -81,19 +134,7 @@ namespace GymWebDeploy.Models.Domain.Utils
             {
                 // Ahora creamos la vista para clientes que 
                 // pueden mostrar contenido HTML...
-                string html = "<img src='cid:imagen' />";
-                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html,
-                                            Encoding.UTF8,
-                                            MediaTypeNames.Text.Html);
 
-                // Creamos el recurso a incrustar. Observa que el ID que le asignamos (arbitrario) está referenciado desde el código HTML como origen
-                // de la imagen (resaltado en amarillo)...
-                AlternateView plainView = AlternateView.CreateAlternateViewFromString(cuerpo, null, MediaTypeNames.Text.Html);
-                LinkedResource img = new LinkedResource(@"C:\globos.jpg", MediaTypeNames.Image.Jpeg);
-                img.ContentId = "imagen";
-
-                // Lo incrustamos en la vista HTML...
-                htmlView.LinkedResources.Add(img);
                 //mmsg = new MailMessage(Usuario, PassWord);
                 recipients();
                 //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
@@ -102,17 +143,25 @@ namespace GymWebDeploy.Models.Domain.Utils
                 mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
                 //Cuerpo del Mensaje
-                mmsg.Body = cuerpo;
-                //if (opcionCabecero)
+
+                //if (optionHeader)
                 //{
-                //    mmsg.AlternateViews.Add(htmlView);
-                //    mmsg.AlternateViews.Add(plainView);
+                //    mmsg.AlternateViews.Add(plainViewBody);
+                //    mmsg.AlternateViews.Add(htmlViewImg);
+                //    mmsg.AlternateViews.Add(plainViewFooter);
+                //}
+                //else
+                //{
+                mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+                mmsg.Attachments.Add(inlineLogo);
+                mmsg.Body = cuerpo;
                 //}
                 mmsg.BodyEncoding = System.Text.Encoding.UTF8;
-                mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+                
 
                 //Correo electronico desde la que enviamos el mensaje
                 mmsg.From = new MailAddress("wellnesslabenformamx@gmail.com");
+
                 return clienteCorreo();
             }
             catch (Exception)
@@ -241,7 +290,7 @@ namespace GymWebDeploy.Models.Domain.Utils
                 //Creamos un objeto de cliente de correo
                 cliente = new SmtpClient();
                 //Hay que crear las credenciales del correo emisor
-                cliente.Credentials = new NetworkCredential("wellnesslabenformamx@gmail.com", "&Odontologia13");
+                cliente.Credentials = new NetworkCredential("wellnesslabenformamx@gmail.com", pass);
                 /*
                 * Cliente SMTP
                 * Gmail:  smtp.gmail.com  puerto:587

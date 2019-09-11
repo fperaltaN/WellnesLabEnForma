@@ -9,7 +9,7 @@ function ShowModalAdd() {
     CreateObject(true);
     ModalData.modal();
     document.getElementById("DataForm").reset();
-    SetModalTitleAdd('Agregar ' + nameEntity);
+    SetModalTitleAdd('Agregar ' + FileTitle);
 }
 //modal
 //update
@@ -18,7 +18,7 @@ function ShowModalUpdate() {
     CreateObject();
     ModalData.modal();
     document.getElementById('DataForm').reset();
-    SetModalTitleAdd('Actualizar ' + nameEntity);
+    SetModalTitleAdd('Actualizar ' + FileTitle);
     setTimeout(function () {
         var rowId = DataTable.jqGrid('getGridParam', 'selrow');
         var selectedData = DataTable.getRowData(rowId);

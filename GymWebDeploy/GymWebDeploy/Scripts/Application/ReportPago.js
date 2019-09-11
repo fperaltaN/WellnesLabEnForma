@@ -19,13 +19,13 @@ var colModel = [
     { label: 'Paquete', name: 'paquete', width: 40, search: true },
     { label: 'Fecha Pago', name: 'fecha_pago', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date"},
     {
-        label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date",
+        label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, hidden: true, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date",
         searchoptions: {
             dataInit: datePick,
             title: 'Select Date'
         }
     },
-    { label: 'Meses pagados', name: 'meses', width: 30, hidden: true  },
+    { label: 'Meses pagados', name: 'meses', width: 35  },
     { label: 'Empleado Registro', name: 'empleado', width: 70 },
     {
         label: '$ Recibido', name: 'importe', width: 40, formatter: 'number',

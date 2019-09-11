@@ -61,7 +61,7 @@ function updateInventario(id_inventario) {
 }
 
 function UpdateElementInv(response) {
-    console.log(response);
+    //console.log(response);
     updateTable(DataTable, response);
 }
 
@@ -91,7 +91,7 @@ $(document).ready(function () {
             $('#partnerID').selectpicker();
             $('#partnerID').selectpicker('refresh');
         });
-        var path = '../' + publish +'Inventario/GetInventarioAsignado/';
+         path = '../' + publish +'Inventario/GetInventarioAsignado/';
         ajaxPostCall(path, ReturnJson('')).done(function (response) {
             $('#inventario option').remove();
             $.each(response, function (responseValue, item) {

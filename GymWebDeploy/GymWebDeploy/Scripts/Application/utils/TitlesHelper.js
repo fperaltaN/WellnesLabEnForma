@@ -1,6 +1,6 @@
 ﻿var PathGET = '/' + nameEntity + '/Get';
 var PathUpdate = '/' + nameEntity + '/Update';
-SetCardTitle(nameEntity);
-SetBtnAddTitle(nameEntity);
-SetModalTitleAdd(nameEntity);
-SetDeleteTitle(nameEntity);
+SetCardTitle(FileTitle);
+SetBtnAddTitle(FileTitle);
+SetModalTitleAdd(FileTitle);
+SetDeleteTitle(FileTitle);

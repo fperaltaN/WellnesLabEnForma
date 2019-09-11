@@ -55,7 +55,7 @@ namespace GymWebDeploy.Models.Domain.Utils
                 // Closing the document
                 document.Close();
                 //Open Document
-                Process.Start(DEST + Nombre);
+                 Process.Start(DEST + Nombre);
                 //Print
                 printPDF(DEST + Nombre);
                 return true;
@@ -90,9 +90,9 @@ namespace GymWebDeploy.Models.Domain.Utils
                      "EXPEDIDO EN:" + Environment.NewLine +*/
                      "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                       "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                      "TEL: 4922285758" + Environment.NewLine +
+                      "TEL: 492-228-5758" + Environment.NewLine +
                       "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                      "FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
+                     // "FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
                       " " + Environment.NewLine +
                      " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                      "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -153,9 +153,9 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "EXPEDIDO EN:" + Environment.NewLine +*/
                   "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                  "TEL: 4922285758" + Environment.NewLine +
+                  "TEL: 492-228-5758" + Environment.NewLine +
                   "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  "FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
+                  //"FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -203,9 +203,9 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "CALLE ODONTOLOGÍA NO. 13 " + Environment.NewLine + 
                   "FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                  "TEL: 4922285758" + Environment.NewLine +
+                  "TEL: 492-228-5758" + Environment.NewLine +
                   "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  "FACEBOOK: facebook.com/Wellness-Lab-en-Forma " + Environment.NewLine +
+                  //"FACEBOOK: facebook.com/Wellness-Lab-en-Forma " + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +

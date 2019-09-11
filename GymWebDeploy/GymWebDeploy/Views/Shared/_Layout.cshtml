@@ -151,14 +151,36 @@
                     </div>
                 </li>
                 @* Menu Socios-> Historial*@
-                @if (@Session["UserRol"] != null && @Session["UserRol"].ToString() == "1")
-                {
-                    <li class="nav-item">
+
+                @*<li class="nav-item">
                         <a class="nav-link" href="../catinventario/">
                             <img src="~/Content/icons/baseline-list-white-18/1x/baseline_list_white_18dp.png" />Inventario
                         </a>
-                    </li>
-                }
+                    </li>*@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="~/Content/icons/baseline-insert_chart-white-18/1x/baseline_insert_chart_white_18dp.png" /> Inventario
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if (@Session["UserRol"] != null && @Session["UserRol"].ToString() == "1")
+                        {
+                            <a class="dropdown-item" href="../catinventario/">
+                                <img src="~/Content/icons/baseline-list-white-18/baseline-list-24px.svg" />
+                                Cátalogo Inventario
+                            </a>
+                        }
+                        <a class="dropdown-item" href="../ControlInventario/">
+                            <img src="~/Content/icons/baseline-history-white-18/baseline-history-24px.svg" />
+                            Control Inventario
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../Membership/">
+                        <img src="~/Content/icons/baseline-card_membership-white-18/1x/baseline_card_membership_white_18dp.png" />Membresias
+                    </a>
+                </li>
                 @* <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="~/Content/icons/baseline-timer-white-18/1x/baseline_timer_white_18dp.png" /> Checadores

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ControlInventario";
+    Html.RenderPartial("_DataGridView");
+    Html.RenderPartial("_ModalDeleteView");
+}
+
+<!-- Modal -->
+<div class="modal fade" id="ModalData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajustes de inventario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DataForm" class="needs-validation form form-group container" novalidate>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="partnerIDControl" class="input-group-text" id="inputGroup-sizing-default">Selecciona un socio</label>
+                                </div>
+                                <select id="partnerIDControl" class="selectpicker form-control" data-live-search="true" title="Selecciona un socio..."></select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="inventarioControl" class="input-group-text" id="inputGroup-sizing-default">Selecciona un recurso</label>
+                                </div>
+                                <select id="inventarioControl" class="selectpicker form-control" data-live-search="true" title="Selecciona un recurso..."></select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btnUpdateInventario" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Scripts/Application/utils/AfterJS.js"></script>
+<script src="~/Scripts/Application/AJAXRequest.js"></script>
+<script src="~/Scripts/Application/utils/NotificationsHelper.js"></script>
+<script src="~/Scripts/Application/utils/ElementsHelper.js"></script>
+<script src="~/Scripts/Application/utils/DatatablesHelper.js"></script>
+<script src="~/Scripts/Application/ControlInventario.js"></script>
+<script src="~/Scripts/Application/utils/TitlesHelper.js"></script>
+
