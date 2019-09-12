@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ChecadorController.cs" />
     <Compile Include="Controllers\ChecadorSocioController.cs" />
     <Compile Include="Controllers\ControlInventarioController.cs" />
+    <Compile Include="Controllers\CumpleanosController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HistorialFisicoController.cs" />
     <Compile Include="Controllers\HistorialMedicoController.cs" />
@@ -350,6 +351,7 @@
     <Content Include="Scripts\Application\AJAXRequest.js" />
     <Content Include="Scripts\Application\CatInventario.js" />
     <Content Include="Scripts\Application\ControlInventario.js" />
+    <Content Include="Scripts\Application\Cumpleanos.js" />
     <Content Include="Scripts\Application\HistorialFisico.js" />
     <Content Include="Scripts\Application\HistorialMedico.js" />
     <Content Include="Scripts\Application\Home.js" />
@@ -462,12 +464,12 @@
     <Content Include="Views\SocioMembresia\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\ControlInventario\Index.cshtml" />
+    <Content Include="Views\Cumpleanos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\ChecadorSocio\" />
     <Folder Include="Views\Checador\" />
-    <Folder Include="Views\Cumpleaños\" />
     <Folder Include="Views\HistorialPeso\" />
     <Folder Include="Views\Inventario\" />
     <Folder Include="Views\Modulos\" />
