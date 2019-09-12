@@ -87,7 +87,9 @@ function UpdateInv() {
     ajaxPostCall(path, ReturnJson('')).done(function (response) {
         $('#partnerIDControl option').remove();
         $.each(response, function (responseValue, item) {
-            partnerIDControl.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+            if (item.activo) {
+                partnerIDControl.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+            }
         });
         $('#partnerIDControl').selectpicker();
         $('#partnerIDControl').selectpicker('refresh');

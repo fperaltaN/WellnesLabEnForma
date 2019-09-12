@@ -340,6 +340,13 @@
     <Content Include="Content\jquery\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\jquery\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery\jquery-ui.css" />
+    <Content Include="Content\Logo2019.png" />
+    <Content Include="Content\Logo2019FondoAzul.jpg" />
+    <Content Include="Content\Logo2019FondoAzul.png" />
+    <Content Include="Content\Logo2019FondoCrema.jpg" />
+    <Content Include="Content\Logo2019FondoCrema.png" />
+    <Content Include="Content\Logo2019FondoVerde.jpg" />
+    <Content Include="Content\Logo2019FondoVerde.png" />
     <Content Include="Content\LogoOficial.jpg" />
     <Content Include="Content\notifications\sweetalert2.css" />
     <Content Include="Content\select\bootstrap-select.css" />

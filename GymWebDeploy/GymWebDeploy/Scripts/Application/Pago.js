@@ -5,7 +5,6 @@ CRUD = false;
 note = false;
 //edit
 var nameEntity = 'Pago';
-var FileTitle = "Pago";
 var partners = [];
 var data = {
     nombre: '',
@@ -134,7 +133,7 @@ $(document).ready(function () {
         mode = 0;
         Save();
         SavePendiente();
-        payType.val(1)
+        payType.val(1);
         ticketRef();
     });
 
@@ -165,7 +164,9 @@ function FillPartners(response) {
     partners = response;
     $('#partnerID option').remove();
     $.each(response, function (responseValue, item) {
-        partnerID.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+        if (item.activo) {
+            partnerID.append('<option data-tokens="' + item.id_socio + '" value=' + item.id_socio + '>' + item.num_socio + " " + item.nombre + " " + item.ap_paterno + " " + item.ap_materno + '</option>');
+        }
     });
     $('.selectpicker').selectpicker();
     $('#partnerID').selectpicker('refresh');
