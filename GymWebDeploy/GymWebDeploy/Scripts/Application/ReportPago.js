@@ -12,11 +12,16 @@ datePick = function (elem) {
     jQuery(elem).datepicker({
         dateFormat: "yy-mm-dd"
     });
-}
+};
 var colModel = [
     //{ label: 'Opciones', name: 'Opciones', width: 30, formatter: CustomCellOptions },
     { label: 'Nombre Socio', name: 'nombre', width: 60, search: true },
     { label: 'Paquete', name: 'paquete', width: 40, search: true },
+    {
+        label: 'Costo Paquete', name: 'paqueteCosto', width: 40, formatter: 'number',
+        formatoptions: { decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: '0.00' },
+        align: 'center'
+    },    
     { label: 'Fecha Pago', name: 'fecha_pago', width: 35, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date"},
     {
         label: 'Fecha Vence', name: 'fecha_pago_vence', width: 35, hidden: true, formatter: 'date', formatoptions: { newformat: 'Y/m/d' }, align: 'center', sorttype: "date",
@@ -25,16 +30,16 @@ var colModel = [
             title: 'Select Date'
         }
     },
-    { label: 'Meses pagados', name: 'meses', width: 35  },
+    { label: 'Meses pagados', name: 'meses', width: 35, align: 'center'  },
     { label: 'Empleado Registro', name: 'empleado', width: 70 },
     {
         label: '$ Recibido', name: 'importe', width: 40, formatter: 'number',
         formatoptions: { decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: '0.00' },
-        align: 'center',},
+        align: 'center'},
     {
         label: '$ Pendiente', name: 'pendiente', width: 40, formatter: 'number',
         formatoptions: {  decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: '0.00' },
-        align: 'center', },    
+        align: 'center' },    
     { label: 'id_pago', name: 'id_pago', width: 0, hidden: true },
     { label: 'id_socio', name: 'id_socio', width: 0, hidden: true },
     { label: 'id_paquete', name: 'id_paquete', width: 0, hidden: true },
@@ -50,6 +55,7 @@ function CreateObject() {
         ID_USUARIO: '',
         nombre: '',
         paquete: '',
+        paqueteCosto: '',
         fecha_pago: '',
         fecha_pago_vence: '',
         meses: '',

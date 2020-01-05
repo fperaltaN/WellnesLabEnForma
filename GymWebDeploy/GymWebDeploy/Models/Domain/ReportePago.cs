@@ -6,6 +6,8 @@ namespace GymWebDeploy.Models.Domain
     {
         public int id_pago { get; set; }
         public int id_paquete { get; set; }
+
+        public Decimal? paqueteCosto { get; set; }
         public int id_socio { get; set; }
         public int ID_USUARIO { get; set; }
         public String nombre { get; set; }

@@ -108,10 +108,10 @@ $(document).ready(function () {
                     $('#userTotal').val(parseInt(packageCost.val()) + parseInt(userPending.val()));
                 } else if (d === (n + 3)) {
                     userRecargo.val(30);
-                    $('#userTotal').val(parseInt(packageCost.val()) + 30);
+                    $('#userTotal').val(parseInt(packageCost.val()) + 50);
                 } else if (d == (n + 6)) {
                     userRecargo.text(100);
-                    $('#userTotal').val(parseInt(packageCost.val()) + 100);
+                    $('#userTotal').val(parseInt(packageCost.val()) + 120);
                 }
                 userPay.val($('#userTotal').val());
                 userPay.focus();

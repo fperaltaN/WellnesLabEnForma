@@ -91,8 +91,8 @@ namespace GymWebDeploy.Models.Domain.Utils
                      "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                       "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
                       "TEL: 492-228-5758" + Environment.NewLine +
-                      "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                     // "FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
+                      "wellnesslabenformamx@gmail.com " + Environment.NewLine +
+                      "facebook-Wellness-Lab-en-Forma " + Environment.NewLine +
                       " " + Environment.NewLine +
                      " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                      "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -154,8 +154,8 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
                   "TEL: 492-228-5758" + Environment.NewLine +
-                  "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  //"FACEBOOK: https://www.facebook.com/pages/Wellness-Lab-en-Forma/ " + Environment.NewLine +
+                  "wellnesslabenformamx@gmail.com " + Environment.NewLine +
+                  "Buscanos en facebook como WellnessLab EnForma " + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -204,8 +204,8 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
                   "TEL: 492-228-5758" + Environment.NewLine +
-                  "CORREO: wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  //"FACEBOOK: facebook.com/Wellness-Lab-en-Forma " + Environment.NewLine +
+                  "wellnesslabenformamx@gmail.com " + Environment.NewLine +
+                  "Buscanos en facebook como WellnessLab EnForma" + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +

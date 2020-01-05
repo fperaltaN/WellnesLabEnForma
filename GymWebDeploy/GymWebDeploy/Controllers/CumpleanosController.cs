@@ -18,6 +18,14 @@ namespace GymWebDeploy.Controllers
         {
             return Json(new GenericBaseDao().Get<Socio>(ConfigurationManager.AppSettings["QueryGETCumple"]), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetCumpleByDate(GenericDataClass data)
+        {
+            String start = Convert.ToDateTime(data.start).ToString("yyyy - MM - dd") + " 00:00:00";
+            String end = Convert.ToDateTime(data.end).ToString("yyyy - MM - dd") + " 23:59:00";
+            return Json(new GenericBaseDao().Get<Socio>(string.Format(
+               ConfigurationManager.AppSettings["QueryGETCumpleByDate"], start, end)),
+               JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Index()
         {
