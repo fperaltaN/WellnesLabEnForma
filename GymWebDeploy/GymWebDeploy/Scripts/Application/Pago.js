@@ -202,9 +202,12 @@ function getDateNextPay(date) {
             break;
         default:
             date = date + 1;
+            break;
     }
+    
     userPayDate.val(data.fecha_pago_vence + ' - ' + date);
-    data.fecha_pago_vence = date;/*
+    data.fecha_pago_vence = date;
+    /*
     data.importe = $('#userPay').val();
     data.pendiente = $('#userPending').val();*/
     data.refTicketVenta = refTicketVenta.val();

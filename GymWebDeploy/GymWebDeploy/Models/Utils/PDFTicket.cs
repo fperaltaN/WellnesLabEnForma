@@ -14,6 +14,7 @@ using System.Configuration;
 using GymWebDeploy.Models.Domain;
 using iText.Kernel.Pdf.Action;
 using System.Diagnostics;
+using iText.Layout.Borders;
 
 namespace GymWebDeploy.Models.Domain.Utils
 {
@@ -23,6 +24,8 @@ namespace GymWebDeploy.Models.Domain.Utils
         public String DEST = ConfigurationManager.AppSettings[path].ToString();
         //public String IMAGEPATH = System.Web.HttpContext.Current.Server.MapPath("LogoOficial.JPG");
         public String IMAGEPATH = "c:/LogoOficial.jpg";
+        public String IMAGEWHATSAPPPATH = "c:/whatsappLogo.jpg";
+        public String IMAGEFACEBOOKPATH = "c:/facebookLogo.png";
         //System.Web.Hosting.HostingEnvironment.MapPath(path);
 
         /// <summary>
@@ -44,6 +47,11 @@ namespace GymWebDeploy.Models.Domain.Utils
                 //Creating the Image
                 Image image = new Image(ImageDataFactory.Create(IMAGEPATH.Replace("DataTicket\\", "")));
                 image.ScaleAbsolute(159f, 109f);
+                //Creating the Image Whatsapp
+                Image imageWhatsapp = new Image(ImageDataFactory.Create(IMAGEWHATSAPPPATH.Replace("DataTicket\\", "")));
+                imageWhatsapp.ScaleAbsolute(24f, 24f);
+                Image imageFacebook = new Image(ImageDataFactory.Create(IMAGEFACEBOOKPATH.Replace("DataTicket\\", "")));
+                imageFacebook.ScaleAbsolute(24f, 24f);
                 // Creating an Area Break
                 Paragraph para = new Paragraph(lines).SetFontSize(10);
                 // Creating a Document
@@ -51,7 +59,37 @@ namespace GymWebDeploy.Models.Domain.Utils
                 // Adding Image  to the PDF
                 document.Add(image);
                 // Adding area break to the PDF
-                document.Add(para);                
+                document.Add(para);
+
+                //table Whatsapp
+                Table table = new Table(4);
+                table.SetBorder(Border.NO_BORDER);
+                Cell cell = new Cell();
+                cell.SetBorder(Border.NO_BORDER);
+                cell.Add(imageWhatsapp);
+                table.AddCell(cell);
+
+                cell = new Cell();
+                cell.SetBorder(Border.NO_BORDER);
+                cell.Add(new Paragraph("492-228-5758").SetFontSize(10));
+                table.AddCell(cell);
+
+                cell = new Cell();
+                cell.SetBorder(Border.NO_BORDER);
+                cell.Add(imageFacebook);
+                table.AddCell(cell);
+
+                cell = new Cell();
+                cell.SetBorder(Border.NO_BORDER);
+                cell.Add(new Paragraph("WellnesLab EnForma").SetFontSize(10));
+                table.AddCell(cell);
+
+                /*table.AddCell(imageWhatsapp);
+                table.AddCell(new Paragraph("492-228-5758").SetFontSize(10));
+                table.AddCell(imageFacebook);
+                table.AddCell(new Paragraph("WellnesLab EnForma").SetFontSize(10));*/
+                // Adding Image 
+                document.Add(table);
                 // Closing the document
                 document.Close();
                 //Open Document
@@ -90,9 +128,9 @@ namespace GymWebDeploy.Models.Domain.Utils
                      "EXPEDIDO EN:" + Environment.NewLine +*/
                      "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                       "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                      "TEL: 492-228-5758" + Environment.NewLine +
+                      //"WhastApp: 492-228-5758" + Environment.NewLine +
                       "wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                      "facebook-Wellness-Lab-en-Forma " + Environment.NewLine +
+                      //"facebook-Wellness-Lab-en-Forma " + Environment.NewLine +
                       " " + Environment.NewLine +
                      " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                      "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -153,9 +191,9 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "EXPEDIDO EN:" + Environment.NewLine +*/
                   "CALLE ODONTOLOGÍA NO. 13 LOC. 1 FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                  "TEL: 492-228-5758" + Environment.NewLine +
+                  //"WhastApp: 492-228-5758" + Environment.NewLine +
                   "wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  "Buscanos en facebook como WellnessLab EnForma " + Environment.NewLine +
+                  //"Buscanos en facebook como WellnessLab EnForma " + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
@@ -203,16 +241,16 @@ namespace GymWebDeploy.Models.Domain.Utils
                   "CALLE ODONTOLOGÍA NO. 13 " + Environment.NewLine + 
                   "FRACCIONAMIENTO SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
-                  "TEL: 492-228-5758" + Environment.NewLine +
+                  //"WhatsApp: 492-228-5758" + Environment.NewLine +
                   "wellnesslabenformamx@gmail.com " + Environment.NewLine +
-                  "Buscanos en facebook como WellnessLab EnForma" + Environment.NewLine +
+                  //"Buscanos en facebook como " + Environment.NewLine + " WellnessLab EnForma" + Environment.NewLine +
                   " " + Environment.NewLine +
                   " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
                   "Fecha de emisión: " + DateTime.Now.ToShortDateString() + "" + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** DATOS DEL PAQUETE  ****** " + Environment.NewLine +
-                  " " + "*" + "Paquete: " + paquete + Environment.NewLine +
+                  " " + "*" + "Paquete: " + (paquete.Length > 50 ? paquete.Substring(30)+ Environment.NewLine + paquete.Substring(30, paquete.Length-30) : paquete) + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** DATOS DEL PAGO  ****** " + Environment.NewLine +
                   " " + "*" + "Fecha de Inicio : " + DateTime.Now.ToShortDateString() + Environment.NewLine +
